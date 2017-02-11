@@ -1,0 +1,11 @@
+"pci_domain","pci_domain_source"
+cardholder,asset
+cardholder,static
+dmz,asset
+dmz,static
+trust,asset
+trust,static
+untrust,asset
+untrust,static
+wireless,asset
+wireless,static

@@ -1,0 +1,15 @@
+/* Hides the export to PDf button since it doesn't work with custom JS (SOLNESS-8468) */
+.btn.generate-pdf{
+    display: none;
+}
+
+/* Restores the curved edges to the print button which is just to the right of the generate PDF button */
+.btn.print-dashboard{
+    margin-left: 0;
+    -webkit-border-top-left-radius: 4px;
+    -moz-border-radius-topleft: 4px;
+    border-top-left-radius: 4px;
+    -webkit-border-bottom-left-radius: 4px;
+    -moz-border-radius-bottomleft: 4px;
+    border-bottom-left-radius: 4px;
+}

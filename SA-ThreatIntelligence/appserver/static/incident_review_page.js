@@ -1,0 +1,1 @@
+"use strict";require.config({paths:{"app-ess":"../app/SplunkEnterpriseSecuritySuite","sa-utils":"../app/SA-Utils","sa-threatintelligence":"../app/SA-ThreatIntelligence"}}),require(["sa-threatintelligence/core","sa-utils/js/lib/ES6Shim/shim.min","sa-threatintelligence/js/pages/incident_review"]);

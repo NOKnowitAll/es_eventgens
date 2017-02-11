@@ -1,0 +1,10 @@
+<panel>
+  <title>Juniper SSLVPN - Top 10 Login Failures</title>
+  <table>
+	<search>
+	  <query>sourcetype="juniper:sslvpn" action=failure | stats count by src_ip | rename src_ip as "Source IP Address" count as "Failure Count" | sort -"Failure Count" | head 10</query>
+	  <earliest>-24h@d</earliest>
+	  <latest>now</latest>
+	</search>
+  </table>
+</panel>

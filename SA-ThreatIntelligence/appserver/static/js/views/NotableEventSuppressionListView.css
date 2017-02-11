@@ -1,0 +1,16 @@
+.collectiontable.results-table, .pagination {
+  clear: both;
+}
+
+label.checkbox {
+  display:inline;
+}
+
+.perpage-control label,
+.perpage-control .controls {
+  display: inline-block;
+}
+
+.dashboard-row .dashboard-panel .panel-body.html {
+  overflow: visible;
+}

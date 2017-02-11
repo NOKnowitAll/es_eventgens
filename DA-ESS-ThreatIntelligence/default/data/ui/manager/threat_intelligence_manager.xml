@@ -1,0 +1,54 @@
+<endpoint name="data/inputs/threat_intelligence_manager" showOnSearchHeadCluster="1">
+	<header>Threat Intelligence Management</header>
+	<breadcrumb>
+        <parent hidecurrent="False">datainputstats</parent>
+        <name>Threat Intelligence Management</name>
+    </breadcrumb>
+    <elements>
+        <element name="spl-ctrl_threat_intelligence_manager_options" type="fieldset">
+            <key name="legend">Threat Intelligence Manager</key>
+            <view name="list"/>
+            <view name="create"/>
+            <view name="edit"/>
+            <elements>
+                 <element name="name" type="textfield" label="Name">
+                    <key name="exampleText"></key>
+                    <view name="create"/>
+                    <view name="list"/>
+                </element>
+                <element name="directory" type="textfield" label="Directory">
+                    <key name="exampleText">Define a directory from which to consume threat intelligence. For user-defined inputs.conf stanzas, the directory must be in this form: $SPLUNK_HOME/etc/apps/$app$/local/data/threat_intel.</key>
+                    <view name="create"/>
+                    <view name="edit"/>
+                    <view name="list"/>
+                </element>
+                <element name="maxsize" type="textfield" label="Maxsize">
+                    <key name="exampleText">Set the maximum size of an individual threat intelligence source, in bytes.</key>
+                    <view name="create"/>
+                    <view name="edit"/>
+                    <view name="list"/>
+                </element>
+                <element name="sinkhole" type="checkbox" label="Sinkhole">
+                    <key name="exampleText">If True, the threat intelligence manager will delete threat intelligence documents after processing.</key>
+                    <key name="processValueList">'True' if value == '1' else 'False'</key>
+                    <view name="create"/>
+                    <view name="edit"/>
+                    <view name="list"/>
+                </element>
+                <element name="remove_unusable" type="checkbox" label="Remove Unusable">
+                    <key name="exampleText">If True, the threat intelligence manager deletes a file (after processing it) if it does not contain actionable threat intelligence.</key>
+                    <key name="processValueList">'True' if value == '1' else 'False'</key>
+                    <view name="create"/>
+                    <view name="edit"/>
+                    <view name="list"/>
+                </element>
+                 <element name="default_weight" type="textfield" label="Default Weight">
+                    <key name="exampleText">If set, the threat intelligence manager will use the integer as a default weight for all threat intelligence ingested from this inbox location.</key>
+                    <view name="create"/>
+                    <view name="edit"/>
+                    <view name="list"/>
+                </element>
+            </elements>
+        </element>
+    </elements>
+</endpoint>

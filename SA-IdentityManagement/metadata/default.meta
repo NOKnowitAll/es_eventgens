@@ -1,0 +1,35 @@
+
+## shared Application-level permissions
+[]
+access = read : [ * ], write : [ admin ]
+export = system
+import = appsbrowser,search,TA-airdefense,TA-alcatel,Splunk_TA_bluecoat-proxysg,Splunk_TA_bro,TA-cef,TA-fortinet,TA-ftp,Splunk_TA_juniper,Splunk_TA_flowfix,Splunk_TA_mcafee,Splunk_TA_nessus,TA-nmap,Splunk_TA_oracle,Splunk_TA_ossec,Splunk_TA_rsa-securid,Splunk_TA_sophos,Splunk_TA_sourcefire,Splunk_TA_symantec-ep,TA-tippingpoint,TA-trendmicro,Splunk_TA_ueba,Splunk_TA_websense-cg,Splunk_TA_nix,Splunk_TA_windows,SA-AccessProtection,SA-AuditAndDataProtection,Splunk_SA_CIM,SA-EndpointProtection,SA-NetworkProtection,SA-ThreatIntelligence,SA-UEBA,SA-Utils,Splunk_SA_ExtremeSearch
+
+[savedsearches]
+owner = admin
+
+## Correlation Searches
+[correlationsearches]
+access = read : [ * ], write : [ * ]
+
+[governance]
+access = read : [ * ], write : [ * ]
+
+## Managed Configurations
+[managed_configurations]
+access = read : [ * ], write : [ * ]
+
+## Postprocess
+[postprocess]
+access = read : [ * ], write : [ * ]
+
+
+## Exclude export of custom alert actions
+[alert_actions/email]
+export = none
+
+
+## SA-IdentityManagement Application-level permissions
+[identityLookup]
+access = read : [ * ], write : [ * ]
+

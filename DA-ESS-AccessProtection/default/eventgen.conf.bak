@@ -1,0 +1,49 @@
+#### Ticket Management
+[incidents_sample.txt]
+disabled=false
+earliest= -5m
+latest= now
+interval=600
+count=0
+fileMaxBytes = 2097152
+fileBackupFiles = 3
+outputMode = modinput
+
+source = sample.snow_incident
+sourcetype = snow:incident
+
+## replace timestamp 03/11/10 01:12:01 PM
+token.0.token = \d{4}-\d{2}-\d{2}\s\d{2}:\d{2}:\d{2}
+token.0.replacementType = timestamp
+token.0.replacement = %Y-%m-%d %H:%M:%S
+
+## replace @@
+token.1.token = @@user
+token.1.replacementType = file
+token.1.replacement =  $SPLUNK_HOME/etc/apps/DA-ESS-AccessProtection/samples/users.list
+
+#### Remote access
+[remote_access_sample.txt]
+interval = 100
+count = 100
+earliest = -60m
+latest = now 
+outputMode = modinput
+
+source = remote_access_sample.txt
+sourcetype = remote_access_sample
+
+## Replace timestamp Apr 12 09:30:11
+token.0.token = ^\w{3}\s+\d{2}\s+\d{2}:\d{2}:\d{2}
+token.0.replacementType = timestamp
+token.0.replacement = %b %d %H:%M:%S
+
+## Replace IP address - ssh-login-events
+token.1.token = sshd\[\d+\]\:.*from\s+(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})
+token.1.replacementType = random
+token.1.replacement = ipv4
+
+## Replace IP address - login_authentication
+token.2.token = login\:.*failure.*from\s+(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})(\,\s+(\S+))?
+token.2.replacementType = random
+token.2.replacement = ipv4

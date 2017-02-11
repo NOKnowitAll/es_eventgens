@@ -1,0 +1,71 @@
+<form> 
+    <label>Email Activity</label>
+    <description/>
+    <fieldset autoRun="true" submitButton="true">
+        <input type="dropdown" token="protocol">
+            <label>Email Protocol</label>
+            <choice value="">All</choice>
+            <populatingSearch fieldForValue="protocol" fieldForLabel="protocol">| `cim_email_protocols`</populatingSearch>
+            <default/>
+            <prefix>All_Email.protocol="</prefix>
+            <suffix>"</suffix>
+        </input>
+        <input type="time">
+            <default>Last 24 hours</default>
+        </input>
+    </fieldset>
+  
+    <row>
+        <html id="element1">
+            <div class="key-indicators" data-group-name="net_email_activity"/>
+        </html>
+    </row>
+  
+    <row>
+        <table>
+            <title>Top Email Sources</title>
+        
+            <searchTemplate>| tstats `summariesonly` count from datamodel=Email.All_Email where * $protocol$ by _time,All_Email.src span=1h | `drop_dm_object_name("All_Email")` | stats sparkline(sum(count),1h) as sparkline,sum(count) as count by src | sort 100 - count</searchTemplate>        
+            <option name="drilldown">row</option>
+        
+            <drilldown>
+                <link>email_search?form.src=$click.value$&amp;earliest=$earliest$&amp;latest=$latest$</link>
+            </drilldown>
+        </table>
+
+        <table>
+            <title>Large Emails</title>
+          
+            <searchString>| tstats `summariesonly` values(All_Email.protocol) as protocol, avg(All_Email.size) as avg_size, count from datamodel=Email.All_Email where * $protocol$ All_Email.size>`large_email_threshold`  by All_Email.src,All_Email.src_user,All_Email.dest | `drop_dm_object_name("All_Email")` | eval avg_size=floor(avg_size) | sort 100 - avg_size | fields protocol, src, src_user, dest, count, avg_size</searchString>
+            <option name="drilldown">row</option>
+        
+            <drilldown>
+                <link>email_search?form.sender=$row.src_user$&amp;form.src=$row.src$&amp;form.dest=$row.dest$&amp;earliest=$earliest$&amp;latest=$latest$</link>
+            </drilldown>
+        </table>
+    </row>
+  
+    <row>
+        <table>
+            <title>Rarely Seen Senders</title>
+            
+            <searchString> | tstats `summariesonly` values(All_Email.protocol) as protocol, dc(All_Email.src) as src_count, dc(All_Email.recipient) as recipient_count, count from datamodel=Email.All_Email where * $protocol$ by All_Email.src_user | `drop_dm_object_name("All_Email")` | sort 100 + count</searchString>
+            <option name="drilldown">row</option>
+        
+            <drilldown>
+                <link>email_search?form.sender=$click.value$&amp;earliest=$earliest$&amp;latest=$latest$</link>
+            </drilldown>
+        </table>
+
+        <table>
+            <title>Rarely Seen Receivers</title>
+        
+            <searchString> | tstats `summariesonly` values(All_Email.protocol) as protocol, dc(All_Email.src) as src_count, dc(All_Email.src_user) as src_user_count, count from datamodel=Email.All_Email where * $protocol$ by All_Email.recipient | `drop_dm_object_name("All_Email")` | sort 100 + count </searchString>
+            <option name="drilldown">row</option>
+        
+            <drilldown>
+                <link>email_search?form.recipient=$click.value$&amp;earliest=$earliest$&amp;latest=$latest$</link>
+            </drilldown>
+        </table>
+    </row>
+</form>

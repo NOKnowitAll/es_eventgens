@@ -1,0 +1,1 @@
+"use strict";i18n_register({plural:function(a){return 1==a?0:1},catalog:{}}),require(["sa-utils/js/util/autopause","splunkjs/mvc/simplexml/ready!"],function(){});

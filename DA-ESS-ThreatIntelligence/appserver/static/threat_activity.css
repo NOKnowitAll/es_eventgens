@@ -1,0 +1,46 @@
+/* SPL-74031 */
+#ppf_html > .html > div > p:first-child{
+    display: none;
+}
+
+#ppf_btn {
+	margin-right: 0px;
+	width: auto;
+}
+
+/* SOLNESS-4641 */
+#ppf_html, #ppf_html > div{
+    display: inline-block;
+    float: right;
+}
+
+/* Begin styling for the togglers */
+#srch_holder {
+    width: 280px;
+    display: inline-block;
+}
+
+#srch_holder .input-prepend > .toggler > .toggler-btn {
+	width: 150px;
+}
+
+#srch_holder .input-prepend > .toggler  > .dropdown-menu{
+  width: 270px;
+  margin-left: -75px;
+}
+
+/* Hides the export to PDf button since it doesn't work with custom JS (SOLNESS-8468) */
+.btn.generate-pdf{
+    display: none;
+}
+
+/* Restores the curved edges to the print button which is just to the right of the generate PDF button */
+.btn.print-dashboard{
+    margin-left: 0;
+    -webkit-border-top-left-radius: 4px;
+    -moz-border-radius-topleft: 4px;
+    border-top-left-radius: 4px;
+    -webkit-border-bottom-left-radius: 4px;
+    -moz-border-radius-bottomleft: 4px;
+    border-bottom-left-radius: 4px;
+}

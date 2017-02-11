@@ -1,0 +1,29 @@
+
+## shared Application-level permissions
+[]
+access = read : [ * ], write : [ admin ]
+export = system
+import = appsbrowser,search,SplunkEnterpriseSecuritySuite,SA-AccessProtection,SA-EndpointProtection,SA-IdentityManagement,SA-NetworkProtection,SA-AuditAndDataProtection,Splunk_SA_CIM,SA-ThreatIntelligence,SA-UEBA,SA-Utils,DA-ESS-AccessProtection,DA-ESS-EndpointProtection,DA-ESS-IdentityManagement,DA-ESS-ThreatIntelligence
+
+[savedsearches]
+owner = admin
+
+## Correlation Searches
+[correlationsearches]
+access = read : [ * ], write : [ * ]
+
+[governance]
+access = read : [ * ], write : [ * ]
+
+## Managed Configurations
+[managed_configurations]
+access = read : [ * ], write : [ * ]
+
+## Postprocess
+[postprocess]
+access = read : [ * ], write : [ * ]
+
+
+## Exclude export of custom alert actions
+[alert_actions/email]
+export = none

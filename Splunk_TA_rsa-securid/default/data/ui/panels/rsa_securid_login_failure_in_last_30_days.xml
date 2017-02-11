@@ -1,0 +1,18 @@
+<panel>
+  <title>RSA SecurID - Login Failure in Last 30 Days</title>
+  <table>
+    <option name="drilldown">none</option>
+    <search>
+      <query><![CDATA[
+          sourcetype="rsa:securid:runtime:syslog" (vendor_action_description="AUTHN_METHOD_FAILED" OR vendor_event_type="AUTHN_LOGIN_EVENT")
+           vendor_action="FAIL" earliest= -30d|
+           convert timeformat="%Y-%m-%d" ctime(_time) AS date |
+           stats count as "Login Failure" by date,
+           vendor_event_type, vendor_action_description | rename date as "Date", vendor_event_type as "Vendor Event Type", vendor_action_description as "Vendor Action Description" 
+      ]]>
+      </query>
+      <earliest></earliest>
+      <latest></latest>
+    </search>
+  </table>
+</panel>

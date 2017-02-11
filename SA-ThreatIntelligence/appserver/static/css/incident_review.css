@@ -1,0 +1,93 @@
+.select2-results div {
+    white-space: nowrap;
+}
+
+/* dropdown */
+.splunk-dropdown div[id*=s2id_autogen] {
+    margin-bottom: 8px;
+}
+
+#button-group .splunk-choice-input-message {
+    margin-top: 2px;
+    visibility: hidden;
+}
+
+/* All Inputs */
+.fieldset .input {
+    min-height: 70px;
+    /* preserves input div height if element above expands its height - i.e. multiselect */
+}
+
+.shared-jobstatus {
+    border-bottom: rgb(220, 220, 220) solid 1px;
+}
+
+.filter-group-col {
+    /*display: inline;*/
+    float: left;
+    width: 750px;
+}
+
+.filter-col-1 {
+    float: left;
+    width: 31%;
+}
+
+.filter-col-2 {
+    float: left;
+    width: 29%;
+}
+
+.filter-col-3 {
+    float: left;
+    width: 40%;
+}
+
+.timeline-group-col {
+    /*display: inline;*/
+    /*float: right;*/
+    min-height: 210px;
+    overflow: hidden;
+    /*width: 55%;*/
+    background-color: #F2F2F2;
+    margin-top: 20px;
+    /*border: #E1E1E1 solid 1px;*/
+}
+
+.controls.shared-timerangepicker {
+    max-width: 80%;
+}
+
+#time_filter {
+    float:left;
+}
+
+#ir_submit_btn {
+    float:left;
+}
+
+#timeline_div {
+    padding-top: 10px;
+}
+
+div.dashboard-panel.clearfix {
+    margin: 0px;
+}
+
+.app-components-incidentreview-dialogs-sharedialog .control-label {
+    width: 100px;
+    text-align: left;
+}
+.app-components-incidentreview-dialogs-sharedialog .controls {
+    margin-left: 120px;
+}
+.app-components-incidentreview-dialogs-sharedialog .icon-bookmark {
+    font-size: 16px;
+}
+.app-components-incidentreview-dialogs-sharedialog .bookmark > ir {
+    width: 0;
+}
+
+.app-components-incidentreview-dialogs-sharedialog p {
+    margin-bottom: 20px;
+}

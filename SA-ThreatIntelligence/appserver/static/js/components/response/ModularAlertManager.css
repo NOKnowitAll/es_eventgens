@@ -1,0 +1,174 @@
+.ModularAlertManager .alert-container.active {
+    background-color: #eee;
+    padding-bottom: 10px;
+}
+
+.ModularAlertManager .alert-container:not(.active) .alert-body {
+    display: none;
+}
+
+.ModularAlertManager .alert-actions .alert-header {
+    padding: 4px 8px;
+}
+
+.ModularAlertManager .alert-actions .alert-container {
+    border-bottom: 1px solid #d5d5d5;
+    display: none;
+}
+
+.ModularAlertManager .alert-actions .alert-container:first-child {
+    border-top: 1px solid #d5d5d5;
+}
+
+.ModularAlertManager .alert-actions .alert-container.enabled {
+    display: block;
+}
+
+.ModularAlertManager .alert-actions .alert-header img {
+    margin-right: 4px;
+    width: 24px;
+    height: 24px;
+}
+
+.ModularAlertManager .alert-actions .alert-header .accordion-toggle {
+    color: #000;
+    padding: 10px;
+    position: relative;
+    left: 0px;
+}
+
+.ModularAlertManager .alert-actions .alert-header .icon-accordion-toggle {
+    margin-right: 10px;
+    position: relative;
+    left: 0px;
+}
+
+.ModularAlertManager .alert-actions .alert-header .accordion-toggle:hover {
+    text-decoration: none;
+}
+
+.ModularAlertManager .alert-actions .alert-header .accordion-toggle:visited {
+    text-decoration: none;
+}
+
+.ModularAlertManager .alert-actions .alert-header .accordion-toggle:focus {
+    text-decoration: none;
+    background-color: rgba(0, 0, 0, 0);
+    box-shadow: none;
+}
+
+.ModularAlertManager .alert-actions .alert-header .remove-alert-action {
+    padding: 5px;
+}
+
+.ModularAlertManager .alert-add-menu .add-button {
+    margin: 5px;
+    width: 175px;
+}
+
+.ModularAlertManager .alert-add-menu .add-button a {
+    box-shadow: none;
+    text-decoration: none;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.ModularAlertManager .alert-add-menu .description {
+    color: #999;
+    display: block;
+}
+
+.ModularAlertManager .alert-add-menu .details {
+    color: #999;
+}
+
+.ModularAlertManager .alert-add-menu .details > span {
+    color: #1e93c6;
+}
+
+.ModularAlertManager .alert-add-menu li > a {
+    padding-left: 35px;
+}
+
+.ModularAlertManager .alert-add-menu li > a > img {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 24px;
+    height: 24px;
+}
+
+.ModularAlertManager span.help-block {
+    position: relative;
+    left: 0px;
+}
+
+.ModularAlertManager #alert-notable .row-fluid .span6 {
+    width: 48%;
+}
+
+.ModularAlertManager #alert-notable .bootstrap-duallistbox-container {
+    clear: both;
+    top:-20px;
+}
+
+.ModularAlertManager #recommended-actions-block span.help-block {
+    float: right;
+    top: -15px;
+    left: 30px;
+}
+
+.alert-add-menu #add-dropdown-menu {
+    width: 650px;
+}
+
+.alert-add-menu #add-dropdown-menu .arrow {
+    left: 90px;
+}
+
+.alert-action-inputs {
+    width: 640px; /*650 - 5 - 5 (padding)*/
+    padding: 5px;
+}
+
+.alert-action-inputs > div {
+    white-space: normal; /*SOLNESS-10360 FF specific*/
+}
+
+.alert-action-inputs .shared-controls-controlgroup {
+    display: inline-block;
+}
+
+.alert-action-inputs input {
+    border-radius: 10px;
+    margin-bottom: 0px;
+}
+
+/*related to .form-horizontal .control-label*/
+.alert-action-inputs .control-label {
+    text-align: right;
+    width: 60px;
+    padding-top: 5px;
+    float: initial;
+    display: inline-block;
+}
+
+/*related to .form-horizontal .controls*/
+.alert-action-inputs .controls {
+    margin-left: 0px;
+    font-size: 12px;
+    display: inline-block;
+}
+.alert-action-inputs .recommended-control .control-label {
+    width: 10px;
+}
+
+.alert-action-inputs .recommended-control .icon-check {
+    left: 0px;
+    top: 0px;
+}
+
+
+#alert-notable .tooltip {
+    margin-bottom: 90px;
+    bottom: 350px;
+}

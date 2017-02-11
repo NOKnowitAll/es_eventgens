@@ -1,0 +1,95 @@
+<form script="threat_intelligence_audit.js">
+    <label>Threat Intelligence Audit</label>
+    <description>Details regarding updates to ES Threat Intelligence</description>
+    
+    <row>
+        <panel>
+            <input type="dropdown" token="disabled" searchWhenChanged="true">
+                <label>Download Enabled/Disabled</label>
+                <choice value="">All</choice>
+                <choice value="0">Enabled</choice>
+                <choice value="1">Disabled</choice>
+                <default>0</default>
+                <prefix>disabled=</prefix>
+            </input>
+            
+            <input type="dropdown" token="location" searchWhenChanged="true">
+                <label>Download Location</label>
+                <choice value="">All</choice>
+                <choice value="url=lookup*">Local</choice>
+                <choice value="url!=lookup*">Remote</choice>
+                <default></default>
+            </input>
+            
+            <table>
+                <title>Threat Intelligence Downloads</title>
+                
+                <searchString>| rest splunk_server=local count=0 /services/data/inputs/threatlist | search $disabled$ $location$ | rename title as stanza | table stanza,disabled,type,description,url,weight | join type=outer stanza [| rest splunk_server=* count=0 /services/admin/inputstatus/ModularInputs%3Amodular%20input%20commands | transpose | rex field=column "\(threatlist:\/\/(?&lt;stanza&gt;[^\)]+)" | search stanza=* | eval _time=strptime('row 1',"%Y-%m-%dT%H:%M:%S%z") | eval exit_status=if(column LIKE "%exit status description",replace('row 1',"exited\s+with\s+code\s+(\d+)","\1"),null()) | eventstats first(exit_status) as exit_status by stanza | stats first(exit_status) as exit_status,min(_time) as firstTime,max(_time) as lastTime by stanza | eval run_duration=round(lastTime-firstTime,1)] | join type=outer stanza [search index=_internal sourcetype=threatintel:download file="threatlist.py:download_*" earliest=-24h@h latest=now | stats latest(status) as download_status by stanza] | rename lastTime as _time | table _time,stanza,disabled,type,url,weight,exit_status,download_status,run_duration</searchString>
+                
+            </table>
+        </panel>
+    </row>
+
+    <row>
+        <panel>
+            <input type="multiselect" token="sourcetype_form" id="sourcetype_id" searchWhenChanged="true">
+                <label>Sourcetype</label>
+                <choice value="">All</choice>
+                <choice value="threatintel:download">threatintel:download</choice>
+                <choice value="threatintel:manager">threatintel:manager</choice>
+                <choice value="threatlist:manager">threatlist:manager</choice>
+                <delimiter> OR </delimiter>
+                <valuePrefix>sourcetype="</valuePrefix>
+                <valueSuffix>"</valueSuffix>
+                <prefix>(</prefix>
+                <suffix>)</suffix>
+                <default></default>
+            </input>
+            <input type="multiselect" token="level_form" id="level_id" searchWhenChanged="true">
+                <label>Level</label>
+                <choice value="">All</choice>
+                <choice value="DEBUG">DEBUG</choice>
+                <choice value="INFO">INFO</choice>
+                <choice value="WARN">WARN</choice>
+                <choice value="ERROR">ERROR</choice>
+                <choice value="CRITICAl">CRITICAL</choice>
+                <choice value="FATAL">FATAL</choice>
+                <default></default>
+                <prefix>(</prefix>
+                <suffix>)</suffix>
+                <delimiter> OR </delimiter>
+            </input>
+            <input type="dropdown" token="source_id" searchWhenChanged="true">
+                <label>Intelligence Source</label>
+                <choice value="">All</choice>
+                <default></default>
+                <search>
+                    <query>| `threat_sources`</query>
+                </search>
+                <fieldForLabel>source_id</fieldForLabel>
+                <fieldForValue>source_id</fieldForValue>
+            </input>
+            <input type="time" token="tia" searchWhenChanged="true">
+                <label>Time Range</label>
+                <default>
+                      <earliest>-24h@h</earliest>
+                      <latest>now</latest>
+                </default>
+            </input>
+            
+            <event>
+                <title>Threat Intelligence Audit Events</title>
+                
+                <search>
+                    <earliest>$tia.earliest$</earliest>
+                    <latest>$tia.latest$</latest>
+                	<query>eventtype=threatintel_internal_logs $level$ $sourcetype$ $source_id$ | head 1000</query>
+                </search>
+                
+                <option name="type">list</option>
+                <option name="count">10</option>
+                <fields>["host","source","sourcetype"]</fields>
+            </event>
+        </panel>
+    </row>
+</form>

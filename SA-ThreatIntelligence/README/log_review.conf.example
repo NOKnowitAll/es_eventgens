@@ -1,0 +1,23 @@
+
+[notable_editing]
+allow_urgency_override = false
+
+[comment]
+minimum_length = 25
+is_required    = true
+
+[incident_review]
+table_attributes = [{"field": "_time",                 "label": "Time"},\
+                    {"field": "security_domain",       "label": "Security Domain"},\
+                    {"field": "rule_title",            "label": "Title"},\
+                    {"field": "severity",              "label": "Severity"},\
+                    {"field": "status_label",          "label": "Status"}\
+]
+
+event_attributes = [{"field": "action",                      "label": "Action"},\
+                    {"field": "app",                         "label": "Application"},\
+                    {"field": "bytes_in",                    "label": "Bytes In"},\
+                    {"field": "bytes_out",                   "label": "Bytes Out"},\
+                    ...
+                    {"field": "malware_alias",               "label": "Malware Alias"}\
+]

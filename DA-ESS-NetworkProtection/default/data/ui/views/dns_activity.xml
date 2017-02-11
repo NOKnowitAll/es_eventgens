@@ -1,0 +1,76 @@
+<form>
+    <label>DNS Activity</label>
+    <description/>
+    
+    <fieldset autoRun="true" submitButton="true">
+        <label>Time range</label>
+        <input type="time">
+            <default>Last 24 hours</default>
+        </input>
+    </fieldset>
+    
+    <row>
+        <html id="element1">
+            <div class="key-indicators" data-group-name="net_dns_activity"></div>
+        </html>
+    </row>
+    
+    <row>
+        <chart>
+            <title>Top Reply Codes By Unique Sources</title>
+            
+            <searchString>| tstats `summariesonly` dc(DNS.src) as dc(src) from datamodel=Network_Resolution.DNS where DNS.message_type="RESPONSE" by DNS.reply_code | `drop_dm_object_name("DNS")` | sort 10 - dc(src)</searchString>
+            
+            <option name="charting.chart">bar</option>
+            <option name="charting.legend.placement">none</option>
+            <option name="height">315px</option>
+            
+            <drilldown>
+                <link>dns_search?form.rcode_form=$click.value$&amp;earliest=$earliest$&amp;latest=$latest$</link>
+            </drilldown>
+        </chart>
+
+        <table>
+            <title>Top DNS Query Sources</title>
+            <searchString>| tstats `summariesonly` count from datamodel=Network_Resolution.DNS  where DNS.message_type=QUERY by _time,DNS.src span=1h | `drop_dm_object_name("DNS")` | stats sparkline(sum(count),1h) as sparkline,sum(count) as count by src | sort 10 - count</searchString>
+            <option name="count">10</option>
+            <option name="drilldown">row</option>
+            <drilldown>
+                <link>dns_search?form.src=$row.src$&amp;earliest=$earliest$&amp;latest=$latest$</link>
+            </drilldown>
+        </table>
+    </row>
+
+    <row>
+        <table>
+            <title>Top DNS Queries</title>
+            <searchString>| tstats `summariesonly` count from datamodel=Network_Resolution.DNS where DNS.message_type=QUERY by DNS.query | `drop_dm_object_name("DNS")` | sort 10 - count</searchString>
+            <option name="count">10</option>
+            <drilldown>
+                <link>dns_search?form.query=$row.query$&amp;earliest=$earliest$&amp;latest=$latest$</link>
+            </drilldown>
+        </table>
+
+        <table>
+            <title>Queries Per Domain</title>
+            <searchString>| tstats `summariesonly` count from datamodel=Network_Resolution.DNS  where DNS.message_type=QUERY by DNS.query | `drop_dm_object_name("DNS")` | `truncate_domain(query,domain)` | stats sum(count) as count, dc(query) as query_count, values(query) as queries by domain | sort -query_count</searchString>
+            <option name="count">10</option>
+            <option name="drilldown">row</option>
+            <drilldown>
+                <link>dns_search?form.query=*$row.domain$&amp;earliest=$earliest$&amp;latest=$latest$</link>
+            </drilldown>
+        </table>
+    </row>
+
+    <row>
+        <table>
+            <title>Recent DNS Queries</title>
+            <searchString>| datamodel Network_Resolution DNS search | search DNS.message_type=RESPONSE | head 50 | `drop_dm_object_name("DNS")` | iplocation answer | table _time, name, record_type, query_type, query, answer, City, Country, Region</searchString>
+            <option name="count">10</option>
+            <option name="drilldown">row</option>
+            <drilldown>
+                <link>dns_search?form.query=$row.query$&amp;earliest=$earliest$&amp;latest=$latest$</link>
+            </drilldown>
+        </table>
+    </row>
+</form>

@@ -1,0 +1,29 @@
+.control input, textarea, .uneditable-input {
+  width: 350px;
+}
+
+.control.shared-controls-textcontrol span {
+  padding-right: 25px;
+}
+
+.control.shared-controls-textareacontrol textarea {
+  padding-right: 25px;
+}
+
+.controls .shared-controls-datecontrol input {
+  width: 350px;
+  padding-right: 25px;
+}
+
+.control-group.error .control.shared-controls-labelcontrol .input-label {
+  color: #d85d3c;
+}
+
+.edit-footer {
+  border-top: 1px solid #cccccc;
+  padding: 10px 10px 0 5px;
+}
+
+.edit-footer a.btn-primary.disable {
+  pointer-events: none;
+}

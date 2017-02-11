@@ -1,0 +1,98 @@
+07/17/2014 06:57:28 PM
+LogName=Sophos Patch
+SourceName=Server Communicator
+EventCode=0
+EventType=4
+Type=Information
+ComputerName=#COMPUTERNAME#
+TaskCategory=Sophos Patch Server Communicator
+OpCode=Info
+RecordNumber=8
+Keywords=Classic
+Message=Service started successfully.
+07/17/2014 06:57:28 PM
+LogName=Sophos Patch
+SourceName=Endpoint Orchestrator
+EventCode=0
+EventType=4
+Type=Information
+ComputerName=#COMPUTERNAME#
+TaskCategory=Sophos Patch Orchestrator
+OpCode=Info
+RecordNumber=7
+Keywords=Classic
+Message=Service started successfully.
+07/17/2014 06:57:27 PM
+LogName=Sophos Patch
+SourceName=Endpoint Communicator
+EventCode=0
+EventType=4
+Type=Information
+ComputerName=#COMPUTERNAME#
+TaskCategory=Sophos Patch Endpoint Communicator
+OpCode=Info
+RecordNumber=6
+Keywords=Classic
+Message=Service started successfully.
+07/17/2014 06:57:23 PM
+LogName=Sophos Patch
+SourceName=Endpoint Orchestrator
+EventCode=7000
+EventType=2
+Type=Error
+ComputerName=#COMPUTERNAME#
+TaskCategory=Sophos Patch Orchestrator
+OpCode=Info
+RecordNumber=5
+Keywords=Classic
+Message=PID 2796 : TID 4Error fetching upgrade status.-- System Exception Details --Message: Cannot open database "SOPHOSPATCH52" requested by the login. The login failed.
+Login failed for user 'WIN-AFUIEF1Q3UI\gunther'.Type: SqlExceptionSource: .Net SqlClient Data ProviderTarget: Void OnError(System.Data.SqlClient.SqlException, Boolean)Stack Trace:  System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection) System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning() System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj) System.Data.SqlClient.SqlInternalConnectionTds.CompleteLogin(Boolean enlistOK) System.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, Boolean redirectedUserInstance, SqlConnection owningObject, SqlConnectionString connectionOptions, TimeoutTimer timeout) System.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(SqlConnection owningObject, TimeoutTimer timeout, SqlConnectionString connectionOptions, String newPassword, Boolean redirectedUserInstance) System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, Object providerInfo, String newPassword, SqlConnection owningObject, Boolean redirectedUserInstance) System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection) System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options) System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject) System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject) System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject) System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection) System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory) System.Data.SqlClient.SqlConnection.Open() Sophos.SC.Core.UpgradeHelper.QueryDatabase(String connectionString) Sophos.SC.Core.UpgradeHelper.WaitForUpgradeCompleteStatus(Int32 loggingClassId)Help Link: -- Evidence At Publish --
+07/17/2014 06:57:23 PM
+LogName=Sophos Patch
+SourceName=Server Communicator
+EventCode=1000
+EventType=2
+Type=Error
+ComputerName=#COMPUTERNAME#
+TaskCategory=Sophos Patch Server Communicator
+OpCode=Info
+RecordNumber=4
+Keywords=Classic
+Message=PID 3092 : TID 4Error fetching upgrade status.-- System Exception Details --Message: Cannot open database "SOPHOSPATCH52" requested by the login. The login failed.
+Login failed for user 'WIN-AFUIEF1Q3UI\gunther'.Type: SqlExceptionSource: .Net SqlClient Data ProviderTarget: Void OnError(System.Data.SqlClient.SqlException, Boolean)Stack Trace:  System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection) System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning() System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj) System.Data.SqlClient.SqlInternalConnectionTds.CompleteLogin(Boolean enlistOK) System.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, Boolean redirectedUserInstance, SqlConnection owningObject, SqlConnectionString connectionOptions, TimeoutTimer timeout) System.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(SqlConnection owningObject, TimeoutTimer timeout, SqlConnectionString connectionOptions, String newPassword, Boolean redirectedUserInstance) System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, Object providerInfo, String newPassword, SqlConnection owningObject, Boolean redirectedUserInstance) System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection) System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options) System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject) System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject) System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject) System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection) System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory) System.Data.SqlClient.SqlConnection.Open() Sophos.SC.Core.UpgradeHelper.QueryDatabase(String connectionString) Sophos.SC.Core.UpgradeHelper.WaitForUpgradeCompleteStatus(Int32 loggingClassId)Help Link: -- Evidence At Publish --
+06/03/2014 01:49:46 PM
+LogName=Sophos Patch
+SourceName=Server Communicator
+EventCode=0
+EventType=4
+Type=Information
+ComputerName=#COMPUTERNAME#
+TaskCategory=Sophos Patch Server Communicator
+OpCode=Info
+RecordNumber=3
+Keywords=Classic
+Message=Service started successfully.
+06/03/2014 01:49:45 PM
+LogName=Sophos Patch
+SourceName=Endpoint Orchestrator
+EventCode=0
+EventType=4
+Type=Information
+ComputerName=#COMPUTERNAME#
+TaskCategory=Sophos Patch Orchestrator
+OpCode=Info
+RecordNumber=2
+Keywords=Classic
+Message=Service started successfully.
+06/03/2014 01:49:44 PM
+LogName=Sophos Patch
+SourceName=Endpoint Communicator
+EventCode=0
+EventType=4
+Type=Information
+ComputerName=#COMPUTERNAME#
+TaskCategory=Sophos Patch Endpoint Communicator
+OpCode=Info
+RecordNumber=1
+Keywords=Classic
+Message=Service started successfully.

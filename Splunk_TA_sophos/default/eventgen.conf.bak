@@ -1,0 +1,508 @@
+# NB: This eventgen definition is for SA-Eventgen version 4.0 (i.e. default outputMode=modinput) #
+
+
+[suspicious_behavior.rare]
+interval = 150
+earliest = -150s
+latest = now
+sourcetype = sophos:threats
+
+## replace InsertedAt timestamp "2012-07-08 19:01:42"
+token.0.token = InsertedAt=\"(\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2})\"
+token.0.replacementType = timestamp
+token.0.replacement = %Y-%m-%d %H:%M:%S
+
+## replace EventTime timestamp "2012-07-08 19:01:42"
+token.1.token = EventTime=\"(\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2})\"
+token.1.replacementType = timestamp
+token.1.replacement = %Y-%m-%d %H:%M:%S
+
+## replace IP address - ComputerIPAddress="10.101.101.76"
+token.2.token = (#IP#)
+token.2.replacementType = random
+token.2.replacement = ipv4
+
+## replace computer name
+token.3.token = (#COMPUTER_NAME#)
+token.3.replacementType = file
+token.3.replacement = $SPLUNK_HOME/etc/apps/Splunk_TA_sophos/samples/hostname.sample
+
+## replace domain
+token.4.token = (#DOMAIN#)
+token.4.replacementType = file
+token.4.replacement = $SPLUNK_HOME/etc/apps/Splunk_TA_sophos/samples/domain.sample
+
+## replace username 
+token.5.token = (#USER#)
+token.5.replacementType = file
+token.5.replacement = $SPLUNK_HOME/etc/apps/Splunk_TA_sophos/samples/lastname.sample
+
+## replace container
+token.6.token = (#CONTAINER#)
+token.6.replacementType = file
+token.6.replacement = $SPLUNK_HOME/etc/apps/Splunk_TA_sophos/samples/container.sample
+
+
+[device_control.rare]
+interval = 150
+earliest = -150s
+latest = now
+sourcetype = sophos:devicecontrol
+
+## replace InsertedAt timestamp "2012-07-08 19:01:42"
+token.0.token = InsertedAt=\"(\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2})\"
+token.0.replacementType = timestamp
+token.0.replacement = %Y-%m-%d %H:%M:%S
+
+## replace EventTime timestamp "2012-07-08 19:01:42"
+token.1.token = EventTime=\"(\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2})\"
+token.1.replacementType = timestamp
+token.1.replacement = %Y-%m-%d %H:%M:%S
+
+## replace IP address - ComputerIPAddress="10.101.101.76"
+token.2.token = (#IP#)
+token.2.replacementType = random
+token.2.replacement = ipv4
+
+## replace computer name
+token.3.token = (#COMPUTER_NAME#)
+token.3.replacementType = file
+token.3.replacement = $SPLUNK_HOME/etc/apps/Splunk_TA_sophos/samples/hostname.sample
+
+## replace domain
+token.4.token = (#DOMAIN#)
+token.4.replacementType = file
+token.4.replacement = $SPLUNK_HOME/etc/apps/Splunk_TA_sophos/samples/domain.sample
+
+## replace username 
+token.5.token = (#USER#)
+token.5.replacementType = file
+token.5.replacement = $SPLUNK_HOME/etc/apps/Splunk_TA_sophos/samples/lastname.sample
+
+## replace container
+token.6.token = (#CONTAINER#)
+token.6.replacementType = file
+token.6.replacement = $SPLUNK_HOME/etc/apps/Splunk_TA_sophos/samples/container.sample
+
+
+[tamper_protection.rare]
+interval = 150
+earliest = -150s
+latest = now
+sourcetype = sophos:tamperprotection
+
+## replace InsertedAt timestamp "2012-07-08 19:01:42"
+token.0.token = InsertedAt=\"(\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2})\"
+token.0.replacementType = timestamp
+token.0.replacement = %Y-%m-%d %H:%M:%S
+
+## replace EventTime timestamp "2012-07-08 19:01:42"
+token.1.token = EventTime=\"(\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2})\"
+token.1.replacementType = timestamp
+token.1.replacement = %Y-%m-%d %H:%M:%S
+
+## replace IP address - ComputerIPAddress="10.101.101.76"
+token.2.token = (#IP#)
+token.2.replacementType = random
+token.2.replacement = ipv4
+
+## replace computer name
+token.3.token = (#COMPUTER_NAME#)
+token.3.replacementType = file
+token.3.replacement = $SPLUNK_HOME/etc/apps/Splunk_TA_sophos/samples/hostname.sample
+
+## replace domain
+token.4.token = (#DOMAIN#)
+token.4.replacementType = file
+token.4.replacement = $SPLUNK_HOME/etc/apps/Splunk_TA_sophos/samples/domain.sample
+
+## replace username 
+token.5.token = (#USER#)
+token.5.replacementType = file
+token.5.replacement = $SPLUNK_HOME/etc/apps/Splunk_TA_sophos/samples/lastname.sample
+
+## replace container
+token.6.token = (#CONTAINER#)
+token.6.replacementType = file
+token.6.replacement = $SPLUNK_HOME/etc/apps/Splunk_TA_sophos/samples/container.sample
+
+
+[firewall.rare]
+interval = 150
+earliest = -150s
+latest = now
+sourcetype = sophos:firewall
+
+## replace InsertedAt timestamp "2012-07-08 19:01:42"
+token.0.token = InsertedAt=\"(\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2})\"
+token.0.replacementType = timestamp
+token.0.replacement = %Y-%m-%d %H:%M:%S
+
+## replace EventTime timestamp "2012-07-08 19:01:42"
+token.1.token = EventTime=\"(\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2})\"
+token.1.replacementType = timestamp
+token.1.replacement = %Y-%m-%d %H:%M:%S
+
+## replace IP address - ComputerIPAddress="10.101.101.76"
+token.2.token = (#IP#)
+token.2.replacementType = random
+token.2.replacement = ipv4
+
+## replace computer name
+token.3.token = (#COMPUTER_NAME#)
+token.3.replacementType = file
+token.3.replacement = $SPLUNK_HOME/etc/apps/Splunk_TA_sophos/samples/hostname.sample
+
+## replace domain
+token.4.token = (#DOMAIN#)
+token.4.replacementType = file
+token.4.replacement = $SPLUNK_HOME/etc/apps/Splunk_TA_sophos/samples/domain.sample
+
+## replace username 
+token.5.token = (#USER#)
+token.5.replacementType = file
+token.5.replacement = $SPLUNK_HOME/etc/apps/Splunk_TA_sophos/samples/lastname.sample
+
+
+[sample.winsophos]
+breaker = ^\d{2}\/\d{2}\/\d{2,4}\s+\d{2}:\d{2}:\d{2}\s+[AaPp][Mm]
+interval = 300
+earliest = -5m
+latest = now
+sourcetype = WinEventLog:Application:sophos
+
+## replace timestamp 03/11/10 01:12:01 PM
+token.0.token = ^\d{2}\/\d{2}\/\d{2,4}\s+\d{2}:\d{2}:\d{2}\s+[AaPp][Mm]
+token.0.replacementType = timestamp
+token.0.replacement = %m/%d/%Y %I:%M:%S %p
+
+## replace computer name
+token.1.token = (#COMPUTER_NAME#)
+token.1.replacementType = file
+token.1.replacement = $SPLUNK_HOME/etc/apps/Splunk_TA_sophos/samples/hostname.sample
+
+
+[Threats.sophos]
+interval = 150
+earliest = -150s
+latest = now
+sourcetype = sophos:threats
+
+## replace InsertedAt timestamp "2012-07-08 19:01:42"
+token.0.token = InsertedAt=\"(\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2})\"
+token.0.replacementType = timestamp
+token.0.replacement = %Y-%m-%d %H:%M:%S
+
+## replace EventTime timestamp "2012-07-08 19:01:42"
+token.1.token = EventTime=\"(\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2})\"
+token.1.replacementType = timestamp
+token.1.replacement = %Y-%m-%d %H:%M:%S
+
+## replace IP address - ComputerIPAddress="10.101.101.76"
+token.2.token = (#IP#)
+token.2.replacementType = random
+token.2.replacement = ipv4
+
+## replace computer name
+token.3.token = (#COMPUTER_NAME#)
+token.3.replacementType = file
+token.3.replacement = $SPLUNK_HOME/etc/apps/Splunk_TA_sophos/samples/hostname.sample
+
+## replace domain
+token.4.token = (#DOMAIN#)
+token.4.replacementType = file
+token.4.replacement = $SPLUNK_HOME/etc/apps/Splunk_TA_sophos/samples/domain.sample
+
+## replace username 
+token.5.token = (#USER#)
+token.5.replacementType = file
+token.5.replacement = $SPLUNK_HOME/etc/apps/Splunk_TA_sophos/samples/lastname.sample
+
+## replace container
+token.6.token = (#CONTAINER#)
+token.6.replacementType = file
+token.6.replacement = $SPLUNK_HOME/etc/apps/Splunk_TA_sophos/samples/container.sample
+
+
+[WebData.sophos]
+interval = 150
+earliest = -150s
+latest = now
+sourcetype = sophos:webdata
+
+## replace InsertedAt timestamp "2012-07-08 19:01:42"
+token.0.token = InsertedAt=\"(\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2})\"
+token.0.replacementType = timestamp
+token.0.replacement = %Y-%m-%d %H:%M:%S
+
+## replace EventTime timestamp "2012-07-08 19:01:42"
+token.1.token = EventTime=\"(\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2})\"
+token.1.replacementType = timestamp
+token.1.replacement = %Y-%m-%d %H:%M:%S
+
+## replace IP address - ComputerIPAddress="10.101.101.76"
+token.2.token = (#IP#)
+token.2.replacementType = random
+token.2.replacement = ipv4
+
+## replace computer name
+token.3.token = (#COMPUTER_NAME#)
+token.3.replacementType = file
+token.3.replacement = $SPLUNK_HOME/etc/apps/Splunk_TA_sophos/samples/hostname.sample
+
+## replace domain
+token.4.token = (#DOMAIN#)
+token.4.replacementType = file
+token.4.replacement = $SPLUNK_HOME/etc/apps/Splunk_TA_sophos/samples/domain.sample
+
+## replace username 
+token.5.token = (#USER#)
+token.5.replacementType = file
+token.5.replacement = $SPLUNK_HOME/etc/apps/Splunk_TA_sophos/samples/lastname.sample
+
+## replace container
+token.6.token = (#CONTAINER#)
+token.6.replacementType = file
+token.6.replacement = $SPLUNK_HOME/etc/apps/Splunk_TA_sophos/samples/container.sample
+
+
+[Firewall.sophos]
+interval = 150
+earliest = -150s
+latest = now
+sourcetype = sophos:firewall
+
+## replace InsertedAt timestamp "2012-07-08 19:01:42"
+token.0.token = InsertedAt=\"(\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2})\"
+token.0.replacementType = timestamp
+token.0.replacement = %Y-%m-%d %H:%M:%S
+
+## replace EventTime timestamp "2012-07-08 19:01:42"
+token.1.token = EventTime=\"(\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2})\"
+token.1.replacementType = timestamp
+token.1.replacement = %Y-%m-%d %H:%M:%S
+
+## replace IP address - ComputerIPAddress="10.101.101.76"
+token.2.token = (#IP#)
+token.2.replacementType = random
+token.2.replacement = ipv4
+
+## replace computer name
+token.3.token = (#COMPUTER_NAME#)
+token.3.replacementType = file
+token.3.replacement = $SPLUNK_HOME/etc/apps/Splunk_TA_sophos/samples/hostname.sample
+
+## replace domain
+token.4.token = (#DOMAIN#)
+token.4.replacementType = file
+token.4.replacement = $SPLUNK_HOME/etc/apps/Splunk_TA_sophos/samples/domain.sample
+
+## replace username 
+token.5.token = (#USER#)
+token.5.replacementType = file
+token.5.replacement = $SPLUNK_HOME/etc/apps/Splunk_TA_sophos/samples/lastname.sample
+
+
+[AppControl.sophos]
+interval = 30
+earliest = -30s
+latest = now
+sourcetype = sophos:appcontrol
+
+## replace InsertedAt timestamp "2012-07-08 19:01:42"
+token.0.token = InsertedAt=\"(\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2})\"
+token.0.replacementType = timestamp
+token.0.replacement = %Y-%m-%d %H:%M:%S
+
+## replace EventTime timestamp "2012-07-08 19:01:42"
+token.1.token = EventTime=\"(\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2})\"
+token.1.replacementType = timestamp
+token.1.replacement = %Y-%m-%d %H:%M:%S
+
+## replace IP address - ComputerIPAddress="10.101.101.76"
+token.2.token = (#IP#)
+token.2.replacementType = random
+token.2.replacement = ipv4
+
+## replace computer name
+token.3.token = (#COMPUTER_NAME#)
+token.3.replacementType = file
+token.3.replacement = $SPLUNK_HOME/etc/apps/Splunk_TA_sophos/samples/hostname.sample
+
+## replace domain
+token.4.token = (#DOMAIN#)
+token.4.replacementType = file
+token.4.replacement = $SPLUNK_HOME/etc/apps/Splunk_TA_sophos/samples/domain.sample
+
+## replace username 
+token.5.token = (#USER#)
+token.5.replacementType = file
+token.5.replacement = $SPLUNK_HOME/etc/apps/Splunk_TA_sophos/samples/lastname.sample
+
+## replace container
+token.6.token = (#CONTAINER#)
+token.6.replacementType = file
+token.6.replacement = $SPLUNK_HOME/etc/apps/Splunk_TA_sophos/samples/container.sample
+
+
+[DeviceControl.sophos]
+interval = 30
+earliest = -30s
+latest = now
+sourcetype = sophos:devicecontrol
+
+## replace InsertedAt timestamp "2012-07-08 19:01:42"
+token.0.token = InsertedAt=\"(\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2})\"
+token.0.replacementType = timestamp
+token.0.replacement = %Y-%m-%d %H:%M:%S
+
+## replace EventTime timestamp "2012-07-08 19:01:42"
+token.1.token = EventTime=\"(\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2})\"
+token.1.replacementType = timestamp
+token.1.replacement = %Y-%m-%d %H:%M:%S
+
+## replace IP address - ComputerIPAddress="10.101.101.76"
+token.2.token = (#IP#)
+token.2.replacementType = random
+token.2.replacement = ipv4
+
+## replace computer name
+token.3.token = (#COMPUTER_NAME#)
+token.3.replacementType = file
+token.3.replacement = $SPLUNK_HOME/etc/apps/Splunk_TA_sophos/samples/hostname.sample
+
+## replace domain
+token.4.token = (#DOMAIN#)
+token.4.replacementType = file
+token.4.replacement = $SPLUNK_HOME/etc/apps/Splunk_TA_sophos/samples/domain.sample
+
+## replace username 
+token.5.token = (#USER#)
+token.5.replacementType = file
+token.5.replacement = $SPLUNK_HOME/etc/apps/Splunk_TA_sophos/samples/lastname.sample
+
+## replace container
+token.6.token = (#CONTAINER#)
+token.6.replacementType = file
+token.6.replacement = $SPLUNK_HOME/etc/apps/Splunk_TA_sophos/samples/container.sample
+
+
+[TamperProtection.sophos]
+interval = 30
+earliest = -30s
+latest = now
+sourcetype = sophos:tamperprotection
+
+## replace InsertedAt timestamp "2012-07-08 19:01:42"
+token.0.token = InsertedAt=\"(\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2})\"
+token.0.replacementType = timestamp
+token.0.replacement = %Y-%m-%d %H:%M:%S
+
+## replace EventTime timestamp "2012-07-08 19:01:42"
+token.1.token = EventTime=\"(\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2})\"
+token.1.replacementType = timestamp
+token.1.replacement = %Y-%m-%d %H:%M:%S
+
+## replace IP address - ComputerIPAddress="10.101.101.76"
+token.2.token = (#IP#)
+token.2.replacementType = random
+token.2.replacement = ipv4
+
+## replace computer name
+token.3.token = (#COMPUTER_NAME#)
+token.3.replacementType = file
+token.3.replacement = $SPLUNK_HOME/etc/apps/Splunk_TA_sophos/samples/hostname.sample
+
+## replace domain
+token.4.token = (#DOMAIN#)
+token.4.replacementType = file
+token.4.replacement = $SPLUNK_HOME/etc/apps/Splunk_TA_sophos/samples/domain.sample
+
+## replace username 
+token.5.token = (#USER#)
+token.5.replacementType = file
+token.5.replacement = $SPLUNK_HOME/etc/apps/Splunk_TA_sophos/samples/lastname.sample
+
+## replace container
+token.6.token = (#CONTAINER#)
+token.6.replacementType = file
+token.6.replacement = $SPLUNK_HOME/etc/apps/Splunk_TA_sophos/samples/container.sample
+
+
+[ComputerData.sophos]
+interval = 30
+earliest = -30s
+latest = now
+sourcetype = sophos:computerdata
+
+## replace InsertedAt timestamp "2012-07-08 19:01:42"
+token.0.token = InsertedAt=\"(\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2})\"
+token.0.replacementType = timestamp
+token.0.replacement = %Y-%m-%d %H:%M:%S
+
+## replace EventTime timestamp "2012-07-08 19:01:42"
+token.1.token = EventTime=\"(\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2})\"
+token.1.replacementType = timestamp
+token.1.replacement = %Y-%m-%d %H:%M:%S
+
+## replace IP address - ComputerIPAddress="10.101.101.76"
+token.2.token = (#IP#)
+token.2.replacementType = random
+token.2.replacement = ipv4
+
+## replace computer name
+token.3.token = (#COMPUTER_NAME#)
+token.3.replacementType = file
+token.3.replacement = $SPLUNK_HOME/etc/apps/Splunk_TA_sophos/samples/hostname.sample
+
+## replace domain
+token.4.token = (#DOMAIN#)
+token.4.replacementType = file
+token.4.replacement = $SPLUNK_HOME/etc/apps/Splunk_TA_sophos/samples/domain.sample
+
+## replace username 
+token.5.token = (#USER#)
+token.5.replacementType = file
+token.5.replacement = $SPLUNK_HOME/etc/apps/Splunk_TA_sophos/samples/lastname.sample
+
+## replace container
+token.6.token = (#CONTAINER#)
+token.6.replacementType = file
+token.6.replacement = $SPLUNK_HOME/etc/apps/Splunk_TA_sophos/samples/container.sample
+
+
+[application_10_3.events]
+breaker = ^\d{2}\/\d{2}\/\d{2,4}\s+\d{2}:\d{2}:\d{2}\s+[AaPp][Mm]
+interval = 300
+earliest = -5m
+latest = now
+sourcetype = WinEventLog:Application:sophos
+
+## replace timestamp 03/11/10 01:12:01 PM
+token.0.token = ^\d{2}\/\d{2}\/\d{2,4}\s+\d{2}:\d{2}:\d{2}\s+[AaPp][Mm]
+token.0.replacementType = timestamp
+token.0.replacement = %m/%d/%Y %I:%M:%S %p
+
+## replace computer name
+token.1.token = (#COMPUTER_NAME#)
+token.1.replacementType = file
+token.1.replacement = $SPLUNK_HOME/etc/apps/Splunk_TA_sophos/samples/hostname.sample
+
+
+[sophospatch_10_3.events]
+breaker = ^\d{2}\/\d{2}\/\d{2,4}\s+\d{2}:\d{2}:\d{2}\s+[AaPp][Mm]
+interval = 30
+earliest = -30s
+latest = now
+source = eventgen_10.3_events
+sourcetype = WinEventLog:SophosPatch
+
+## replace timestamp 03/11/10 01:12:01 PM
+token.0.token = ^\d{2}\/\d{2}\/\d{2,4}\s+\d{2}:\d{2}:\d{2}\s+[AaPp][Mm]
+token.0.replacementType = timestamp
+token.0.replacement = %m/%d/%Y %I:%M:%S %p
+
+## replace computer name
+token.1.token = (#COMPUTER_NAME#)
+token.1.replacementType = file
+token.1.replacement = $SPLUNK_HOME/etc/apps/Splunk_TA_sophos/samples/hostname.sample

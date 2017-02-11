@@ -1,0 +1,36 @@
+<dashboard stylesheet="data_protection.css" script="data_protection.js">
+	<label>Data Protection</label>
+		
+	<row>
+		<html id="dataIntegrityID" />
+
+        <table id="element2">
+			<title>Data Integrity Control By Index</title>
+
+			<searchName>Data Protection - Data Integrity Control By Index</searchName>
+			
+			<option name="drilldown">none</option>
+
+		</table>
+	</row>
+
+	<row>
+		<html id="maskDataID" />
+
+		<single id="element4">
+			<title>Sensitive Data</title>
+			
+			<latestTime>now</latestTime>
+			<earliestTime>-24h</earliestTime>
+			
+			<searchString>| tstats `summariesonly` count from datamodel=Incident_Management.Notable_Events_Meta where source="Audit - Personally Identifiable Information Detection - Rule" | eval label=replace("$label_token$", "%d", count) | rangemap field=count low=0-0 default=severe</searchString>
+			
+			<option name="classField">range</option>
+            <option name="field">label</option>
+            
+            <drilldown>
+                <link>incident_review?form.srch=source%3D%22Audit - Personally Identifiable Information Detection - Rule%22&amp;earliest=$earliest$&amp;latest=$latest$</link>
+            </drilldown>
+        </single>
+	</row>
+</dashboard>

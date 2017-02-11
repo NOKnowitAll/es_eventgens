@@ -1,0 +1,71 @@
+<form script="dns_search.js">
+    <label>DNS Search</label>
+  
+    <fieldset autoRun="false" submitButton="true">
+        <input type="text" token="src">
+            <label>Source</label>
+            <default></default>
+            <prefix>DNS.src="</prefix>
+            <suffix>"</suffix>
+        </input>
+        <input type="text" token="dest">
+            <label>Destination</label>
+            <default></default>
+            <prefix>DNS.dest="</prefix>
+            <suffix>"</suffix>
+        </input>
+        <input type="text" token="query">
+            <label>Query</label>
+            <default></default>
+            <prefix>DNS.query="</prefix>
+            <suffix>"</suffix>
+        </input>
+        <input type="dropdown" token="message_type">
+            <label>Message Type</label>
+            <choice value="QUERY">Query</choice>
+            <choice value="RESPONSE">Response</choice>
+            <choice value="">All</choice>
+            <default></default>
+            <prefix>DNS.message_type="</prefix>
+            <suffix>"</suffix>
+        </input>
+        <input type="dropdown" token="rcode_form">
+            <label>Reply Code</label>
+            <choice value="">All</choice>
+            <choice value="all_errors">All Errors</choice>
+            <populatingSearch fieldForValue="reply_code" fieldForLabel="reply_code">| `cim_dns_reply_codes`</populatingSearch>
+            <default></default>
+        </input>
+        <input type="time">
+            <default>Last 60 minutes</default>
+        </input>
+    </fieldset>
+    
+    <row>
+        <table id="table1">
+            <title> </title>
+            
+            <searchTemplate>| tstats `summariesonly` max(_time) as _time,values(DNS.dest) as dest,values(DNS.message_type) as message_type,values(DNS.reply_code) as reply_code,values(DNS.query_type) as query_type,values(DNS.record_type) as record_type,count from datamodel=Network_Resolution.DNS where * $src$ $dest$ $message_type$ $query$ $rcode$ by DNS.src,DNS.query,DNS.answer | `drop_dm_object_name("DNS")` | sort - count | fields _time,src,dest,message_type,record_type,query_type,query,answer,reply_code,count</searchTemplate>
+            
+            <option name="count">5</option>
+            
+            <drilldown>
+                <link>search?q=| `datamodel("Network_Resolution", "DNS")` | search DNS.src="$row.src$" DNS.query="$row.query$" DNS.answer="$row.answer$" | `drop_dm_object_name("DNS")`&amp;earliest=$earliest$&amp;latest=$latest$&amp;auto_pause=$auto_pause$</link>
+            </drilldown>
+        </table>
+    </row>
+    <row>
+        <event id="event1">
+            <title> </title>
+            
+            <searchTemplate>| datamodel Network_Resolution DNS search | search $src$ $dest$ $query$ $message_type$ $rcode$ | `drop_dm_object_name("DNS")` | head 100</searchTemplate>
+            
+            <option name="count">5</option>
+            <option name="rowNumbers">false</option>
+            <option name="type">list</option>
+            <option name="list.wrap">true</option>
+            
+            <fields>["src","src_port","dest","dest_port","message_type","record_type","query_type","query","answer","reply_code"]</fields>
+        </event>
+    </row>
+</form>

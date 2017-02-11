@@ -1,0 +1,1 @@
+"use strict";define(["sa-threatintelligence/js/models/NotableEventSuppression","collections/SplunkDsBase"],function(a,b){var c=b.extend({url:"alerts/suppressions?count=-1",model:a,initialize:function(){b.prototype.initialize.apply(this,arguments)}});return c});

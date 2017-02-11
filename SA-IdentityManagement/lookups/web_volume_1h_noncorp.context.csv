@@ -1,0 +1,11 @@
+name,class,version,read,write,center,count,domainMin,domainMax,numConcepts,size,type,notes,format,uom,search,width,alfacut,concept,shape,points
+web_volume_1h_noncorp,"americas",1427919096,*,*,0.0000,6,0.0000,3569700.5193,5,0.0000,domain,"",v4,"web_volume_bytes"," ",0.0000,0.1000,minimal,curvedecrease,0.0000|446212.5649|892425.1298
+web_volume_1h_noncorp,"americas",1427919096,*,*,0.0000,6,0.0000,3569700.5193,5,0.0000,domain,"",v4,"web_volume_bytes"," ",0.0000,0.1000,low,pi,0.0000|446212.5649|892425.1298|1338637.6947|1784850.2596
+web_volume_1h_noncorp,"americas",1427919096,*,*,0.0000,6,0.0000,3569700.5193,5,0.0000,domain,"",v4,"web_volume_bytes"," ",0.0000,0.1000,medium,pi,892425.1298|1338637.6947|1784850.2596|2231062.8245|2677275.3895
+web_volume_1h_noncorp,"americas",1427919096,*,*,0.0000,6,0.0000,3569700.5193,5,0.0000,domain,"",v4,"web_volume_bytes"," ",0.0000,0.1000,high,pi,1784850.2596|2231062.8245|2677275.3895|3123487.9544|3569700.5193
+web_volume_1h_noncorp,"americas",1427919096,*,*,0.0000,6,0.0000,3569700.5193,5,0.0000,domain,"",v4,"web_volume_bytes"," ",0.0000,0.1000,extreme,curveincrease,2677275.3895|3123487.9544|3569700.5193
+web_volume_1h_noncorp,"",1427920652,*,*,0.0000,1,0.0000,230.0000,5,0.0000,domain,"none",v4,"web_volume_bytes","",0.0000,0.1000,minimal,curvedecrease,0.0000|28.7500|57.5000
+web_volume_1h_noncorp,"",1427920652,*,*,0.0000,1,0.0000,230.0000,5,0.0000,domain,"none",v4,"web_volume_bytes","",0.0000,0.1000,low,pi,0.0000|28.7500|57.5000|86.2500|115.0000
+web_volume_1h_noncorp,"",1427920652,*,*,0.0000,1,0.0000,230.0000,5,0.0000,domain,"none",v4,"web_volume_bytes","",0.0000,0.1000,medium,pi,57.5000|86.2500|115.0000|143.7500|172.5000
+web_volume_1h_noncorp,"",1427920652,*,*,0.0000,1,0.0000,230.0000,5,0.0000,domain,"none",v4,"web_volume_bytes","",0.0000,0.1000,high,pi,115.0000|143.7500|172.5000|201.2500|230.0000
+web_volume_1h_noncorp,"",1427920652,*,*,0.0000,1,0.0000,230.0000,5,0.0000,domain,"none",v4,"web_volume_bytes","",0.0000,0.1000,extreme,curveincrease,172.5000|201.2500|230.0000

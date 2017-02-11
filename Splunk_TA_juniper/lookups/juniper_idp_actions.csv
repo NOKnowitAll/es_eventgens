@@ -1,0 +1,10 @@
+vendor_action,action
+NONE,unknown
+ACCEPTED,allowed
+CLOSED SERVER,unknown
+CLOSED CLIENT,unknown
+IGNORED,allowed
+CLOSED,dropped
+DROP,dropped
+DROPPED,dropped
+DROPPED PACKET,dropped

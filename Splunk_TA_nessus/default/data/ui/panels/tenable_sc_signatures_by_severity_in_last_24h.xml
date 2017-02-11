@@ -1,0 +1,10 @@
+<panel>
+    <title>Tenable Security Center - Signatures by Severity in Last 24H</title>
+    <table>
+        <search>
+          <query>sourcetype="tenable:sc:vuln" | stats values(signature) as signature by severity| eval severity_level = case(severity=="critical",4,severity=="high",3,severity=="medium",2,severity=="low",1, severity=="informational",0) | sort  -severity_level | fields severity signature</query>
+          <earliest>-1d</earliest>
+          <latest>now</latest>
+        </search>
+    </table>
+</panel>

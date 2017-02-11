@@ -1,0 +1,21 @@
+#separator \x09
+#set_separator	,
+#empty_field	(empty)
+#unset_field	-
+#path	notice
+#open	2014-04-22-16-57-51
+#fields	ts	uid	id.orig_h	id.orig_p	id.resp_h	id.resp_p	fuid	file_mime_type	file_desc	proto	note	msg	sub	src	dst	p	n	peer_descr	actions	suppress_for	dropped	remote_location.country_code	remote_location.region	remote_location.city	remote_location.latitude	remote_location.longitude
+#types	time	string	addr	port	addr	port	string	string	string	enum	enum	string	string	addr	addr	port	count	string	table[enum]	interval	bool	string	string	string	double	double
+1398185871.163937	-	-	-	-	-	-	-	-	-	PacketFilter::Dropped_Packets	1243 packets dropped after filtering, 18266 received, 18266 on link	-	-	-	-	-	bro	Notice::ACTION_LOG	3600.000000	F	-	-	-	-	-
+1398050270.491754	-	-	-	-	-	-	-	-	-	PacketFilter::Dropped_Packets	63761 packets dropped after filtering, 87864 received, 87864 on link	-	-	-	-	-	bro	Notice::ACTION_LOG	3600.000000	F	-	-	-	-	-
+1398103370.707669	-	-	-	-	-	-	-	-	-	PacketFilter::Dropped_Packets	1511 packets dropped after filtering, 170644 received, 170644 on link	-	-	-	-	-	bro	Notice::ACTION_LOG	3600.000000	F	-	-	-	-	-
+1398103670.707703	-	-	-	-	-	-	-	-	-	PacketFilter::Dropped_Packets	77632 packets dropped after filtering, 155636 received, 155636 on link	-	-	-	-	-	bro	Notice::ACTION_LOG	3600.000000	F	-	-	-	-	-
+1398104270.707730	-	-	-	-	-	-	-	-	-	PacketFilter::Dropped_Packets	82779 packets dropped after filtering, 99538 received, 99538 on link	-	-	-	-	-	bro	Notice::ACTION_LOG	3600.000000	F	-	-	-	-	-
+1398104570.707732	-	-	-	-	-	-	-	-	-	PacketFilter::Dropped_Packets	4119 packets dropped after filtering, 59610 received, 59610 on link	-	-	-	-	-	bro	Notice::ACTION_LOG	3600.000000	F	-	-	-	-	-
+1398105770.707971	-	-	-	-	-	-	-	-	-	PacketFilter::Dropped_Packets	83290 packets dropped after filtering, 159502 received, 159502 on link	-	-	-	-	-	bro	Notice::ACTION_LOG	3600.000000	F	-	-	-	-	-
+1398106370.708068	-	-	-	-	-	-	-	-	-	PacketFilter::Dropped_Packets	88545 packets dropped after filtering, 179234 received, 179234 on link	-	-	-	-	-	bro	Notice::ACTION_LOG	3600.000000	F	-	-	-	-	-
+1404671396.278909	CB5vlt3Q9pZlNA65yl	172.17.14.233	34271	174.129.20.92	443	-	-	-	tcp	SSL::Invalid_Server_Cert	SSL certificate validation failed with (self signed certificate in certificate chain)	CN=rhui2-cds01.us-east-1.aws.ce.redhat.com,OU=Red Hat Cloud Enablement,O=Red Hat Cloud Enablement,L=Raleigh,ST=North Carolina,C=US	172.17.14.233	174.129.20.92	443	-	worker2	Notice::ACTION_LOG	3600.000000	F	-	-	-	-	-
+1404673389.489568	CT7MJs1X7Rr84qf5db	172.17.14.233	53215	157.56.141.103	443	-	-	-	tcp	SSL::Invalid_Server_Cert	SSL certificate validation failed with (unable to get local issuer certificate)	CN=telemetry.microsoft.com,CN=*.telemetry.microsoft.com,CN=*.phx.gbl,OU=WSE,O=Microsoft,L=Redmond,ST=WA,C=US	172.17.14.233	157.56.141.103	443	-	worker2	Notice::ACTION_LOG	3600.000000	F	-	-	-	-	-
+1404675300.927398	Cpf3uA3s4beRXpmsf1	172.17.14.233	34307	174.129.20.92	443	-	-	-	tcp	SSL::Invalid_Server_Cert	SSL certificate validation failed with (self signed certificate in certificate chain)	CN=rhui2-cds01.us-east-1.aws.ce.redhat.com,OU=Red Hat Cloud Enablement,O=Red Hat Cloud Enablement,L=Raleigh,ST=North Carolina,C=US	172.17.14.233	174.129.20.92	443	-	worker2	Notice::ACTION_LOG	3600.000000	F	-	-	-	-	-
+1427726711.398575	-	-	-	-	-	-	-	-	-	SSH::Password_Guessing	192.168.56.1 appears to be guessing SSH passwords (seen in 10 connections).	Sampled servers:  192.168.56.103, 192.168.56.103, 192.168.56.103, 192.168.56.103, 192.168.56.103	 192.168.56.1	-	-	-	bro	Notice::ACTION_EMAIL,Notice::ACTION_LOG	3600.000000	F	-	-	-	-	-
+#close	2014-04-21-19-00-00

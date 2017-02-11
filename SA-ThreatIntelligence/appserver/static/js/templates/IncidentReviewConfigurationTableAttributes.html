@@ -1,0 +1,40 @@
+<span class="table-help-block  help-block">An ordered list of attributes displayed as columns on the Incident Review dashboard.</span>
+<table id="table_table" class="table table-chrome display dataTable">
+    <thead>
+        <tr>
+            <th>Label</th>
+            <th>Field</th>
+            <th>Action</th> 
+        </tr>
+    </thead>
+    <tbody>
+        <% for(var c = 0; c < attr.length; c++){
+                t_attr = attr[c];
+        %>
+            <tr>
+                <td><%- t_attr.label %></a></td>
+                <td><%- t_attr.field %></td>
+                <td><% if (insufficient_permissions) { %>
+                    <span style="color: #999999;">read only</span>
+                    <% } else { %>
+                    <a role="button" class="edit_table_attr" data-key="<%- c %>">Edit</a>
+                    | <% if (1 !== attr.length) { %><a class="remove_table_attr" role="button" data-key="<%- c %>"><%  } else { %><span style="color: #999999;"><%  } %>Remove<% if (1 !== attr.length) { %></a><%  } else { %></span><%  } %>
+                    | <a class="add_table_attr" role="button" data-key="<%- c+1 %>">Insert below</a>
+                    | <span style="position: relative;" class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" role="button" data-dialog-id="table_attr_action_menu<%- c %>" style="position: relative;" >More ...</a>
+                        
+                        <div id="table_attr_action_menu<%- c %>" class="action-dropdown-menu dropdown-menu secondary_actions">
+                            <div class="arrow"></div>
+                            <ul>
+                                <li><a href="#" class="add_table_attr" data-key="<%- c %>"><i class="icon-large"/> Insert above</a></li>
+                                <li><a href="#" class="up_table_attr<% if (c === 0)  { %> disabled<% } %>" data-key="<%- c %>"><i class="icon-arrow-up icon-large"/> Move up</a></li>
+                                <li><a href="#" class="down_table_attr<% if (c === (attr.length-1)) { %> disabled<%  } %>" data-key="<%- c %>"><i class="icon-arrow-down icon-large"/> Move down</a></li>
+                            </ul>
+                        </div> 
+                    </span>
+                    <% } %>
+                </td>
+            </tr>
+        <% } %>
+    </tbody>
+</table>

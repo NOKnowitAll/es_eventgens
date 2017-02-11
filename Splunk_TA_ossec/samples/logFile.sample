@@ -1,0 +1,5 @@
+/var/log/ntrace/ntrace.log
+/var/adm/syslog
+/var/log/auth.log
+/var/log/proftpd/proftpd.log
+/var/log/messages_back

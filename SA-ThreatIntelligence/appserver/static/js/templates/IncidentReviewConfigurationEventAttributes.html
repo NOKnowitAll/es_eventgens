@@ -1,0 +1,28 @@
+<span class="table-help-block help-block">List of available attributes for notable event details.</span>
+<% if (!insufficient_permissions) { %><a class="btn btn-secondary pull-right add_event_attr">Add new entry</a><% } %>
+<table id="event_table" class="table table-chrome display dataTable">
+    <thead>
+        <tr>
+            <th>Label</th>
+            <th>Field</th>
+            <th>Action</th> 
+        </tr>
+    </thead>
+    <tbody>
+        <% for(var c = 0; c < attr.length; c++){
+                e_attr = attr[c];
+        %>
+            <tr>
+                <td><%- e_attr.label %></a></td>
+                <td><%- e_attr.field %></td>
+                <td><% if (insufficient_permissions) { %>
+                    <span style="color: #999999;">read only</span>
+                    <% } else { %>
+                    <a role="button" class="edit_event_attr" data-key="<%- c %>">Edit</a>
+                    | <a role="button" class="remove_event_attr" data-key="<%- c %>">Remove</a>
+                    <% } %>
+                </td>
+            </tr>
+        <% } %>
+    </tbody>
+</table>

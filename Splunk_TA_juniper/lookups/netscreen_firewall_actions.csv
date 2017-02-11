@@ -1,0 +1,13 @@
+vendor_action,action,status
+Permit,allowed,
+Deny,blocked,
+failed,failure,
+successful,success,
+refused,failure,
+added,created,success
+modified,modified,success
+deleted,deleted,success
+created,created,success
+read,read,success
+acl_modified,acl_modified,success
+unknown,unknown,unknown

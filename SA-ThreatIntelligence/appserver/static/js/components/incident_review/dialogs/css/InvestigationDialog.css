@@ -1,0 +1,33 @@
+/*
+ * Investigation Dialog Stylesheet
+ */
+.event_action_investigation_container {
+    text-align: center;
+}
+
+.event_action_investigation_container > div {
+    display: inline-block;
+}
+
+#event_action_new_investigation {
+    float: left;
+    padding-top: 5px;
+}
+
+#event_action_investigations {
+	padding-bottom: 0px;
+	margin: 5px 10px;
+}
+
+/*-- Success message --*/
+.show_on_success > .alert {
+	margin-bottom: 0px;
+}
+
+#close{
+    margin-top: 10px;
+}
+
+#event_action_investigations .select2-container {
+	width: 300px !important;
+}

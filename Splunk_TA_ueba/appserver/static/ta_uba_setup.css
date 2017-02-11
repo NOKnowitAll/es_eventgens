@@ -1,0 +1,27 @@
+.uba_setup_input {
+  margin-bottom: 5%;
+}
+
+.save-block {
+  margin-bottom: 5%;
+  margin-right: 5%;
+  float: right;
+}
+
+.shared-controls-syntheticselectcontrol {
+  margin-top: 5px;
+}
+
+.form-footer {
+  display: block;
+}
+
+.restart-msg {
+  float: right;
+  display: none;
+  color: #97999b;
+}
+
+.icon-alert {
+  color: #f2b827;
+}

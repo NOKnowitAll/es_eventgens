@@ -1,0 +1,8 @@
+sourcetype,vendor_product,app
+netscreen:firewall,Netscreen Firewall,netscreen
+juniper:idp,Juniper IDP,juniper_idp
+juniper:nsm,Juniper NSM,nsm
+juniper:nsm:idp,Juniper IDP,nsm_idp
+juniper:sslvpn,Juniper SSL VPN,vpn
+juniper:junos:idp,Juniper JunOS IDP,junos_idp
+juniper:junos:firewall,Juniper JunOS Firewall,junos_firewall

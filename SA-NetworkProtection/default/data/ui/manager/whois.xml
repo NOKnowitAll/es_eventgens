@@ -1,0 +1,98 @@
+<endpoint name="data/inputs/whois" showOnSearchHeadCluster="1">
+	<header>Whois Management</header>
+	<breadcrumb>
+        <parent hidecurrent="False">datainputstats</parent>
+        <name>Whois Management</name>
+    </breadcrumb>
+    <elements>
+        <element name="spl-ctrl_whois_options" type="fieldset">
+            <key name="legend">Whois</key>
+            <view name="list"/>
+            <view name="create"/>
+            <view name="edit"/>
+            <elements>
+                 <element name="name" type="textfield" label="Name">
+                    <key name="exampleText"></key>
+                    <view name="create"/>
+                    <view name="list"/>
+                </element>
+                <element name="api_host" type="textfield" label="API Host">
+                    <key name="exampleText">An API host, if required by the provider.</key>
+                    <view name="create"/>
+                    <view name="edit"/>
+                    <view name="list"/>
+                </element>
+                <element name="api_user" type="textfield" label="API User">
+                    <key name="exampleText">A user account to use for API access, if required by the provider.</key>
+                    <view name="create"/>
+                    <view name="edit"/>
+                    <view name="list"/>
+                </element>
+                <element name="app" type="select" label="App">
+                    <key name="exampleText">Splunk application context used to retrieve stored credentials.</key>
+                    <view name="create"/>
+                    <view name="edit"/>
+                    <view name="list"/>
+                    <key name="dynamicOptions" type="dict">
+                    <key name="keyName">title</key>
+                    <key name="keyValue">title</key>
+                    <key name="splunkSource">/apps/local</key>
+                    <key name="splunkSourceParams" type="dict">
+                    <key name="search">'disabled=false'</key>
+                    <key name="count">-1</key>
+                    </key>
+                    </key>
+                </element>
+                <element name="owner" type="textfield" label="Owner">
+                    <key name="exampleText">A Splunk user that has access to any stored credentials in use.</key>
+                    <view name="create"/>
+                    <view name="edit"/>
+                    <view name="list"/>
+                </element>
+                <element name="provider" type="textfield" label="Provider">
+                    <key name="exampleText">The data provider. Must correspond to the name of the Python class that implements the provider.</key>
+                    <view name="create"/>
+                    <view name="edit"/>
+                    <view name="list"/>
+                </element>
+                <element name="proxy_port" type="textfield" label="Proxy Port">
+                    <key name="exampleText">A proxy server port.</key>
+                    <view name="create"/>
+                    <view name="edit"/>
+                    <view name="list"/>
+                </element>
+                <element name="proxy_server" type="textfield" label="Proxy Server">
+                    <key name="exampleText">A proxy server name.</key>
+                    <view name="create"/>
+                    <view name="edit"/>
+                    <view name="list"/>
+                </element>
+                <element name="proxy_user" type="textfield" label="Proxy User">
+                    <key name="exampleText">A proxy server user name. If present, must correspond to a credential name in Splunk's secure credential store.</key>
+                    <view name="create"/>
+                    <view name="edit"/>
+                    <view name="list"/>
+                </element>
+                <element name="queue_interval" type="textfield" label="Queue Interval">
+                    <key name="exampleText">The interval (in seconds) between successive queries.</key>
+                    <view name="create"/>
+                    <view name="edit"/>
+                    <view name="list"/>
+                </element>
+                <element name="query_interval" type="textfield" label="Query Interval">
+                    <key name="exampleText">A proxy server name.</key>
+                    <view name="create"/>
+                    <view name="edit"/>
+                    <view name="list"/>
+                </element>
+                <element name="reverse_dns_enabled" type="checkbox" label="Reverse DNS Enabled">
+                    <key name="exampleText">Attempt to resolve IP address to domain names. Disabled by default. WARNING: Enabling reverse DNS resolution may expose the existence of your system to an attacker.</key>
+                    <key name="processValueList">'True' if value == '1' else 'False'</key>
+                    <view name="create"/>
+                    <view name="edit"/>
+                    <view name="list"/>
+                </element>
+            </elements>
+        </element>
+    </elements>
+</endpoint>

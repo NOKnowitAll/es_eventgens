@@ -1,0 +1,149 @@
+<div id="logReviewPopupProblemModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="logReviewPopupProblemModal" aria-hidden="true">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h3 id="problem_title"></h3>
+    </div>
+    <div class="modal-body">
+        <div class="message-icon">
+            <i class="icon-warning-sign icon-large"></i>
+        </div>
+        <div id="problem_message"></div>
+    </div>
+    <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true"><%- _("Close").t() %></button>
+    </div>
+</div>
+
+<div id="logReviewPopupSuccessModal" class="modal fade in hide" tabindex="-1">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h3 id="success_title" class="text-dialog-title"></h3>
+    </div>
+    <div class="modal-body" style="padding-bottom: 20px;">
+    
+        <div id="modal_alert_message" class="alert alert-info" style="margin-bottom: 0;">
+            <div class="icon-alert"></div>
+            <span id="success_message"></span>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <div>
+            <a href="#" data-dismiss="modal" aria-hidden="true" id="cancel-timeline-entry-operation" class="btn btn-dialog-cancel"><%- _("OK").t() %></a>
+        </div>
+    </div>
+</div>
+
+<div id="logReviewPopupModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="logReviewPopupModal" aria-hidden="true">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h3><%- _("Edit Events").t() %></h3>
+    </div>
+    <div class="modal-body">
+        
+        <div id="error_message" class="hide alert alert-error">
+		  <i class="icon-alert"></i><span id="error_text"><%- _("Changes could not be saved").t() %></span>
+		</div>
+		
+		<div id="info_message" class="hide alert alert-info">
+          <i class="icon-alert"></i><span id="info_text"></span>
+        </div>
+        
+        <form class="form-horizontal">
+            
+            <div class="control-group" id="status-control-group">
+                <label class="control-label"><%- _("Status").t() %></label>
+                
+                <div class="controls">
+                    <div class="input input-dropdown" id="log_review_statuses_input"></div>
+                </div>
+            </div>
+            
+            <% if(urgency_override_allowed) {%>
+            <div class="control-group" id="urgency-control-group">
+                <label class="control-label"><%- _("Urgency").t() %></label>
+                
+                <div class="controls">
+                    <div class="input input-dropdown" id="log_review_urgencies_input"></div>
+                </div>
+            </div>
+            <% } %>
+            
+            <div class="control-group" id="owner-control-group">
+                <label class="control-label"><%- _("Owner").t() %></label>
+                
+                <div class="controls">
+                    <div class="input input-dropdown" id="log_review_owners_input"></div>
+                    <div>
+                        <a href="#" id="owner-set-current" style="display: none;">Assign to me</a>
+                    </div>
+                </div>
+                
+
+            </div>
+            
+            <div class="control-group" id="comment-control-group">
+                <label class="control-label"><%- _("Comment").t() %><% if (comment_length_required > 0) { %><span class="requiredAsterisk">*</span><% } %></label>
+                <div class="controls">
+                  <textarea id="comment_textarea" class="input-large" rows="5" name="comment"></textarea>
+                  <span class="help-block"></span>
+                </div>
+            </div>
+            
+         </form>
+    
+    </div>
+    <div class="modal-footer">
+        <button id="cancel" class="btn" data-dismiss="modal" aria-hidden="true"><%- _("Cancel").t() %></button>
+        <button id="save" class="btn btn-primary pull-right save disabled"><%- _("Save changes").t() %></button>
+    </div>
+</div>
+
+<!-- Investigation Popup Modal -->
+<div id="investigationPopupModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="investigationPopupModal" aria-hidden="true">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h3><%- _("Add to Investigation").t() %></h3>
+    </div>
+    <div class="modal-body">
+        <div id="investigation_info_message" class="hide alert alert-info show_when_editing" style="margin-bottom: 0;">
+          <i class="icon-alert"></i><span id="investigation_info_text"></span>
+        </div>
+        <div class="hide show_on_success">
+		    <div class="alert alert-info">
+		        <i class="icon-alert"></i><%- _("Event(s) were successfully added to the investigation").t() %>
+		        <div id="close">
+		            <a data-dismiss="modal" aria-hidden="true" href="#"><%- _("Close this dialog").t() %></a>
+		        </div>
+		    </div>
+		</div>
+        <div class="investigation_container show_when_editing">
+            <div id="investigation_label" align="right" style="vertical-align: middle;">
+                <label><%- _("Select an Investigation").t() %></label>
+            </div>
+            <div id="investigations" align="left"></div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button id="inv_cancel" class="btn pull-left" data-dismiss="modal" aria-hidden="true"><%- _("Cancel").t() %></button>
+        <div class="show_when_editing pull-right">
+            <button id="create_new_investigation" disabled="disabled" class="btn btn-secondary"><%- _("Create new investigation").t() %></button>
+            <button id="inv_save" disabled="disabled" class="btn btn-primary"><%- _("Save").t() %></button>
+        </div>
+        <div class="show_on_success pull-right" style="display:none;">
+            <a id="back" href="#" class="btn"><%- _("Add event(s) to another investigation").t() %></a>
+        </div>
+    </div>
+</div>
+
+<!-- New Investigation Modal -->
+<div id="new_investigation_modal"></div>
+
+<div id="logReviewPopupControls">
+    <% if(show_select_unselect_all){ %>
+    <a id="selectAll" href="#"><%- _("Select all").t() %></a> |
+    <a id="unSelectAll" href="#"><%- _("Unselect all").t() %></a> |
+    <% } %>
+    <a id="editAllSelected" href="#"><%- _("Edit Selected").t() %></a> |
+    <a id="editAll" href="#"></a> |
+    <a id="addToInvestigation" href="#"><%- _("Add Selected to Investigation").t() %></a>
+</div>

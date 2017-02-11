@@ -1,0 +1,15 @@
+<% alerts.map(function(alert) { %> 
+<li class="alert-menu-entry">
+    <a data-name="<%- alert.name %>" href="#">
+        <img src="<%= encodeURI(alert.getIconUrl()) %>"> 
+        <span class="alert-name"><%- alert.label %></span>
+        <span class="description"><%- alert.description %></span>
+        <div class="details">
+            Category: <span><%- (alert.getCategories() && alert.getCategories().length !== 0) ? alert.getCategories().join(', ') : 'others' %></span> |
+            Task: <span><%- (alert.getTasks() && alert.getTasks().length !== 0) ? alert.getTasks().join(', ') : 'others' %></span> |
+            Subject: <span><%- (alert.getSubjects() && alert.getSubjects().length !== 0) ? alert.getSubjects().join(', ') : 'others' %></span> |
+            Vendor: <span><%- (alert.getVendors() && alert.getVendors().length !== 0) ? alert.getVendors().join(', ') : 'unknown' %></span>
+        </div>
+    </a>
+</li>
+<% }) %>

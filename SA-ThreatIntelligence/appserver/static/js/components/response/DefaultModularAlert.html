@@ -1,0 +1,13 @@
+<div class="alert-container" id="alert-<%- alert.name %>">
+    <div class="alert-header">
+        <a class="accordion-toggle" data-name="<%- alert.name %>" href="#">
+            <i class="icon-accordion-toggle icon-chevron-right"></i>
+            <img src="<%= encodeURI(alert.getIconUrl()) %>" /><%- alert.label %>
+        </a>
+        <a class="remove-alert-action pull-right" data-name="<%- alert.name %>" href="#" >
+            <i class="icon-close"></i>
+        </a>
+    </div>
+    <div class="alert-body">
+    </div>
+</div>

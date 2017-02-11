@@ -1,0 +1,62 @@
+[app/install/install_source_checksum]
+version = 6.5.2
+modtime = 1486665187.858246000
+
+[inputs/threatlist%3A%2F%2Fiblocklist_logmein]
+version = 6.5.2
+modtime = 1486665246.688421000
+
+[inputs/threatlist%3A%2F%2Fiblocklist_piratebay]
+version = 6.5.2
+modtime = 1486665246.733041000
+
+[inputs/threatlist%3A%2F%2Fiblocklist_proxy]
+version = 6.5.2
+modtime = 1486665246.776011000
+
+[inputs/threatlist%3A%2F%2Fiblocklist_rapidshare]
+version = 6.5.2
+modtime = 1486665246.818268000
+
+[inputs/threatlist%3A%2F%2Fiblocklist_spyware]
+version = 6.5.2
+modtime = 1486665246.861623000
+
+[inputs/threatlist%3A%2F%2Fiblocklist_tor]
+version = 6.5.2
+modtime = 1486665246.907405000
+
+[inputs/threatlist%3A%2F%2Fiblocklist_web_attacker]
+version = 6.5.2
+modtime = 1486665246.953499000
+
+[inputs/threatlist%3A%2F%2Fmalware_domains]
+version = 6.5.2
+modtime = 1486665246.993012000
+
+[inputs/threatlist%3A%2F%2Fsans]
+version = 6.5.2
+modtime = 1486665247.035717000
+
+[inputs/threatlist_manager%3A%2F%2Fdefault]
+version = 6.5.2
+modtime = 1486665247.080724000
+
+[datamodels/Risk]
+version = 6.5.2
+modtime = 1486665274.211399000
+
+[]
+access = read : [ * ], write : [ admin ]
+export = system
+version = 6.5.2
+modtime = 1486665275.177858000
+import = DA-ESS-AccessProtection, DA-ESS-EndpointProtection, DA-ESS-IdentityManagement, DA-ESS-NetworkProtection, DA-ESS-ThreatIntelligence, SA-AccessProtection, SA-AuditAndDataProtection, SA-EndpointProtection, SA-IdentityManagement, SA-NetworkProtection, SA-Utils, SplunkEnterpriseSecuritySuite, Splunk_DA-ESS_PCICompliance, Splunk_SA_CIM, Splunk_SA_ExtremeSearch, Splunk_TA_bluecoat-proxysg, Splunk_TA_bro, Splunk_TA_flowfix, Splunk_TA_juniper, Splunk_TA_mcafee, Splunk_TA_nessus, Splunk_TA_nix, Splunk_TA_oracle, Splunk_TA_ossec, Splunk_TA_rsa-securid, Splunk_TA_sophos, Splunk_TA_sourcefire, Splunk_TA_symantec-ep, Splunk_TA_ueba, Splunk_TA_websense-cg, Splunk_TA_windows, TA-airdefense, TA-alcatel, TA-cef, TA-fortinet, TA-ftp, TA-nmap, TA-tippingpoint, TA-trendmicro, appsbrowser, search
+
+[datamodels/Incident_Management]
+version = 6.5.2
+modtime = 1486665275.762653000
+
+[lookups/mozilla_public_suffix.csv]
+version = 6.5.2
+modtime = 1486665283.184513000

@@ -1,0 +1,64 @@
+<setup>
+	<block title="Symantec Endpoint Protection Malware Category Lookup" endpoint="symantec_ep_setup/symantec_ep_script" entity="symantec_ep_script">
+		<input field="script_enabled">
+			<label>Enable Splunk Enterprise to automatically update the malware category lookup table with the latest list of threats and risks from Symantec</label>
+			<type>bool</type>
+		</input>
+		<input field="interval">
+			<label>Interval</label>
+			<type>text</type>
+		</input>
+	</block>
+	<block title="Proxy Settings" endpoint="symantec_ep_setup/symantec_ep_proxy" entity="symantec_ep_proxy">
+		<input field="proxy_enabled">
+			<label>Enable proxy</label>
+			<type>bool</type>
+		</input>
+		<input field="proxy_url">
+			<label>Host or IP</label>
+			<type>text</type>
+		</input>
+		<input field="proxy_port">
+			<label>Port</label>
+			<type>text</type>
+		</input>
+		<input field="proxy_username">
+			<label>Username</label>
+			<type>text</type>
+		</input>
+		<input field="proxy_password">
+			<label>Password</label>
+			<type>password</type>
+		</input>
+        <text>
+            <![CDATA[ <script type="text/javascript">
+              $(function() {
+                var proxy_host = $("#item-\\/symantec_ep_setup\\/symantec_ep_proxy\\/symantec_ep_proxy\\/proxy_url");
+                var proxy_port = $("#item-\\/symantec_ep_setup\\/symantec_ep_proxy\\/symantec_ep_proxy\\/proxy_port");
+                var proxy_user = $("#item-\\/symantec_ep_setup\\/symantec_ep_proxy\\/symantec_ep_proxy\\/proxy_username");
+                var proxy_password = $("#item-\\/symantec_ep_setup\\/symantec_ep_proxy\\/symantec_ep_proxy\\/proxy_password");
+                var proxy_check_box = $("#item-\\/symantec_ep_setup\\/symantec_ep_proxy\\/symantec_ep_proxy\\/proxy_enabled");
+
+                var show_hide = function() {
+                    checked = $("#\\/symantec_ep_setup\\/symantec_ep_proxy\\/symantec_ep_proxy\\/proxy_enabled_id")[0].checked;
+                    if (checked) {
+                        proxy_host.show();
+                        proxy_port.show();
+                        proxy_user.show();
+                        proxy_password.show();
+                    }
+                    else {
+                        proxy_host.hide();
+                        proxy_port.hide();
+                        proxy_user.hide();
+                        proxy_password.hide();
+                    }
+                };
+                show_hide();
+
+                proxy_check_box.on("change", show_hide);
+              });
+            </script> ]]>
+        </text>
+	</block>
+</setup>

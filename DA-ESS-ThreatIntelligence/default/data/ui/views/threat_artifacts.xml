@@ -1,0 +1,454 @@
+<form script="threat_artifacts.js" stylesheet="threat_artifacts.css">
+	<label>Threat Artifacts</label>
+	<fieldset submitButton="true" autoRun="true">
+		<html id="threat_artifact_holder">
+			<label id="label_threat_artifact_holder"></label>
+			<div id="threat_artifact">
+			</div>
+		</html>
+		<input type="dropdown" token="threat_category" id="threat_category">
+			<label>Threat Category</label>
+			<choice value="">All</choice>
+			<default></default>
+			<search>
+			    <query>|`threat_categories` | mvexpand threat_category | dedup threat_category | sort + threat_category</query>
+			</search>
+			<fieldForLabel>threat_category</fieldForLabel>
+			<fieldForValue>threat_category</fieldForValue>
+		</input>
+		<input type="dropdown" token="threat_group" id="threat_group">
+			<label>Threat Group</label>
+			<choice value="">All</choice>
+			<default></default>
+			<search>
+			    <query>| `threat_groups` | mvexpand threat_group | dedup threat_group | sort + threat_group</query>
+			</search>
+			<fieldForLabel>threat_group</fieldForLabel>
+			<fieldForValue>threat_group</fieldForValue>
+		</input>
+		<input type="text" token="malware_alias" id="malware_alias">
+			<label>Malware Alias</label>
+			<default></default>
+		</input>
+		<input type="text" token="threat_source_id" id="threat_source_id">
+			<label>Intel Source ID</label>
+			<default></default>
+		</input>
+		<input type="text" token="threat_source_path" id="threat_source_path">
+			<label>Intel Source Path</label>
+			<default></default>
+		</input>
+		<input type="text" token="ip" id="ip">
+			<label>IP</label>
+			<default></default>
+		</input>
+		<input type="text" token="domain" id="domain">
+			<label>Domain</label>
+			<default></default>
+		</input>
+		<html id="http_holder">
+			<label id="label_http_holder"></label>
+			<div id="http">
+			</div>
+		</html>
+		<input type="text" token="file_name" id="file_name">
+			<label>File Name</label>
+			<default></default>
+		</input>
+		<input type="text" token="file_extension" id="file_extension">
+			<label>File Extension</label>
+			<default></default>
+		</input>
+		<input type="text" token="file_path" id="file_path">
+			<label>File Path</label>
+			<default></default>
+		</input>
+		<input type="text" token="file_hash" id="file_hash">
+			<label>File Hash</label>
+			<default></default>
+		</input>
+		<input type="text" token="process" id="process">
+			<label>Process</label>
+			<default></default>
+		</input>
+		<input type="text" token="process_arguments" id="process_arguments">
+			<label>Process Arguments</label>
+			<default></default>
+		</input>
+		<input type="text" token="handle_name" id="handle_name">
+			<label>Handle Name</label>
+			<default></default>
+		</input>
+		<input type="text" token="handle_type" id="handle_type">
+			<!-- enumerate -->
+			<label>Handle Type</label>
+			<default></default>
+		</input>
+		<input type="text" token="registry_hive" id="registry_hive">
+            <label>Hive</label>
+            <default></default>
+        </input>
+        <input type="text" token="registry_path" id="registry_path">
+            <label>Path</label>
+            <default></default>
+        </input>
+		<input type="text" token="registry_key_name" id="registry_key_name">
+			<label>Key Name</label>
+			<default></default>
+		</input>
+		<input type="text" token="registry_value_name" id="registry_value_name">
+			<label>Value Name</label>
+			<default></default>
+		</input>
+		<input type="text" token="registry_value_type" id="registry_value_type">
+			<label>Value Type</label>
+			<default></default>
+		</input>
+		<input type="text" token="registry_value_text" id="registry_value_text">
+			<label>Value Text</label>
+			<default></default>
+		</input>
+		<input type="text" token="service_name" id="service_name">
+			<label>Name</label>
+			<default></default>
+		</input>
+		<input type="text" token="service_descriptive_name" id="service_descriptive_name">
+			<label>Descriptive Name</label>
+			<default></default>
+		</input>
+		<input type="text" token="service_description" id="service_description">
+			<label>Description</label>
+			<default></default>
+		</input>
+		<input type="text" token="service_type" id="service_type">
+			<label>Type</label>
+			<default></default>
+		</input>
+		<input type="text" token="user_name" id="user_name">
+			<label>User</label>
+			<default></default>
+		</input>
+		<input type="text" token="user_full_name" id="user_full_name">
+			<label>Full Name</label>
+			<default></default>
+		</input>
+		<input type="text" token="user_group_name" id="user_group_name">
+			<label>Group Name</label>
+			<default></default>
+		</input>
+		<input type="text" token="user_description" id="user_description">
+			<label>Description</label>
+			<default></default>
+		</input>
+		<input type="text" token="certificate_serial_number" id="certificate_serial_number">
+			<label>Serial Number</label>
+			<default></default>
+		</input>
+		<input type="text" token="certificate_subject" id="certificate_subject">
+			<label>Subject</label>
+			<default></default>
+		</input>
+		<input type="text" token="certificate_issuer" id="certificate_issuer">
+			<label>Issuer</label>
+			<default></default>
+		</input>
+		<input type="text" token="certificate_valid_not_after" id="certificate_valid_not_after">
+			<label>Validity Not After</label>
+			<default></default>
+		</input>
+		<input type="text" token="certificate_valid_not_before" id="certificate_valid_not_before">
+			<label>Validity Not Before</label>
+			<default></default>
+		</input>
+		<input type="text" token="email_address" id="email_address">
+			<label>Address</label>
+			<default></default>
+		</input>
+		<input type="text" token="email_subject" id="email_subject">
+			<label>Subject</label>
+			<default></default>
+		</input>
+		<input type="text" token="email_body" id="email_body">
+			<label>Body</label>
+			<default></default>
+		</input>
+	</fieldset>
+	<row id="tabs">
+		<panel>
+			<html>
+				<ul id="tabs" class="nav nav-tabs">
+                    <li class="active">
+                        <a href="#threat" class="toggle-tab" id="id_tab_threat_overview"
+                            data-elements="tab_threat,tab_threat_2,tab_threat_3"
+                            data-toggle="tab"/>
+                    </li>
+					<li>
+						<a href="#network" class="toggle-tab" id="id_tab_network"
+							data-elements="tab_network,tab_network_2"
+							data-toggle="tab"/>
+					</li>
+					<li>
+						<a href="#endpoint" class="toggle-tab" id="id_tab_endpoint"
+							data-elements="tab_endpoint,tab_endpoint_2,tab_endpoint_3"
+							data-toggle="tab"/>
+					</li>
+					<li>
+						<a href="#ssl" class="toggle-tab" id="id_tab_certificate"
+						    data-elements="tab_ssl"
+							data-toggle="tab"/>
+					</li>
+					<li>
+						<a href="#email" class="toggle-tab" id="id_tab_email"
+						    data-elements="tab_email"
+							data-toggle="tab"/>
+					</li>
+				</ul>
+			</html>
+		</panel>
+	</row>
+	<row id="tab_network">
+		<panel>
+			<table>
+				<title>HTTP Intelligence</title>
+				<search>
+					<query>| $tab_network$ `http_intel`| `get_threat_attribution(threat_key)`| search $threat_id_filter$ $network_filter$ $file_filter$ $registry_filter$ $service_filter$ $user_filter$ $process_filter$ $certificate_filter$ $email_filter$ | where isnotnull(http_method) OR isnotnull(url) OR isnotnull(uri_path) OR isnotnull(uri_query) OR isnotnull(http_version) OR isnotnull(header) OR isnotnull(data) OR isnotnull(http_content_type) OR isnotnull(http_referrer) OR isnotnull(http_user_agent) OR isnotnull(http_user_agent_length) OR isnotnull(status) OR isnotnull(cookie)| fields http_method, url, uri_path, uri_query, http_version, header, data, http_content_type, http_referrer, http_user_agent, http_user_agent_length, status, cookie, threat_group, threat_category, source_id</query>
+					<earliest>0</earliest>
+					<latest></latest>
+				</search>
+				<option name="wrap">false</option>
+				<option name="rowNumbers">false</option>
+				<option name="drilldown">none</option>
+				<option name="dataOverlayMode">none</option>
+				<option name="count">10</option>
+			</table>
+		</panel>
+	</row>
+	<row id="tab_network_2">
+		<panel>
+			<table>
+				<title>IP Intelligence</title>
+				<search>
+					<query>| $tab_network$ `email_intel` | `certificate_intel` | `http_intel` | `ip_intel` | `get_threat_attribution(threat_key)` | rename embedded_ip* as ip*, embedded_domain* as domain*, certificate_file_hash* as file_hash*, certificate_subject_email* as src_user*, certificate_issuer_email* as actual_src_user* | where isnotnull(ip) | fillnull value="" threat_group, threat_category, malware_alias, source_id, source_path | search $network_filter$ $email_filter$ $certificate_filter$ $file_filter$ $threat_id_filter$ $registry_filter$ $service_filter$ $user_filter$ $process_filter$ | stats values(domain) as domain, values(threat_collection) as threat_collection, values(organization_id) as organization_id, values(organization_name) as organization_name, values(address) as address, values(city) as city, values(state_prov) as state_prov, values(postal_code) as postal_code, values(country) as country, values(threat_group) as threat_group, values(threat_category) as threat_category, values(source_id) as source_id by ip | iplocation ip | eval city=case(isnotnull(city),city,isnotnull(City),City,1=1,null()) | eval country=case(isnotnull(country),country,isnotnull(Country),Country,1=1,null()) | rename Region as region | fields - City,Country | sort + ip</query>
+					<earliest>0</earliest>
+					<latest></latest>
+				</search>
+				<option name="wrap">false</option>
+				<option name="rowNumbers">false</option>
+				<option name="drilldown">none</option>
+				<option name="dataOverlayMode">none</option>
+				<option name="count">10</option>
+			</table>
+		</panel>
+		<panel>
+			<table>
+				<title>Domain Intelligence</title>
+				<search>
+					<query>| $tab_network$ `email_intel` | `certificate_intel` | `http_intel` | `ip_intel` | rename embedded_ip* as ip*, embedded_domain* as domain*, certificate_file_hash* as file_hash*, certificate_subject_email* as src_user*, certificate_issuer_email* as actual_src_user* | where isnotnull(domain) | `get_threat_attribution(threat_key)` | fillnull value="" threat_group, threat_category, malware_alias, source_id, source_path | search $network_filter$ $email_filter$ $certificate_filter$ $file_filter$ $service_filter$ $registry_filter$ $process_filter$ $user_filter$ $threat_id_filter$ | stats values(ip) as ip, values(threat_collection) as threat_collection, values(threat_group) as threat_group, values(threat_category) as threat_category, values(source_id) as source_id by domain | sort + domain</query>
+					<earliest>0</earliest>
+					<latest></latest>
+				</search>
+				<option name="wrap">false</option>
+				<option name="rowNumbers">false</option>
+				<option name="drilldown">none</option>
+				<option name="dataOverlayMode">none</option>
+				<option name="count">10</option>
+			</table>
+		</panel>
+	</row>
+	<row id="tab_endpoint">
+		<panel>
+			<table>
+				<title>File Intelligence</title>
+				<search>
+					<query>| $tab_endpoint$ `service_intel` | eval file_name=mvappend(service_file_name,service_dll_file_name) | eval file_path=mvappend(service_file_path, service_dll_file_path) | eval file_hash=mvappend(service_file_hash, service_dll_file_hash) | `process_intel` | eval ip=mvappend(src, dest) | eval domain=mvappend(src, dest) | `file_intel` | `certificate_intel` | `email_intel` | rename certificate_file_hash as file_hash, certificate_subject_email as src_user, certificate_issuer_email as actual_src_user, embedded_ip as ip, embedded_domain as domain, process_file_name as file_name, process_file_path as file_path | `get_threat_attribution(threat_key)` | search $file_filter$ $service_filter$ $process_filter$ $registry_filter$ $user_filter$ $certificate_filter$ $email_filter$ $network_filter$ $threat_id_filter$| where isnotnull(file_hash) OR isnotnull(file_name) OR isnotnull(file_extension) OR isnotnull(file_path) OR isnotnull(file_size) | fields file_hash, file_name, file_extension, file_path, file_size, threat_collection, threat_group, threat_category, source_id | sort - file_hash</query>
+					<earliest>0</earliest>
+					<latest></latest>
+				</search>
+				<option name="wrap">false</option>
+				<option name="rowNumbers">false</option>
+				<option name="drilldown">none</option>
+				<option name="dataOverlayMode">none</option>
+				<option name="count">10</option>
+			</table>
+		</panel>
+	</row>
+	<row id="tab_endpoint_2">
+		<panel>
+			<table>
+				<title>Registry Intelligence</title>
+				<search>
+					<query>| $tab_endpoint$ `registry_intel` | `get_threat_attribution(threat_key)` | search $registry_filter$ $user_filter$ $file_filter$ $service_filter$ $process_filter$ $threat_id_filter$ $network_filter$ $certificate_filter$ $email_filter$ | where isnotnull(registry_hive) OR isnotnull(registry_path) OR isnotnull(registry_key_name) OR isnotnull(registry_value_name) OR isnotnull(registry_value_type) OR isnotnull(registry_value_text) OR isnotnull(registry_value_data) OR isnotnull(registry_modified_time) OR isnotnull(user)| fields registry_hive, registry_path, registry_key_name, registry_value_name, registry_value_type, registry_value_text, registry_value_data, registry_modified_time, user, threat_group, threat_category, source_id</query>
+					<earliest>0</earliest>
+					<latest></latest>
+				</search>
+				<option name="wrap">false</option>
+				<option name="rowNumbers">false</option>
+				<option name="drilldown">none</option>
+				<option name="dataOverlayMode">none</option>
+				<option name="count">10</option>
+			</table>
+		</panel>
+		<panel>
+			<table>
+				<title>Process Intelligence</title>
+				<search>
+					<query>| $tab_endpoint$ `process_intel`| eval ip=mvappend(src,dest) | eval domain=mvappend(src,dest) | rename process_file_name as file_name, process_file_path as file_path | `get_threat_attribution(threat_key)` | search $process_filter$ $file_filter$ $registry_filter$ $service_filter$ $user_filter$ $threat_id_filter$ $certificate_filter$ $email_filter$ $network_filter$ | where isnotnull(process) OR isnotnull(process_arguments) OR isnotnull(process_handle_name) OR isnotnull(process_handle_type)| fields process, process_arguments, process_handle_name, process_handle_type, threat_group, threat_category, source_id | sort + process</query>
+					<earliest>0</earliest>
+					<latest></latest>
+				</search>
+				<option name="wrap">false</option>
+				<option name="rowNumbers">false</option>
+				<option name="drilldown">none</option>
+				<option name="dataOverlayMode">none</option>
+				<option name="count">10</option>
+			</table>
+		</panel>
+	</row>
+	<row id="tab_endpoint_3">
+		<panel>
+			<table>
+				<title>Service Intelligence</title>
+				<search>
+					<query>| $tab_endpoint$ `service_intel`| eval file_name=mvappend(service_file_name, service_dll_file_name) | eval file_path=mvappend(service_file_path, service_dll_file_path) | eval file_hash=mvappend(service_file_hash, service_dll_file_hash) | search $service_filter$ $file_filter$ $registry_filter$ $user_filter$ $process_filter$ $certificate_filter$ $email_filter$ $network_filter$ | rename description as service_description | `get_threat_attribution(threat_key)` | search $threat_id_filter$ | where isnotnull(service) OR isnotnull(descriptive_name) OR isnotnull(service_description) OR isnotnull(status) OR isnotnull(service_type) OR isnotnull(start_mode) | fields service,descriptive_name,service_description,status,service_type,start_mode, threat_group, threat_category, source_id | sort + service</query>
+					<earliest>0</earliest>
+					<latest></latest>
+				</search>
+				<option name="wrap">false</option>
+				<option name="rowNumbers">false</option>
+				<option name="drilldown">none</option>
+				<option name="dataOverlayMode">none</option>
+				<option name="count">10</option>
+			</table>
+		</panel>
+		<panel>
+			<table>
+				<title>User Intelligence</title>
+				<search>
+					<query>| $tab_endpoint$ `user_intel` | search $user_filter$ $file_filter$ $registry_filter$ $service_filter$ $process_filter$ $network_filter$ $certificate_filter$ $email_filter$ | rename description as user_description | `get_threat_attribution(threat_key)` | search $threat_id_filter$ | where isnotnull(user) OR isnotnull(full_name) OR isnotnull(group_name) OR isnotnull(user_description)| fields user,full_name,group_name,user_description, threat_group, threat_category, source_id | sort + user</query>
+					<earliest>0</earliest>
+					<latest></latest>
+				</search>
+				<option name="wrap">false</option>
+				<option name="rowNumbers">false</option>
+				<option name="drilldown">none</option>
+				<option name="dataOverlayMode">none</option>
+				<option name="count">10</option>
+			</table>
+		</panel>
+	</row>
+	<row id="tab_ssl">
+		<panel>
+			<table>
+				<title>Certificate Intelligence</title>
+				<search>
+					<query>| $tab_ssl$ `certificate_intel` | `get_threat_attribution(threat_key)` | rename certificate_file_hash as file_hash, certificate_subject_email as src_user, certificate_issuer_email as actual_src_user | search $certificate_filter$ $email_filter$ $network_filter$ $file_filter$ $registry_filter$ $service_filter$ $user_filter$ $process_filter$ $threat_id_filter$ | where isnotnull(certificate_serial) OR isnotnull(certificate_issuer) OR isnotnull(certificate_subject) OR isnotnull(certificate_start_time) OR isnotnull(certificate_end_time) OR isnotnull(certificate_version) OR isnotnull(certificate_handshake_type) OR isnotnull(certificate_publickey_algorithm) OR isnotnull(certificate_signature_algorithm) OR isnotnull(certificate_supported_next_protocol) | fields alias,certificate_serial,certificate_issuer,certificate_subject,certificate_start_time,certificate_end_time,certificate_version,certificate_handshake_type,certificate_publickey_algorithm,certificate_signature_algorithm,certificate_supported_next_protocol,certificate_serial_clean,certificate_serial_dec,threat_group,threat_category, source_id | eval certificate_start_time=if(isnum(certificate_start_time),strftime(certificate_start_time, "%b %d %H:%M:%S %Y %Z"), certificate_start_time) | eval certificate_end_time=if(isnum(certificate_end_time),strftime(certificate_end_time, "%b %d %H:%M:%S %Y %Z"), certificate_end_time) | sort + certificate_serial</query>
+					<earliest>0</earliest>
+					<latest></latest>
+				</search>
+				<option name="wrap">false</option>
+				<option name="rowNumbers">false</option>
+				<option name="drilldown">none</option>
+				<option name="dataOverlayMode">none</option>
+				<option name="count">10</option>
+			</table>
+		</panel>
+	</row>
+	<row id="tab_email">
+		<panel>
+			<table>
+				<title>Email Intelligence</title>
+				<search>
+					<query>| $tab_email$ `email_intel` | rename embedded_ip as ip, embedded_domain as domain | `get_threat_attribution(threat_key)` | search $email_filter$ $network_filter$ $certificate_filter$ $file_filter$ $registry_filter$ $service_filter$ $user_filter$ $process_filter$ $threat_id_filter$ | where isnotnull(received_time) OR isnotnull(src_user) OR isnotnull(actual_src_user) OR isnotnull(recipient) OR isnotnull(actual_recipient) OR isnotnull(subject) OR isnotnull(src) OR isnotnull(attachment_type) OR isnotnull(body) | fields alias,received_time,src_user,actual_src_user,recipient,actual_recipient,subject,src, attachment_type, threat_group, threat_category, source_id, body | sort alias</query>
+					<earliest>0</earliest>
+					<latest></latest>
+				</search>
+				<option name="wrap">false</option>
+				<option name="rowNumbers">false</option>
+				<option name="drilldown">none</option>
+				<option name="dataOverlayMode">none</option>
+				<option name="count">10</option>
+			</table>
+		</panel>
+	</row>
+	<row id="tab_threat">
+		<panel>
+			<table>
+				<title>Threat Overview</title>
+				<search>
+					<query>| $tab_threat$ `service_intel` | eval file_name=mvappend(service_file_name,service_dll_file_name) | eval file_path=mvappend(service_file_path, service_dll_file_path) | eval file_hash=mvappend(service_file_hash, service_dll_file_hash) | `process_intel` | eval ip=mvappend(src, dest) | eval domain=mvappend(src, dest)| `file_intel` | `certificate_intel` | `email_intel` | `http_intel` | `ip_intel` | `registry_intel` | `user_intel`| rename certificate_file_hash as file_hash, certificate_issuer_email as src_user, certificate_subject_email as actual_src_user, embedded_ip as ip, embedded_domain as domain process_file_name as file_name, process_file_path as file_path | search $file_filter$ $process_filter$ $registry_filter$ $service_filter$ $user_filter$ $certificate_filter$ $email_filter$ $network_filter$| stats dc(file_hash) as file_hash_count, dc(file_name) as file_name_count, dc(certificate_serial) as certificate_serial_count, dc(certificate_issuer_common_name) as certificate_issuer_common_name_count, dc(src_user) as src_user_count, dc(certificate_issuer_organization) as certificate_issuer_organization_count, dc(certificate_issuer_unit) as certificate_issuer_unit_count, dc(certificate_subject_common_name) as certificate_subject_common_name_count, dc(actual_src_user) as actual_src_user_count, dc(certificate_subject_organization) as certificate_subject_organization_count, dc(certificate_subject_unit) as certificate_subject_unit_count, dc(ip) as ip_count, dc(domain) as domain_count, dc(subject) as subject_count, dc(http_user_agent) as http_user_agent_count, dc(http_referrer) as http_referrer_count, dc(url) as url_count, dc(header) as header_count, dc(process) as process_count, dc(process_handle_name) as process_handle_name_count, dc(registry_path) as registry_path_count, dc(registry_value_name) as registry_value_name_count, dc(registry_value_text) as registry_value_text_count, dc(service) as service_count, dc(user) as user_count by threat_key | addtotals fieldname=count *_count | `get_threat_attribution(threat_key)` | search $threat_id_filter$ | fields source_id, source_path, source_type, threat_group, threat_category, malware_alias, count| sort + threat_group, threat_category, - count</query>
+					<earliest>0</earliest>
+					<latest></latest>
+				</search>
+				<option name="wrap">false</option>
+				<option name="rowNumbers">false</option>
+				<option name="drilldown">none</option>
+				<option name="dataOverlayMode">none</option>
+				<option name="count">10</option>
+			</table>
+		</panel>
+	</row>
+	<row id="tab_threat_2">
+		<panel>
+			<table>
+				<title>Endpoint Artifacts</title>
+				<search>
+					<query>| $tab_threat$ `service_intel` | eval file_name=mvappend(service_file_name,service_dll_file_name) | eval file_path=mvappend(service_file_path, service_dll_file_path) | eval file_hash=mvappend(service_file_hash, service_dll_file_hash) | `process_intel` | eval ip=mvappend(src, dest) | eval domain=mvappend(src, dest)| `file_intel` | `registry_intel` | `user_intel` | `email_intel` | `certificate_intel` | rename embedded_ip as ip, embedded_domain as domain, certificate_file_hash as file_hash, certificate_issuer_email as src_user, certificate_subject_email as actual_src_user, process_file_name as file_name, process_file_path as file_path| search $file_filter$ $registry_filter$ $user_filter$ $service_filter$ $process_filter$ $email_filter$ $certificate_filter$ $network_filter$ | `get_threat_attribution(threat_key)`| search $threat_id_filter$ | fillnull value="" threat_collection, source_type, threat_group, threat_category, malware_alias| stats dc(file_hash) as file_hash_count, dc(file_name) as file_name_count, dc(registry_path) as registry_path_count, dc(registry_value_name) as registry_value_name_count, dc(registry_value_text) as registry_value_text_count, dc(process) as process_count, dc(process_handle_name) as process_handle_name_count, dc(service) as service_count, dc(user) as user_count by threat_collection, source_type, threat_group, threat_category, malware_alias| addtotals fieldname=count *_count| where count > 0| fields threat_collection, source_type, threat_group, threat_category, malware_alias, count| sort - count</query>
+					<earliest>0</earliest>
+					<latest></latest>
+				</search>
+				<option name="wrap">false</option>
+				<option name="rowNumbers">false</option>
+				<option name="drilldown">none</option>
+				<option name="dataOverlayMode">none</option>
+				<option name="count">10</option>
+			</table>
+		</panel>
+		<panel>
+			<table>
+				<title>Network Artifacts</title>
+				<search>
+					<query>| $tab_threat$ `process_intel` | eval ip=mvappend(src, dest) | eval domain=mvappend(src, dest) | `certificate_intel`| `email_intel` | `ip_intel` | `http_intel`  | `get_threat_attribution(threat_key)`| rename embedded_ip as ip, embedded_domain as domain, certificate_file_hash as file_hash, certificate_subject_email as src_user, certificate_issuer_email as actual_src_user, process_file_name as file_name, process_file_path as file_path| search $network_filter$ $email_filter$ $certificate_filter$ $file_filter$ $registry_filter$ $service_filter$ $process_filter$ $user_filter$ $threat_id_filter$| `mvappend_field(url, http_referrer)`| fillnull value="" threat_collection, source_type, threat_group, threat_category, malware_alias| stats dc(ip) as ip, dc(domain) as domain, dc(url) as url, dc(http_user_agent) as http_user_agent_count, dc(header) as header_count by threat_collection, source_type, threat_group, threat_category, malware_alias| addtotals fieldname=http http_user_agent_count, header_count| addtotals fieldname=total ip, domain, url, http| where total > 0| fields threat_collection, source_type, ip, domain, url, http, total, threat_group, threat_category, malware_alias | sort - total</query>
+					<earliest>0</earliest>
+					<latest></latest>
+				</search>
+				<option name="wrap">false</option>
+                <option name="rowNumbers">false</option>
+                <option name="drilldown">none</option>
+                <option name="dataOverlayMode">none</option>
+                <option name="count">10</option>
+			</table>
+		</panel>
+	</row>
+	<row id="tab_threat_3">
+		<panel>
+			<table>
+				<title>Email Artifacts</title>
+				<search>
+					<query>| $tab_threat$ `email_intel`| rename embedded_domain as domain | eval ip=mvappend(embedded_ip, src)| `get_threat_attribution(threat_key)`| search $email_filter$ $network_filter$ $certificate_filter$ $file_filter$ $service_filter$ $registry_filter$ $process_filter$ $user_filter$ $threat_id_filter$ | fillnull value="" threat_collection, threat_group, threat_category, malware_alias, source_type| stats dc(src_user) as src_user_count, dc(subject) as subject_count, by threat_collection, source_type, threat_group, threat_category, malware_alias| addtotals fieldname=count *_count| fields threat_collection, source_type, threat_group, threat_category, malware_alias, count| sort - count</query>
+					<earliest>0</earliest>
+					<latest></latest>
+				</search>
+				<option name="wrap">false</option>
+                <option name="rowNumbers">false</option>
+                <option name="drilldown">none</option>
+                <option name="dataOverlayMode">none</option>
+                <option name="count">10</option>
+			</table>
+		</panel>
+		<panel>
+			<table>
+				<title>Certificate Artifacts</title>
+				<search>
+					<query>| $tab_threat$ `certificate_intel` | `get_threat_attribution(threat_key)`| rename certificate_file_hash as file_hash, certificate_subject_email as src_user, certificate_issuer_email as actual_src_user | search $certificate_filter$ $network_filter$ $email_filter$ $file_filter$ $registry_filter$ $service_filter$ $user_filter$ $process_filter$ $threat_id_filter$ | fillnull value="" threat_collection, threat_group, threat_category, malware_alias, source_type| stats dc(certificate_serial) as certificate_serial_count, dc(certificate_issuer_common_name) as certificate_issuer_common_name_count, dc(actual_src_user) as actual_src_user_count, dc(certificate_issuer_organization) as certificate_issuer_organization_count, dc(certificate_issuer_unit) as certificate_issuer_unit_count, dc(certificate_subject_common_name) as certificate_subject_common_name_count, dc(src_user) as src_user_count, dc(certificate_subject_organization) as certificate_subject_organization_count, dc(certificate_subject_unit) as certificate_subject_unit by threat_collection, source_type, threat_group, threat_category, malware_alias| addtotals fieldname=count *_count| fields threat_collection, source_type, threat_group, threat_category, malware_alias, count| sort - count</query>
+					<earliest>0</earliest>
+					<latest></latest>
+				</search>
+				<option name="wrap">false</option>
+                <option name="rowNumbers">false</option>
+                <option name="drilldown">none</option>
+                <option name="dataOverlayMode">none</option>
+                <option name="count">10</option>
+			</table>
+		</panel>
+	</row>
+</form>

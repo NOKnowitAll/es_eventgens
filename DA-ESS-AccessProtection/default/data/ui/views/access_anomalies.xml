@@ -1,0 +1,119 @@
+<form>
+  <label>Access Anomalies</label>
+  <description></description>
+
+  <searchTemplate> | tstats `summariesonly` values(Authentication.src) as src, values(Authentication.app) as app, latest(Authentication.user_bunit) as user_bunit from datamodel=Authentication.Authentication  where * $action$ $app$ $user$ $bunit$ by Authentication.user,Authentication.src _time span=1s 
+                   | `drop_dm_object_name("Authentication")` 
+                   | eventstats dc(src) as src_count by user
+                   | search src_count>1
+                   | sort 0 + _time
+                   | `get_asset(src)`
+                   | iplocation src 
+                   | eval session_city=if(isnull(src_city), City, src_city) 
+                   | eval session_country=if(isnull(src_country), Country, src_country) 
+                   | eval session_lat=if(isnull(src_lat), lat, src_lat) 
+                   | eval session_lon=if(isnull(src_long), lon, src_long) 
+                   | where isnotnull(session_lat) and isnotnull(session_lon)
+                   | streamstats current=t window=2 earliest(session_lat) as prev_lat, earliest(session_lon) as prev_lon, earliest(_time) as prev_time, earliest(src) as prev_src, earliest(session_city) as prev_city, earliest(session_country) as prev_country, earliest(app) as prev_app, latest(user_bunit) as user_bunit by user
+                   | where (src!=prev_src) 
+                   | `globedistance(session_lat,session_lon,prev_lat,prev_lon,"m")`
+                   | eval time_diff=if((_time-prev_time)==0, 1, _time - prev_time)
+                   | eval speed = round(distance*3600/time_diff,2)
+                   | where speed&gt;500 </searchTemplate>
+
+
+    <fieldset autoRun="true" submitButton="true">
+    
+        <input type="dropdown" token="action">
+            <label>Action</label>
+            <choice value="">All</choice>
+            <populatingSearch fieldForValue="action" fieldForLabel="action">| `cim_access_actions`</populatingSearch>
+            <default></default>
+            <prefix>Authentication.action="</prefix>
+            <suffix>"</suffix>
+        </input>
+        
+        <input type="dropdown" token="app">
+            <label>App</label>
+            <choice value="">All</choice>
+            <populatingSearch fieldForValue="app" fieldForLabel="app">| `access_apps`</populatingSearch>
+            <default></default>
+            <prefix>Authentication.app="</prefix>
+            <suffix>"</suffix>
+        </input>
+        
+        <input type="text" token="user">
+            <label>User</label>
+            <default></default>
+            <prefix>Authentication.user="</prefix>
+            <suffix>"</suffix>
+        </input>
+
+        <input type="text" token="bunit">
+            <label>Business Unit</label>
+            <default></default>
+            <prefix>Authentication.user_bunit="</prefix>
+            <suffix>"</suffix>
+        </input>
+        
+        <input type="time">
+            <default>Last 60 minutes</default>
+        </input>
+  </fieldset>
+
+  <row>
+    <panel>
+      <table>
+        <title>Geographically Improbable Accesses</title>
+        <searchPostProcess> `uitime(prev_time)`
+                            | table user, user_bunit, src, _time, session_city, session_country, app, prev_src, prev_time, prev_city, prev_country, prev_app, distance, speed </searchPostProcess>
+        <drilldown>
+            <link>access_search?form.user=$row.user$&amp;earliest=$earliest$&amp;latest=$latest$</link>
+        </drilldown>
+        <option name="drilldown">row</option>
+        <option name="count">5</option>
+      </table>
+    </panel>
+  </row>
+  <row>
+    <panel>
+      <map>
+        <searchPostProcess> eval latitude=session_lat | eval longitude=session_lon |appendpipe [| eval latitude=prev_lat | eval longitude=prev_lon]  | geostats latfield=latitude longfield=longitude count by user </searchPostProcess>
+        <option name="count">5</option>
+        <option name="mapping.data.maxClusters">100</option>
+        <option name="mapping.map.center">(24.85,26.02)</option>
+        <option name="mapping.map.zoom">2</option>
+        <option name="mapping.tileLayer.maxZoom">2</option>
+        <option name="mapping.tileLayer.minZoom">1</option>
+      </map>
+    </panel>
+  </row>
+  <row>
+    <panel>
+      <table>
+        <title>Concurrent Application Accesses</title>
+        <search>
+          <query>| tstats `summariesonly` count from datamodel=Authentication.Authentication where * $action$ $app$ $user$ $bunit$  by _time,Authentication.app,Authentication.src,Authentication.user span=1s 
+                    | `drop_dm_object_name("Authentication")` 
+                    | eventstats dc(src) as src_count by app,user 
+                    | search src_count>1 
+                    | sort 0 + _time 
+                    | streamstats current=t window=2 earliest(_time) as prev_time,earliest(src) as prev_src by app,user 
+                    | where (src!=prev_src) 
+                    | eval time_diff=abs(_time-prev_time) 
+                    | where time_diff&lt;300 
+                    | `uitime(prev_time)`
+                    | table user, app, src, _time, prev_src, prev_time, time_diff, count </query>
+        </search>
+        <drilldown>
+            <link>access_search?form.user=$row.user$&amp;earliest=$earliest$&amp;latest=$latest$</link>
+        </drilldown>
+        <option name="wrap">true</option>
+        <option name="rowNumbers">false</option>
+        <option name="dataOverlayMode">none</option>
+        <option name="drilldown">row</option>
+        <option name="count">5</option>
+      </table>
+    </panel>
+  </row>
+</form>

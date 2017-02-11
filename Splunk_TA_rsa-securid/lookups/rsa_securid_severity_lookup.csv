@@ -1,0 +1,5 @@
+log_level,severity
+INFO,informational
+WARN,warning
+ERROR,error
+SYSTEM,informational

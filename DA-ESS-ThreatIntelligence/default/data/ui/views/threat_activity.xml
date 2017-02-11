@@ -1,0 +1,103 @@
+<form script="threat_activity.js" stylesheet="threat_activity.css">
+
+    <label>Threat Activity</label>
+    
+    <search id="ppf_subsearch">
+        <query>| `ppf_subsearch_dm("ppf_threat_activity","threat_match_field,threat_match_value",now(),"Threat_Activity")`</query>
+        <latest>now</latest>
+        <finalized>
+            <set token="ppf">NOT $result.search$</set>
+        </finalized>
+    </search>
+        
+    <fieldset autoRun="true" submitButton="true">
+        <input type="dropdown" token="threat_group_form">
+            <label>Threat Group</label>
+            <choice value="">All</choice>
+            <populatingSearch fieldForValue="threat_group" fieldForLabel="threat_group">| `threat_groups`</populatingSearch>
+            <default></default>
+        </input>
+        
+        <input type="dropdown" token="threat_category_form">
+            <label>Threat Category</label>
+            <choice value="">All</choice>
+            <populatingSearch fieldForValue="threat_category" fieldForLabel="threat_category">| `threat_categories`</populatingSearch>
+            <default></default>
+        </input>
+        
+        <html id="srch_holder">
+            <label id="srch_label"></label>
+            <div id="srch"></div>
+        </html>
+        
+        <input type="time">
+            <default>Last 24 hours</default>
+        </input>
+        
+        <html id="ppf_html">
+        	<div id="ppf"></div>
+        </html>
+    </fieldset>
+	
+	<!-- Key indicators -->
+	<row>
+		<html id="element1">
+			<div class="key-indicators" data-group-name="threat_activity"></div>
+		</html>
+	</row>
+    
+    <row>
+        <chart id="element2">
+            <title>Threat Activity Over Time</title>
+            
+            <searchTemplate>| `tstats` count from datamodel=Threat_Intelligence.Threat_Activity where * $threat_activity$ $threat_group$ $threat_category$ $ppf$ by _time,Threat_Activity.threat_collection span=10m | timechart count by Threat_Activity.threat_collection | `drop_dm_object_name("Threat_Activity")`</searchTemplate>
+            
+            <option name="charting.axisLabelsY.integerUnits">true</option>
+            <option name="charting.axisTitleX.text">time</option>
+            <option name="charting.axisTitleY.text">count</option>
+            <option name="charting.chart">line</option>
+            <option name="charting.chart.nullValueMode">zero</option>
+            <option name="charting.drilldown">all</option>
+            
+            <drilldown>
+                <link>search?q=| datamodel Threat_Intelligence Threat_Activity search | search Threat_Activity.threat_collection="$click.name2$"&amp;earliest=$earliest$&amp;latest=$latest$&amp;auto_pause=$auto_pause$</link>
+            </drilldown>
+        </chart>
+    </row>
+    
+    <row>    
+        <table id="element3">
+            <title>Most Active Threat Collections</title>
+            
+            <searchTemplate>| tstats `summariesonly` values(source) as search,values(Threat_Activity.threat_collection_key) as threat_collection_key,count from datamodel=Threat_Intelligence.Threat_Activity where * $threat_activity$ $threat_group$ $threat_category$ $ppf$ by _time,Threat_Activity.threat_collection span=1h | `drop_dm_object_name("Threat_Activity")` | stats values(search) as search,sparkline(sum(count),1h) as sparkline,dc(threat_collection_key) as dc(artifacts),sum(count) as count by threat_collection | rex max_match=10 field=search "Threat\s*-\s*(?&lt;friendly_search&gt;.*)(?:\s*-\s*Threat\s+Gen)" | rename friendly_search as search | sort - count</searchTemplate>
+        
+            <drilldown>
+                <link>search?q=| datamodel Threat_Intelligence Threat_Activity search | search Threat_Activity.threat_collection="$row.threat_collection$"&amp;earliest=$earliest$&amp;latest=$latest$&amp;auto_pause=$auto_pause$</link>
+            </drilldown>
+        </table>
+        
+        <table id="element4">
+            <title>Most Active Threat Sources</title>
+            
+            <searchTemplate>| tstats `summariesonly` count from datamodel=Threat_Intelligence.Threat_Activity where * $threat_activity$ $threat_group$ $threat_category$ $ppf$ by Threat_Activity.threat_key | `drop_dm_object_name("Threat_Activity")` | `get_threat_attribution("threat_key")` | stats sum(count) as count by threat_key,source_id,source_path,source_type | sort 100 - count</searchTemplate>
+            
+            <fields>source_id,source_path,source_type,count</fields>
+        
+            <drilldown>
+                <link>search?q=| datamodel Threat_Intelligence Threat_Activity search | search Threat_Activity.threat_key="$row.threat_key$"&amp;earliest=$earliest$&amp;latest=$latest$&amp;auto_pause=$auto_pause$</link>
+            </drilldown>
+        </table>
+    </row>
+    
+    <row>
+        <table id="table1">
+            <title>Threat Activity Details</title>
+
+            <searchTemplate>| tstats `summariesonly` latest(_time) as _time,values(Threat_Activity.orig_sourcetype) as sourcetype,values(Threat_Activity.src) as src,values(Threat_Activity.dest) as dest from datamodel=Threat_Intelligence.Threat_Activity where * $threat_activity$ $threat_group$ $threat_category$ by Threat_Activity.threat_collection,Threat_Activity.threat_match_field,Threat_Activity.threat_match_value,Threat_Activity.threat_key | `drop_dm_object_name("Threat_Activity")` | `get_threat_attribution("threat_key")` | `per_panel_filter("ppf_threat_activity","threat_match_field,threat_match_value")` | rename ppf_filter as filter | sort - filter,_time | table _time,threat_match_field,threat_match_value,filter,sourcetype,src,dest,threat_collection,threat_group,threat_category</searchTemplate>
+            
+            <drilldown>
+                <link>search?q=| datamodel Threat_Intelligence Threat_Activity search | search Threat_Activity.threat_match_field="$row.threat_match_field$" Threat_Activity.threat_match_value="$row.threat_match_value$"&amp;earliest=$earliest$&amp;latest=$latest$&amp;auto_pause=$auto_pause$</link>
+            </drilldown>
+        </table>
+    </row>
+</form>

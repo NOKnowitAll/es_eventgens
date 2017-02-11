@@ -1,0 +1,20 @@
+<panel>
+  <title>RSA SecurID - Geographical Authentication Distribution in Last 30 Days</title>
+      <map>
+      <search>
+        <query>sourcetype="rsa:securid:*"    (vendor_action_description="AUTHN_METHOD_FAILED" OR vendor_event_type="AUTHN_LOGIN_EVENT") earliest=-30d | iplocation client_ip | geostats count by action</query>
+        <earliest></earliest>
+        <latest></latest>
+      </search>
+      <option name="drilldown">none</option>
+      <option name="mapping.data.maxClusters">100</option>
+      <option name="mapping.drilldown">none</option>
+      <option name="mapping.map.center">(0,0)</option>
+      <option name="mapping.map.zoom">2</option>
+      <option name="mapping.markerLayer.markerMaxSize">50</option>
+      <option name="mapping.markerLayer.markerMinSize">10</option>
+      <option name="mapping.markerLayer.markerOpacity">0.8</option>
+      <option name="mapping.tileLayer.maxZoom">7</option>
+      <option name="mapping.tileLayer.minZoom">0</option>
+      </map>
+</panel>

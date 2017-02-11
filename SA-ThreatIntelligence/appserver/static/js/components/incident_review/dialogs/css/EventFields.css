@@ -1,0 +1,13 @@
+.table-condensed.table-striped>thead>tr>th,
+.table-condensed.table-striped>tbody>tr>td {
+  border-right: 1px solid #d5d5d5;
+}
+
+.table-striped thead:first-child tr:first-child th {
+  border-top: 1px solid #d5d5d5;
+}
+
+.table-condensed.table-striped>thead>tr>th:last-child,
+.table-condensed.table-striped>tbody>tr>td:last-child {
+  border-right: 0;
+}

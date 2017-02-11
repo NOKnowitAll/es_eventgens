@@ -1,0 +1,4 @@
+sourcetype,vendor,product,ids_type
+snort,Sourcefire,IDS,network
+eStreamer,Sourcefire,IDS,network
+cisco:sourcefire,Cisco,"Sourcefire IDS",network

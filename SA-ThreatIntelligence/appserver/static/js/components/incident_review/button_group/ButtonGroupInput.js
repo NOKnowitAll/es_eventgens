@@ -1,0 +1,1 @@
+"use strict";define(["splunkjs/mvc/simpleform/input/base","sa-threatintelligence/js/components/incident_review/button_group/ButtonGroupView","sa-utils/js/util/FormUtils"],function(a,b,c){c.registerInputType("button",b,{choices:!0,multiValue:!0});var d=a.extend({initialVisualization:"button"});return d});

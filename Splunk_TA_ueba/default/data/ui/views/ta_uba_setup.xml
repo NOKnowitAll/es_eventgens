@@ -1,0 +1,11 @@
+<dashboard script="ta_uba_setup.js" stylesheet="ta_uba_setup.css" hideAppBar="true" hideEdit="true" isDashboard="false">
+  <label>UBA Setup</label>
+  <description>Set up a connection with Splunk User Behavior Analytics so that you can send notable events to Splunk UBA for analysis.</description>
+  <row>
+    <panel>
+      <html>
+        <div id="uba_setup_container" class="form-horizontal"/>
+      </html>
+    </panel>
+  </row>
+</dashboard>

@@ -1,0 +1,7 @@
+<dashboard script="create_capture.js" isDashboard="false">
+    <label>Create Stream Capture</label>
+    <row>
+        <html id="stream_capture_view">
+        </html>
+    </row>
+</dashboard>

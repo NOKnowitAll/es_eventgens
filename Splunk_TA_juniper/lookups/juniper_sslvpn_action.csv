@@ -1,0 +1,11 @@
+juniper_sslvpn_action,action
+succeeded,success
+failed,failure
+successful,success
+connected,added
+started,added
+ended,added
+terminated,blocked
+allowed,allowed
+Closed,blocked
+Sending,allowed

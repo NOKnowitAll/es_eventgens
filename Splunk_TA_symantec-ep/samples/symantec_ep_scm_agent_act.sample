@@ -1,0 +1,44 @@
+Time Stamp,Site Name,Server Name,Domain Name,Event Description,Host Name,User Name,Domain Name
+2015-04-17 12:53:18,Site: Site sepxxxxx,Server: sepxxxxx,Domain: yyyy,The management server received the client log successfully,##Host_Name##,##User_Name##,yyyy.local
+2015-04-17 12:56:48,Site: Site sepxxxxx,Server: sepxxxxx,Domain: yyyy,The management server received the client log successfully,##Host_Name##,##User_Name##,2012domain.kom
+2015-04-17 12:56:20,Site: Site sepxxxxx,Server: sepxxxxx,Domain: yyyy,The management server received the client log successfully,##Host_Name##,##User_Name##,local
+2015-04-17 12:56:48,Site: Site sepxxxxx,Server: sepxxxxx,Domain: yyyy,The management server received the client log successfully,##Host_Name##,##User_Name##,2012domain.kom
+2015-04-17 13:01:52,Site: Site sepxxxxx,Server: sepxxxxx,Domain: yyyy,The management server received the client log successfully,##Host_Name##,##User_Name##,2012domain.kom
+2015-04-17 13:16:19,Site: Site sepxxxxx,Server: sepxxxxx,Domain: yyyy,The management server received the client log successfully,##Host_Name##,##User_Name##,LocalComputer
+2015-04-17 13:26:11,Site: Site sepxxxxx,Server: sepxxxxx,Domain: yyyy,The management server received the client log successfully,##Host_Name##,##User_Name##,LocalComputer
+2015-04-17 13:34:05,Site: Site sepxxxxx,Server: sepxxxxx,Domain: yyyy,The client has downloaded the content package successfully,##Host_Name##,##User_Name##,yyyy.local
+2015-04-17 13:34:05,Site: Site sepxxxxx,Server: sepxxxxx,Domain: yyyy,The client has downloaded the content package successfully,##Host_Name##,##User_Name##,yyyy.local
+2015-04-17 13:40:22,Site: Site sepxxxxx,Server: sepxxxxx,Domain: yyyy,The client has downloaded the content package successfully,##Host_Name##,##User_Name##,yyyy.local
+2015-04-17 13:42:25,Site: Site sepxxxxx,Server: sepxxxxx,Domain: yyyy,The client has downloaded the content package successfully,##Host_Name##,##User_Name##,yyyy.local
+2015-04-17 13:57:29,Site: Site sepxxxxx,Server: sepxxxxx,Domain: yyyy,The management server received the client log successfully,##Host_Name##,##User_Name##,2012domain.kom
+2015-04-17 14:12:23,Site: Site sepxxxxx,Server: sepxxxxx,Domain: yyyy,The client has downloaded the content package successfully,##Host_Name##,##User_Name##,LocalComputer
+2015-04-17 14:12:23,Site: Site sepxxxxx,Server: sepxxxxx,Domain: yyyy,The client has downloaded the content package successfully,##Host_Name##,##User_Name##,LocalComputer
+2015-04-17 14:12:23,Site: Site sepxxxxx,Server: sepxxxxx,Domain: yyyy,The client has downloaded the content package successfully,##Host_Name##,##User_Name##,LocalComputer
+2015-04-17 14:12:45,Site: Site sepxxxxx,Server: sepxxxxx,Domain: yyyy,The management server received the client log successfully,##Host_Name##,##User_Name##,LocalComputer
+2015-04-17 14:13:14,Site: Site sepxxxxx,Server: sepxxxxx,Domain: yyyy,The management server received the client log successfully,##Host_Name##,##User_Name##,LocalComputer
+2015-04-17 14:13:47,Site: Site sepxxxxx,Server: sepxxxxx,Domain: yyyy,The client has downloaded the content package successfully,##Host_Name##,##User_Name##,LocalComputer
+2015-04-17 14:13:47,Site: Site sepxxxxx,Server: sepxxxxx,Domain: yyyy,The client has downloaded the content package successfully,##Host_Name##,##User_Name##,LocalComputer
+2015-04-17 14:16:58,Site: Site sepxxxxx,Server: sepxxxxx,Domain: yyyy,The management server received the client log successfully,##Host_Name##,##User_Name##,LocalComputer
+2015-04-17 14:19:09,Site: Site sepxxxxx,Server: sepxxxxx,Domain: yyyy,The client computer has been added to the group,##Host_Name##,##User_Name##,local
+2015-04-17 14:19:09,Site: Site sepxxxxx,Server: sepxxxxx,Domain: yyyy,The client registered with the management server successfully,##Host_Name##,##User_Name##,local
+2015-04-17 14:19:23,Site: Site sepxxxxx,Server: sepxxxxx,Domain: yyyy,The management server received the client log successfully,##Host_Name##,##User_Name##,LocalComputer
+2015-04-17 14:19:10,Site: Site sepxxxxx,Server: sepxxxxx,Domain: yyyy,The client has downloaded sylink.xml successfully,##Host_Name##,##User_Name##,local
+2015-04-17 14:24:27,Site: Site sepxxxxx,Server: sepxxxxx,Domain: yyyy,The management server received the client log successfully,##Host_Name##,##User_Name##,LocalComputer
+2015-04-17 14:26:36,Site: Site sepxxxxx,Server: sepxxxxx,Domain: yyyy,The management server received the client log successfully,##Host_Name##,##User_Name##,LocalComputer
+2015-04-17 14:34:33,Site: Site sepxxxxx,Server: sepxxxxx,Domain: yyyy,The management server received the client log successfully,##Host_Name##,##User_Name##,LocalComputer
+2015-04-17 14:34:53,Site: Site sepxxxxx,Server: sepxxxxx,Domain: yyyy,The client has downloaded sylink.xml successfully,##Host_Name##,##User_Name##,local
+2015-04-17 14:58:09,Site: Site sepxxxxx,Server: sepxxxxx,Domain: yyyy,The management server received the client log successfully,##Host_Name##,##User_Name##,2012domain.kom
+2015-04-17 15:12:34,Site: Site sepxxxxx,Server: sepxxxxx,Domain: yyyy,The management server received the client log successfully,##Host_Name##,##User_Name##,LocalComputer
+2015-04-17 15:17:38,Site: Site sepxxxxx,Server: sepxxxxx,Domain: yyyy,The management server received the client log successfully,##Host_Name##,##User_Name##,LocalComputer
+2015-04-17 15:36:15,Site: Site sepxxxxx,Server: sepxxxxx,Domain: yyyy,The client has reconnected with the management server,##Host_Name##,##User_Name##,yyyy.local
+2015-04-17 15:37:41,Site: Site sepxxxxx,Server: sepxxxxx,Domain: yyyy,The client has reconnected with the management server,##Host_Name##,##User_Name##,yyyy.local
+2015-04-17 15:41:33,Site: Site sepxxxxx,Server: sepxxxxx,Domain: yyyy,The client has reconnected with the management server,##Host_Name##,##User_Name##,yyyy.local
+2015-04-17 15:43:15,Site: Site sepxxxxx,Server: sepxxxxx,Domain: yyyy,The management server received the client log successfully,##Host_Name##,##User_Name##,LocalComputer
+2015-04-17 15:44:45,Site: Site sepxxxxx,Server: sepxxxxx,Domain: yyyy,The client has reconnected with the management server,##Host_Name##,##User_Name##,yyyy.local
+2015-04-17 15:46:29,Site: Site sepxxxxx,Server: sepxxxxx,Domain: yyyy,The client has reconnected with the management server,##Host_Name##,##User_Name##,yyyy.local
+2015-04-17 15:48:49,Site: Site sepxxxxx,Server: sepxxxxx,Domain: yyyy,The client has reconnected with the management server,##Host_Name##,##User_Name##,local
+2015-04-17 15:52:36,Site: Site sepxxxxx,Server: sepxxxxx,Domain: yyyy,The client computer has been added to the group,##Host_Name##,##User_Name##,local
+2015-04-17 15:52:36,Site: Site sepxxxxx,Server: sepxxxxx,Domain: yyyy,The client registered with the management server successfully,##Host_Name##,##User_Name##,local
+2015-04-17 15:58:49,Site: Site sepxxxxx,Server: sepxxxxx,Domain: yyyy,The management server received the client log successfully,##Host_Name##,##User_Name##,2012domain.kom
+2015-04-17 16:09:19,Site: Site sepxxxxx,Server: sepxxxxx,Domain: yyyy,The management server received the client log successfully,##Host_Name##,##User_Name##,2012domain.kom
+2015-04-17 16:10:35,Site: Site sepxxxxx,Server: sepxxxxx,Domain: yyyy,The management server received the client log successfully,##Host_Name##,##User_Name##,yyyy.local

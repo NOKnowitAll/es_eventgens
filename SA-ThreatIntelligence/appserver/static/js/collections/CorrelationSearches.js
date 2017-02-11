@@ -1,0 +1,1 @@
+"use strict";define(["collections/SplunkDsBase","sa-threatintelligence/js/models/CorrelationSearch"],function(a,b){var c=a.extend({url:"alerts/correlationsearches",model:b,initialize:function(){a.prototype.initialize.apply(this,arguments)}});return c});

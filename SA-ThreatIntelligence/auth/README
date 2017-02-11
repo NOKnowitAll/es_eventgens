@@ -1,0 +1,6 @@
+## Certificate files for certificate-based authentication to services such as
+## TAXII feeds should be placed in this directory.
+
+## WARNING: This directory may contain sensitive information and is purposely
+## excluded from "splunk diag" collection processes by virtue of the [diag] 
+## stanza in server.conf. 

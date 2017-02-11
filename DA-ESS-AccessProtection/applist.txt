@@ -1,0 +1,9 @@
+SA-AccessProtection
+SA-AuditAndDataProtection
+SA-EndpointProtection
+SA-IdentityManagement
+SA-NetworkProtection
+SA-ThreatIntelligence
+SA-Utils
+SplunkEnterpriseSecuritySuite
+Splunk_SA_ExtremeSearch

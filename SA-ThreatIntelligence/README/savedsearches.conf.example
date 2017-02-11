@@ -1,0 +1,43 @@
+
+###### notable ######
+[Access - Excessive Failed Logins - Rule]
+alert.suppress                      = 0
+action.notable                      = 1
+cron_schedule                       = */5 * * * *
+disabled                            = False
+dispatch.latest_time                = +0s
+enableSched                         = True
+search                              = | tstats `summariesonly` min(_time) as firstTime,max(_time) as lastTime from datamodel=Authentication.Authentication where Authentication.app!=unknown by Authentication.app | stats count
+
+
+###### ping/notable/nbtstat ######
+[Threat - Ping Example - Rule]
+alert.suppress                    = 0
+action.nbtstat                    = 1
+action.nbtstat.param.host_field   = src
+action.nbtstat.param.max_results  = 10
+action.nslookup                   = 1
+action.nslookup.param.host_field  = src
+action.nslookup.param.max_results = 10
+action.ping                       = 1
+action.ping.param.host_field      = src
+action.ping.param.max_results     = 10
+cron_schedule                     = */5 * * * *
+disabled                          = False
+dispatch.latest_time              = +0s
+enableSched                       = True
+search                            = | makeresults | eval src="1.2.3.4"
+
+
+###### risk ######
+[Threat - Risk Example - Rule]
+alert.suppress                      = 0
+action.risk                         = 1
+action.risk.param._risk_score       = 15
+action.risk.param._risk_object      = src
+action.risk.param._risk_object_type = system
+cron_schedule                       = */5 * * * *
+disabled                            = False
+dispatch.latest_time                = +0s
+enableSched                         = True
+search                              = | makeresults | eval risk_score=37 | eval src="1.2.3.4"

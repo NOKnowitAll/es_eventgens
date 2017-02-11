@@ -1,0 +1,30 @@
+
+[.*\.tippingpoint]
+interval = 3600
+earliest = -60m
+latest = now
+outputMode = modinput
+
+source = sample.tippingpoint
+sourcetype = tippingpoint
+
+## Replace timestamp Dec 15 13:43:40
+token.0.token = \w{3}\s+\d{1,2}\s+\d{2}:\d{2}:\d{2}
+token.0.replacementType = timestamp
+token.0.replacement = %b %d %H:%M:%S
+
+
+[pipedelim.tippingpoint]
+count = 50
+outputMode = modinput
+
+source = pipedelim.tippingpoint
+sourcetype = tippingpoint
+
+
+[tabdelim.tippingpoint]
+count = 50
+outputMode = modinput
+
+source = tabdelim.tippingpoint
+sourcetype = tippingpoint

@@ -1,0 +1,16 @@
+<panel>
+  <title>Nessus Table - Hosts with Elevated Severity</title>
+  <table>
+    <search>
+      <query>(sourcetype="nessus" OR sourcetype="nessus:scan") (severity="critical" OR severity="high") | stats values(dest) as dest by severity</query>
+      <earliest>-7d@d</earliest>
+      <latest>now</latest>
+    </search>
+    <drilldown>     
+      <!-- update drilldown if the click occurs in multivalued field (add that field to search constraint) -->
+      <link field="dest">
+        /app/search/search?q=sourcetype%3Dnessus%20dest="$click.value2$"%20starttimeu=$earliest$%20endtimeu=$latest$
+      </link>   
+    </drilldown>     
+  </table>
+</panel>

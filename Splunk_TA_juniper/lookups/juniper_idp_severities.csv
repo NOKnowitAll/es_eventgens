@@ -1,0 +1,13 @@
+severity_id,severity
+UNDEFINED,medium
+INFO,informational
+LOW,low
+MAJOR,high
+MINOR,low
+ERROR,critical
+EMERGENCY,critical
+NOTICE,informational
+UNKNOWN,unknown
+DEVICE_CRITICAL_LOG,critical
+DEVICE_WARNING_LOG,high
+DEBUG,informational

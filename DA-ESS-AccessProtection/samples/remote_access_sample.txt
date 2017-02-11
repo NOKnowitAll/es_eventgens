@@ -1,0 +1,119 @@
+Apr 29 14:53:59 HOST0170 sshd[25089]: [ID 800047 auth.notice] Failed none for aseykoski from 10.1.3.2 port 50241 ssh2
+Apr 29 14:53:59 HOST0170 sshd[25089]: [ID 800047 auth.info] Accepted publickey for wohler from 10.255.3.2 port 50241 ssh2
+Apr 29 14:53:59 HOST0170 sshd[25089]: [ID 800047 auth.info] Failed publickey for wohler from 10.255.3.2 port 50241 ssh2
+Apr 29 14:53:59 HOST0170 sshd[25089]: [ID 800047 auth.info] Failed publickey for wohler from 10.255.3.2 port 50242 ssh2
+Apr 29 14:53:59 HOST0170 sshd[25089]: [ID 800047 auth.info] Failed publickey for wohler from 10.255.3.2 port 50243 ssh2
+Apr 29 14:53:59 HOST0170 sshd[25089]: [ID 800047 auth.info] Failed publickey for wohler from 10.255.3.2 port 50244 ssh2
+Apr 29 14:53:59 HOST0170 sshd[25089]: [ID 800047 auth.info] Failed publickey for wohler from 10.255.3.2 port 50245 ssh2
+Apr 29 14:53:59 HOST0170 sshd[25089]: [ID 800047 auth.info] Failed publickey for wohler from 10.255.3.2 port 50246 ssh2
+Apr 29 14:53:59 HOST0170 sshd[25089]: [ID 800047 auth.info] Failed publickey for wohler from 10.255.3.2 port 50247 ssh2
+Apr 29 14:53:59 HOST0170 sshd[25089]: [ID 800047 auth.info] Failed publickey for wohler from 10.255.3.2 port 50248 ssh2
+Apr 29 14:53:59 HOST0170 sshd[25089]: [ID 800047 auth.info] Failed publickey for wohler from 10.255.3.2 port 50249 ssh2
+Apr 29 14:53:59 HOST0170 sshd[25089]: [ID 800047 auth.info] Failed publickey for wohler from 10.255.3.2 port 50250vi l ssh2
+Oct 14 08:55:59 10.84.34.20 auth|security:notice login: [ID 143248 auth.notice] Login failure on /dev/pts/17 from 10.81.131.14
+Oct 14 08:54:07 cm1.acmetech.net auth|security:info su: [ID 366847 auth.info] 'su dmsys' succeeded for root on /dev/???
+Oct 14 08:54:00 cm1.acmetech.net auth|security:info su: [ID 366847 auth.info] 'su dmsys' succeeded for root on /dev/???
+Oct 14 08:52:44 10.84.34.15 auth|security:notice login: [ID 507249 auth.notice] Login failure on /dev/pts/112 from 10.81.131.27, dhill
+Oct 14 08:51:31 10.84.34.15 auth|security:notice su: [ID 366847 auth.notice] 'su root' succeeded for agasiewski on /dev/pts/107
+Oct 14 08:51:23 10.84.34.15 auth|security:crit su: [ID 810491 auth.crit] 'su root' failed for agasiewski on /dev/pts/107
+Oct 14 08:48:39 10.84.34.15 auth|security:notice login: [ID 507249 auth.notice] Login failure on /dev/pts/99 from 10.232.44.231, vgalzera
+Oct 14 08:46:45 10.84.34.15 auth|security:notice login: [ID 507249 auth.notice] Login failure on /dev/pts/94 from 10.232.44.71, jsimon1
+Oct 14 08:44:39 cm1.acmetech.net auth|security:info su: [ID 366847 auth.info] 'su mercury' succeeded for root on /dev/???
+Oct 14 08:44:33 cm1.acmetech.net auth|security:info su: [ID 366847 auth.info] 'su dmsys' succeeded for root on /dev/???
+Oct 14 08:43:03 10.84.34.15 auth|security:notice login: [ID 507249 auth.notice] Login failure on /dev/pts/712 from 10.232.44.5, capela
+Oct 14 08:42:44 10.84.34.15 auth|security:notice login: [ID 507249 auth.notice] Login failure on /dev/pts/712 from 10.232.44.5, capela
+Oct 14 08:41:44 10.84.34.15 auth|security:notice login: [ID 507249 auth.notice] Login failure on /dev/pts/707 from 10.232.42.232, cmonaco
+Oct 14 08:42:39 cm1.acmetech.net auth|security:info su: [ID 366847 auth.info] 'su mercury' succeeded for root on /dev/???
+Oct 14 08:42:33 cm1.acmetech.net auth|security:info su: [ID 366847 auth.info] 'su dmsys' succeeded for root on /dev/???
+Oct 14 08:41:00 10.84.34.15 auth|security:notice login: [ID 507249 auth.notice] Login failure on /dev/pts/702 from 10.232.42.232, cmonaco
+Oct 14 08:41:08 cm1.acmetech.net auth|security:info su: [ID 366847 auth.info] 'su dmsys' succeeded for root on /dev/???
+Oct 14 08:39:00 10.84.34.15 auth|security:notice login: [ID 507249 auth.notice] Login failure on /dev/pts/691 from 10.232.44.142, bzeier
+Oct 14 08:35:06 10.84.34.15 auth|security:notice login: [ID 507249 auth.notice] Login failure on /dev/pts/47 from 10.232.43.222, jstewart
+Oct 14 08:35:01 10.84.34.15 auth|security:notice login: [ID 507249 auth.notice] Login failure on /dev/pts/43 from 10.232.43.134, podoski
+Oct 14 08:34:18 10.84.34.15 auth|security:notice login: [ID 507249 auth.notice] Login failure on /dev/pts/452 from 10.232.43.142, edifrank
+Apr 18 06:28:31 acmelinux CRON[1057]: pam_unix(cron:session): session closed for user root
+Apr 18 06:47:01 acmelinux CRON[4403]: pam_unix(cron:session): session opened for user root by (uid=0)
+Apr 18 06:47:01 acmelinux CRON[4403]: pam_unix(cron:session): session closed for user root
+Apr 18 07:17:01 acmelinux CRON[11715]: pam_unix(cron:session): session opened for user root by (uid=0)
+Apr 18 07:17:01 acmelinux CRON[11715]: pam_unix(cron:session): session closed for user root
+Apr 18 08:17:01 acmelinux CRON[24120]: pam_unix(cron:session): session opened for user root by (uid=0)
+Apr 18 08:17:01 acmelinux CRON[24120]: pam_unix(cron:session): session closed for user root
+Apr 18 09:17:01 acmelinux CRON[3243]: pam_unix(cron:session): session opened for user root by (uid=0)
+Apr 18 09:17:01 acmelinux CRON[3243]: pam_unix(cron:session): session closed for user root
+Apr 18 10:17:01 acmelinux CRON[15819]: pam_unix(cron:session): session opened for user root by (uid=0)
+Apr 12 09:29:30 acmepayroll sshd[16739]: Failed password for invalid user cargento from 211.48.161.199 port 55536 ssh2
+Apr 12 09:29:32 acmepayroll sshd[16746]: Invalid user cargento from 211.48.161.199
+Apr 12 09:29:32 acmepayroll sshd[16746]: pam_unix(sshd:auth): check pass; user unknown
+Apr 12 09:29:32 acmepayroll sshd[16746]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=211.48.161.199 
+Apr 12 09:29:34 acmepayroll sshd[16746]: Failed password for invalid user cargento from 211.48.161.199 port 55885 ssh2
+Apr 12 09:29:36 acmepayroll sshd[16748]: Invalid user test012 from 211.48.161.199
+Apr 12 09:29:36 acmepayroll sshd[16748]: pam_unix(sshd:auth): check pass; user unknown
+Apr 12 09:29:36 acmepayroll sshd[16748]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=211.48.161.199 
+Apr 12 09:29:37 acmepayroll sshd[16748]: Failed password for invalid user test012 from 211.48.161.199 port 56461 ssh2
+Apr 12 09:29:39 acmepayroll sshd[16751]: Invalid user admin from 211.48.161.199
+Apr 12 09:29:39 acmepayroll sshd[16751]: pam_unix(sshd:auth): check pass; user unknown
+Apr 12 09:29:39 acmepayroll sshd[16751]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=211.48.161.199 
+Apr 12 09:29:42 acmepayroll sshd[16751]: Failed password for invalid user admin from 211.48.161.199 port 56724 ssh2
+Apr 12 09:29:44 acmepayroll sshd[16766]: Invalid user admin1 from 211.48.161.199
+Apr 12 09:29:44 acmepayroll sshd[16766]: pam_unix(sshd:auth): check pass; user unknown
+Apr 12 09:29:44 acmepayroll sshd[16766]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=211.48.161.199 
+Apr 12 09:29:46 acmepayroll sshd[16766]: Failed password for invalid user admin1 from 211.48.161.199 port 57192 ssh2
+Apr 12 09:29:48 acmepayroll sshd[16768]: Invalid user admin2 from 211.48.161.199
+Apr 12 09:29:48 acmepayroll sshd[16768]: pam_unix(sshd:auth): check pass; user unknown
+Apr 12 09:29:48 acmepayroll sshd[16768]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=211.48.161.199 
+Apr 12 09:29:49 acmepayroll sshd[16768]: Failed password for invalid user admin2 from 211.48.161.199 port 57532 ssh2
+Apr 12 09:29:51 acmepayroll sshd[16779]: Invalid user admin01 from 211.48.161.199
+Apr 12 09:29:51 acmepayroll sshd[16779]: pam_unix(sshd:auth): check pass; user unknown
+Apr 12 09:29:51 acmepayroll sshd[16779]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=211.48.161.199 
+Apr 12 09:29:54 acmepayroll sshd[16779]: Failed password for invalid user admin01 from 211.48.161.199 port 58384 ssh2
+Apr 12 09:29:56 acmepayroll sshd[16781]: Invalid user test02 from 211.48.161.199
+Apr 12 09:29:56 acmepayroll sshd[16781]: pam_unix(sshd:auth): check pass; user unknown
+Apr 12 09:29:56 acmepayroll sshd[16781]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=211.48.161.199 
+Apr 12 09:29:59 acmepayroll sshd[16781]: Failed password for invalid user test02 from 211.48.161.199 port 58739 ssh2
+Apr 12 09:30:01 acmepayroll sshd[16783]: Invalid user admin02 from 211.48.161.199
+Apr 12 09:30:01 acmepayroll sshd[16783]: pam_unix(sshd:auth): check pass; user unknown
+Apr 12 09:30:01 acmepayroll sshd[16783]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=211.48.161.199 
+Apr 12 09:30:03 acmepayroll sshd[16783]: Failed password for invalid user admin02 from 211.48.161.199 port 59241 ssh2
+Apr 12 09:30:05 acmepayroll sshd[16819]: Invalid user admin123 from 211.48.161.199
+Apr 12 09:30:05 acmepayroll sshd[16819]: pam_unix(sshd:auth): check pass; user unknown
+Apr 12 09:30:05 acmepayroll sshd[16819]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=211.48.161.199 
+Apr 12 09:30:07 acmepayroll sshd[16819]: Failed password for invalid user admin123 from 211.48.161.199 port 59696 ssh2
+Apr 12 09:30:09 acmepayroll sshd[16872]: Invalid user oracle from 211.48.161.199
+Apr 12 09:30:09 acmepayroll sshd[16872]: pam_unix(sshd:auth): check pass; user unknown
+Apr 12 09:30:09 acmepayroll sshd[16872]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=211.48.161.199 
+Apr 12 09:30:11 acmepayroll sshd[16872]: Failed password for invalid user oracle from 211.48.161.199 port 59993 ssh2
+Apr 12 09:30:13 acmepayroll sshd[16897]: Invalid user aseykoski from 211.48.161.199
+Apr 12 09:30:13 acmepayroll sshd[16897]: pam_unix(sshd:auth): check pass; user unknown
+Apr 12 09:30:13 acmepayroll sshd[16897]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=211.48.161.199 
+Apr 12 09:30:16 acmepayroll sshd[16897]: Failed password for invalid user aseykoski from 211.48.161.199 port 60405 ssh2
+Apr 12 09:30:18 acmepayroll sshd[16938]: Invalid user aseykoski from 211.48.161.199
+Apr 12 09:30:18 acmepayroll sshd[16938]: pam_unix(sshd:auth): check pass; user unknown
+Apr 12 09:30:18 acmepayroll sshd[16938]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=211.48.161.199 
+Apr 12 09:30:19 acmepayroll sshd[16938]: Failed password for invalid user aseykoski from 211.48.161.199 port 60758 ssh2
+Apr 12 09:30:21 acmepayroll sshd[16966]: Invalid user oracle01 from 211.48.161.199
+Apr 12 09:30:21 acmepayroll sshd[16966]: pam_unix(sshd:auth): check pass; user unknown
+Apr 12 09:30:21 acmepayroll sshd[16966]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=211.48.161.199 
+Apr 12 09:30:24 acmepayroll sshd[16966]: Failed password for invalid user oracle01 from 211.48.161.199 port 32981 ssh2
+Apr 12 09:30:26 acmepayroll sshd[17014]: Invalid user aseykoski23 from 211.48.161.199
+Apr 12 09:30:26 acmepayroll sshd[17014]: pam_unix(sshd:auth): check pass; user unknown
+Apr 12 09:30:26 acmepayroll sshd[17014]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=211.48.161.199 
+Apr 12 09:30:28 acmepayroll sshd[17014]: Failed password for invalid user aseykoski23 from 211.48.161.199 port 33353 ssh2
+Apr 12 09:30:30 acmepayroll sshd[17039]: Invalid user toor from 211.48.161.199
+Apr 12 09:30:30 acmepayroll sshd[17039]: pam_unix(sshd:auth): check pass; user unknown
+Apr 12 09:30:30 acmepayroll sshd[17039]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=211.48.161.199 
+Apr 12 09:30:31 acmepayroll sshd[17039]: Failed password for invalid user toor from 211.48.161.199 port 33664 ssh2
+Apr 12 09:30:33 acmepayroll sshd[17059]: Invalid user apache from 211.48.161.199
+Apr 12 09:30:33 acmepayroll sshd[17059]: pam_unix(sshd:auth): check pass; user unknown
+Apr 12 09:30:33 acmepayroll sshd[17059]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=211.48.161.199 
+Apr 12 09:30:36 acmepayroll sshd[17059]: Failed password for invalid user apache from 211.48.161.199 port 34078 ssh2
+Apr 12 09:30:38 acmepayroll sshd[17098]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=211.48.161.199  user=mail
+Apr 12 09:30:40 acmepayroll sshd[17098]: Failed password for mail from 211.48.161.199 port 34411 ssh2
+Apr 12 09:30:42 acmepayroll sshd[17138]: Invalid user nmap from 211.48.161.199
+Apr 12 09:30:42 acmepayroll sshd[17138]: pam_unix(sshd:auth): check pass; user unknown
+Apr 12 09:30:42 acmepayroll sshd[17138]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=211.48.161.199 
+Apr 12 09:30:43 acmepayroll sshd[17138]: Failed password for invalid user nmap from 211.48.161.199 port 34884 ssh2
+Apr 12 09:30:46 acmepayroll sshd[17169]: Invalid user web from 211.48.161.199
+Apr 12 09:30:46 acmepayroll sshd[17169]: pam_unix(sshd:auth): check pass; user unknown
+Apr 12 09:30:46 acmepayroll sshd[17169]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=211.48.161.199 
+Apr 12 09:30:47 acmepayroll sshd[17169]: Failed password for invalid user web from 211.48.161.199 port 35256 ssh2
+Apr 12 09:30:49 acmepayroll sshd[17184]: Invalid user nagios from 211.48.161.199

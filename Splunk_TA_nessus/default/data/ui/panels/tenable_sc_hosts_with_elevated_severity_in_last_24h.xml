@@ -1,0 +1,10 @@
+<panel>
+    <title>Tenable Security Center - Hosts with Elevated Severity in Last 24H</title>
+    <table>
+        <search>
+          <query>sourcetype = "tenable:sc:vuln" (severity="critical" OR severity="high") |  stats values(dest) as dest by severity</query>
+          <earliest>-1d</earliest>
+          <latest>now</latest>
+        </search>
+    </table>
+</panel>

@@ -1,0 +1,106 @@
+.suppression_dialog .modal .modal-body {
+  max-height: 360px;
+}
+
+.modal-body .suppression-label,
+.modal-body .suppression-label input,
+.modal-body .suppression-label span {
+  width: 320px;
+}
+
+.modal-body .suppression-label textarea {
+  width: 320px;
+  max-width: 320px;
+}
+
+.modal-body .suppression-calendar input {
+  width: 140px;
+}
+
+.modal-body .suppression-calendar.suppress-to input {
+  display: inline-block;
+}
+
+.modal-body .splunk-linklist-choices {
+  margin: 0px;
+}
+
+.modal-footer a.btn-primary.disable {
+  pointer-events: none;
+}
+
+.modal-footer .modal-footer-note {
+  padding-left: 5px;
+}
+
+.modal-footer .modal-footer-note label.checkbox a.btn {
+  left: 2px;
+}
+
+.modal-footer .tooltip-link {
+  top: -0.5em;
+  font-size: 75%;
+  line-height: 0;
+  vertical-align: baseline;
+  padding: 2px;
+  position: relative;
+}
+
+.form-complex .control-group {
+  width: 520px;
+}
+
+.form-complex .suppress-to-label {
+  display: inline-block;
+  padding: 0 4px 0 4px;
+}
+
+.form-complex .help-block {
+  width: 220px;
+}
+
+.form-horizontal .suppression-fields-select label {
+  text-align: left;
+  width: 300px;
+  padding-bottom: 20px;
+}
+
+.form-complex a.btn-pill {
+  margin: 0 5px 5px 5px;
+}
+
+.suppression_dialog .form-horizontal input.search-query {
+  float: right;
+}
+
+.suppression-fields-select .control.shared-controls-textcontrol a.control-clear {
+  top: 13px;
+}
+
+.control.suppression-label .uneditable-input.uneditable-input-multiline {
+  max-height: 150px;
+}
+
+.control-group.error .control.shared-controls-labelcontrol .input-label {
+  color: #d85d3c;
+}
+
+.suppression-divider {
+  border-top: 1px solid #eeeeee;
+  margin-top: 20px;
+  min-height: 15px;
+}
+
+.suppression-calendar.suppress-from + span.icon-calendar {
+  position: absolute;
+  top: 5px;
+  left: 135px;
+  pointer-events: none;
+}
+
+.suppression-calendar.suppress-to + span.icon-calendar {
+  position: absolute;
+  top: 5px;
+  left: 320px;
+  pointer-events: none;
+}

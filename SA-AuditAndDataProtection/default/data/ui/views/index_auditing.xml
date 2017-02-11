@@ -1,0 +1,61 @@
+<dashboard>
+	<label>Indexing Audit</label>
+	
+	<!-- Key indicators -->
+	<row>
+		<html id="element1">
+			<div class="key-indicators" data-group-name="index_auditing"></div>
+		</html>
+	</row>
+	
+	<row>
+		<chart id="element2">
+			<title>Events Per Day Over Time</title>
+				
+			<searchName>Licensing - Events Per Day Over Time</searchName>
+				
+			<option name="charting.axisTitleX.text">time</option>
+			<option name="charting.axisTitleY.text">count</option>
+			<option name="charting.chart">column</option>
+			<option name="charting.drilldown">all</option>
+			
+			<drilldown>
+                <link>search?q=| `licensing_epd` | where _time=$click.value$ | sort 0 - count</link>
+            </drilldown>
+		</chart>
+	</row>
+	
+	<row>
+		<table id="element3">
+			<title>Events Per Day</title>
+			
+			<searchName>Licensing - Events Per Day</searchName>
+			
+			<option name="wrap">true</option>
+			<option name="displayRowNumbers">false</option>
+			<option name="dataOverlayMode">none</option>
+			<option name="drilldown">row</option>
+			
+			<drilldown>
+                <link>search?q=| `licensing_epd` | sort 0 - _time</link>
+            </drilldown>
+		</table>
+		
+		<table id="element4">
+			<title>Events Per Index (Last Day)</title>
+			
+			<searchName>Licensing - Events Per Index (Last Day)</searchName>
+			
+			<option name="wrap">true</option>
+			<option name="displayRowNumbers">false</option>
+			<option name="dataOverlayMode">none</option>
+			<option name="drilldown">row</option>
+			
+			<drilldown>
+                <link>search?q=| `licensing_epd` | sort 0 - _time</link>
+            </drilldown>
+		
+		</table>
+	</row>
+	
+</dashboard>

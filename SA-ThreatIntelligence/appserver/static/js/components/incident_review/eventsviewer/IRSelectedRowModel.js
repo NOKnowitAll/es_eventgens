@@ -1,0 +1,1 @@
+"use strict";define(["backbone"],function(a){return a.Model.extend({defaults:{id:"",status:""}})});

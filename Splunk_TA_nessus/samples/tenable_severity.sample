@@ -1,0 +1,5 @@
+{"name": "Info", "id": "0", "description": "Informative"}
+{"name": "Low", "id": "1", "description": "Low Severity"}
+{"name": "Medium", "id": "2", "description": "Medium Severity"}
+{"name": "High", "id": "3", "description": "High Severity"}
+{"name": "Critical", "id": "4", "description": "Critical Severity"}

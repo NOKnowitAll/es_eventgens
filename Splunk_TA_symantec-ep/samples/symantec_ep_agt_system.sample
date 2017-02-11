@@ -1,0 +1,74 @@
+Event Time,Severity,Host Name,Category,Event Source,Event Description
+2015-04-17 10:36:34,Warning,##Host_Name##,Category: 2,SONAR,[SONAR heuristic Submission] Submitting file to Symantec failed.  File : 'c:\program files (x86)\application\41.0.2272.118\installer\setup.exe'.
+2015-04-17 10:56:25,Error,##Host_Name##,Category: 0,SYLINK,Downloaded new content update from the management server failed.     Remote file path: https://216.221.226.33:443/content/{07B590B3-9282-482f-BBAA-6D515D385869}/150416033/xdelta150416033_To_150416052.dax
+2015-04-17 11:24:54,Warning,##Host_Name##,Category: 2,IPS,[Intrusion prevention submission] Submitting information to Symantec failed.
+2015-04-17 11:24:54,Warning,##Host_Name##,Category: 2,Symantec AntiVirus,[Antivirus advanced heuristic detection submission] Submitting file to Symantec failed.  File : 'C:\Vlad\Software\WinSCP\winscp572setup.exe'.
+2015-04-17 11:24:54,Warning,##Host_Name##,Category: 2,Symantec AntiVirus,[Antivirus advanced heuristic detection submission] Submitting information to Symantec about file failed. File : 'C:\Vlad\Software\WinSCP\winscp572setup.exe'.
+2015-04-15 12:47:43,Error,##Host_Name##,Category: 2,REP,Cannot assign a client authentication token. This client is over the maximum allocation of client authentication tokens.
+2015-04-15 09:27:58,Warning,##Host_Name##,Category: 2,SONAR,[SONAR heuristic Submission] Submitting file to Symantec failed.  File : 'c:\users\##User##\appdata\local\ext_favgenius\ext_favgenius.dll'.
+2015-04-15 12:47:43,Warning,##Host_Name##,Category: 2,REP,[Client authentication token request] Submitting information to Symantec failed.
+2015-04-17 11:47:08,Warning,##Host_Name##,Category: 2,IPS,[Intrusion prevention submission] Submitting information to Symantec failed.
+2015-04-17 11:53:01,Warning,##Host_Name##,Category: 2,SONAR,[SONAR heuristic Submission] Submitting file to Symantec failed.  File : 'c:\users\##User##\appdata\local\temp\2553\uninshlp.dll'.
+2015-04-17 12:18:33,Error,##Host_Name##,Category: 0,Smc,The Symantec Endpoint Protection is unable to download the newest policy from the Symantec Endpoint Protection Manager.
+2015-04-17 12:10:46,Error,##Host_Name##,Category: 0,SYLINK,Downloaded new content update from the management server failed.     Remote file path: https://sepxxxxx.CompXX.local:443/content/{07B590B3-9282-482f-BBAA-6D515D385869}/150416033/xdelta150416033_To_150416052.dax
+2015-04-17 12:19:39,Error,##Host_Name##,Category: 0,SYLINK,Downloaded new content update from the management server failed.     Remote file path: https://sepxxxxx:443/content/{07B590B3-9282-482f-BBAA-6D515D385869}/150416033/xdelta150416033_To_150416052.dax
+2015-04-17 12:14:30,Error,##Host_Name##,Category: 0,SYLINK,Downloaded new content update from the management server failed.     Remote file path: https://sepxxxxx.CompXX.local:443/content/{07B590B3-9282-482f-BBAA-6D515D385869}/150416033/xdelta150416033_To_150416052.dax
+2015-04-17 12:22:27,Error,##Host_Name##,Category: 0,SYLINK,Downloaded new content update from the management server failed.     Remote file path: https://sepxxxxx:443/content/{07B590B3-9282-482f-BBAA-6D515D385869}/150416033/xdelta150416033_To_150416052.dax
+2015-04-17 12:27:23,Error,##Host_Name##,Category: 0,SYLINK,Downloaded new content update from the management server failed.     Remote file path: https://sepxxxxx.CompXX.local:443/content/{07B590B3-9282-482f-BBAA-6D515D385869}/150416033/xdelta150416033_To_150416052.dax
+2015-04-17 12:45:27,Warning,##Host_Name##,Category: 2,SONAR,[SONAR heuristic Submission] Submitting file to Symantec failed.  File : 'c:\users\##User##\appdata\local\nvidia\nvbackend\packages\00007440\coproc update.19499926.exe'.
+2015-04-17 12:55:05,Error,##Host_Name##,Category: 2,Symantec Endpoint Protection,Symantec Endpoint Protection has determined that the virus definitions are missing on this computer. This computer will remain unprotected from viruses until virus definitions are downloaded to this computer.
+2015-04-17 12:55:05,Error,##Host_Name##,Category: 2,Symantec Endpoint Protection,Symantec Endpoint Protection has determined that the virus definitions are missing on this computer. This computer will remain unprotected from viruses until virus definitions are downloaded to this computer.
+2015-04-17 12:55:05,Error,##Host_Name##,Category: 2,Symantec Endpoint Protection,Symantec Endpoint Protection has determined that the virus definitions are missing on this computer. This computer will remain unprotected from viruses until virus definitions are downloaded to this computer.
+2015-04-17 12:55:05,Error,##Host_Name##,Category: 2,Symantec Endpoint Protection,Symantec Endpoint Protection has determined that the virus definitions are missing on this computer. This computer will remain unprotected from viruses until virus definitions are downloaded to this computer.
+2015-04-17 12:55:05,Error,##Host_Name##,Category: 2,Symantec Endpoint Protection,Symantec Endpoint Protection has determined that the virus definitions are missing on this computer. This computer will remain unprotected from viruses until virus definitions are downloaded to this computer.
+2015-04-17 12:55:05,Error,##Host_Name##,Category: 2,Symantec Endpoint Protection,Symantec Endpoint Protection has determined that the virus definitions are missing on this computer. This computer will remain unprotected from viruses until virus definitions are downloaded to this computer.
+2015-04-17 12:55:05,Error,##Host_Name##,Category: 2,Symantec Endpoint Protection,Symantec Endpoint Protection has determined that the virus definitions are missing on this computer. This computer will remain unprotected from viruses until virus definitions are downloaded to this computer.
+2015-04-17 12:55:05,Error,##Host_Name##,Category: 2,Symantec Endpoint Protection,Symantec Endpoint Protection has determined that the virus definitions are missing on this computer. This computer will remain unprotected from viruses until virus definitions are downloaded to this computer.
+2015-04-17 12:57:25,Warning,##Host_Name##,Category: 2,REP,[Client authentication token request] Submitting information to Symantec failed.
+2015-04-17 13:00:17,Warning,##Host_Name##,Category: 2,SONAR,[SONAR heuristic Submission] Submitting file to Symantec failed.  File : 'c:\users\##User##\appdata\local\temp\2377\uninshlp.dll'.
+2015-04-17 13:00:17,Warning,##Host_Name##,Category: 2,SONAR,[SONAR heuristic Submission] Submitting file to Symantec failed.  File : 'c:\users\##User##\appdata\local\temp\2489\uninshlp.dll'.
+2015-04-17 13:00:17,Warning,##Host_Name##,Category: 2,SONAR,[SONAR heuristic Submission] Submitting file to Symantec failed.  File : 'c:\users\##User##\appdata\local\temp\2491\uninshlp.dll'.
+2015-04-17 13:01:04,Warning,##Host_Name##,Category: 2,SONAR,[SONAR heuristic Submission] Submitting file to Symantec failed.  File : 'c:\users\##User##\appdata\local\temp\2492\uninshlp.dll'.
+2015-04-17 13:02:00,Warning,##Host_Name##,Category: 2,SONAR,[SONAR heuristic Submission] Submitting file to Symantec failed.  File : 'c:\users\##User##\appdata\local\temp\2539\uninshlp.dll'.
+2015-04-17 13:02:00,Warning,##Host_Name##,Category: 2,SONAR,[SONAR heuristic Submission] Submitting file to Symantec failed.  File : 'c:\users\##User##\appdata\local\temp\2553\uninshlp.dll'.
+2015-04-17 13:06:29,Warning,##Host_Name##,Category: 2,Symantec AntiVirus,[Antivirus advanced heuristic detection submission] Submitting file to Symantec failed.  File : 'C:\users\##User##\AppData\Local\Temp\2553\G2MCoreInstExtractor.exe'.
+2015-04-17 13:06:29,Warning,##Host_Name##,Category: 2,SONAR,[SONAR heuristic Submission] Submitting file to Symantec failed.  File : 'c:\users\##User##\appdata\local\temp\2553\uninshlp.dll'.
+2015-04-17 13:19:39,Warning,##Host_Name##,Category: 2,Symantec AntiVirus,[Antivirus advanced heuristic detection submission] Submitting file to Symantec failed.  File : 'C:\users\##User##\AppData\Local\Temp\2553\G2MCoreInstExtractor.exe'.
+2015-04-17 13:19:39,Warning,##Host_Name##,Category: 2,SONAR,[SONAR heuristic Submission] Submitting file to Symantec failed.  File : 'c:\users\##User##\appdata\local\temp\2553\uninshlp.dll'.
+2015-04-17 12:44:03,Error,##Host_Name##,Category: 0,SYLINK,Downloaded new content update from the management server failed.     Remote file path: https://sepxxxxx:443/content/{EDBD3BD0-8395-4d4d-BAC9-19DD32EF4758}/150416005/xdelta150416005_To_150417006.dax
+2015-04-17 13:47:56,Error,##Host_Name##,Category: 2,REP,Cannot assign a client authentication token. This client is over the maximum allocation of client authentication tokens.
+2015-04-17 13:47:56,Warning,##Host_Name##,Category: 2,REP,[Client authentication token request] Submitting information to Symantec failed.
+2015-04-17 13:49:40,Error,##Host_Name##,Category: 0,Smc,The Symantec Endpoint Protection is unable to download the newest policy from the Symantec Endpoint Protection Manager.
+2015-04-17 13:55:54,Warning,##Host_Name##,Category: 2,LiveUpdate Manager,A LiveUpdate session encountered errors.  1 update(s) were available. 0 update(s) installed successfully. 1 update(s) failed to install.
+2015-04-17 13:55:54,Error,##Host_Name##,Category: 2,LiveUpdate Manager,An update for Intrusion Prevention Signatures from LiveUpdate failed to install. Error: Postsession callback failed (208)
+2015-04-17 14:07:30,Warning,##Host_Name##,Category: 2,LiveUpdate Manager,A LiveUpdate session encountered errors.  1 update(s) were available. 0 update(s) installed successfully. 1 update(s) failed to install.
+2015-04-17 14:07:30,Error,##Host_Name##,Category: 2,LiveUpdate Manager,An update for Intrusion Prevention Signatures from LiveUpdate failed to install. Error: Postsession callback failed (208)
+2015-04-17 14:14:41,Warning,##Host_Name##,Category: 2,SONAR,[SONAR heuristic Submission] Submitting file to Symantec failed.  File : 'c:\users\##User##\appdata\local\temp\2489\uninshlp.dll'.
+2015-04-17 14:14:41,Warning,##Host_Name##,Category: 2,SONAR,[SONAR heuristic Submission] Submitting file to Symantec failed.  File : 'c:\users\##User##\appdata\local\temp\2491\uninshlp.dll'.
+2015-04-17 14:14:41,Warning,##Host_Name##,Category: 2,SONAR,[SONAR heuristic Submission] Submitting file to Symantec failed.  File : 'c:\users\##User##\appdata\local\temp\2492\uninshlp.dll'.
+2015-04-17 14:15:27,Warning,##Host_Name##,Category: 2,Symantec AntiVirus,[Antivirus advanced heuristic detection submission] Submitting file to Symantec failed.  File : 'C:\users\##User##\AppData\Local\Temp\2539\G2MCoreInstExtractor.exe'.
+2015-04-17 14:19:34,Error,##Host_Name##,Category: 0,Smc,Failed to contact server for more than 10 times.
+2015-04-17 14:18:17,Error,##Host_Name##,Category: 0,SYLINK,Failed to contact server for more than 10 times.
+2015-04-17 14:24:49,Warning,##Host_Name##,Category: 2,LiveUpdate Manager,A LiveUpdate session encountered errors.  1 update(s) were available. 0 update(s) installed successfully. 1 update(s) failed to install.
+2015-04-17 14:24:49,Error,##Host_Name##,Category: 2,LiveUpdate Manager,An update for Intrusion Prevention Signatures from LiveUpdate failed to install. Error: Postsession callback failed (208)
+2015-04-17 13:52:10,Error,##Host_Name##,Category: 0,SYLINK,Failed to contact server for more than 10 times.
+2015-04-17 14:31:02,Warning,##Host_Name##,Category: 2,SONAR,[SONAR heuristic Submission] Submitting file to Symantec failed.  File : 'c:\users\##User##\appdata\local\temp\2539\uninshlp.dll'.
+2015-04-17 14:31:11,Warning,##Host_Name##,Category: 2,SONAR,[SONAR heuristic Submission] Submitting file to Symantec failed.  File : 'c:\users\##User##\appdata\local\temp\2553\uninshlp.dll'.
+2015-04-17 14:31:11,Warning,##Host_Name##,Category: 2,Symantec AntiVirus,[Antivirus advanced heuristic detection submission] Submitting file to Symantec failed.  File : 'C:\users\##User##\AppData\Local\Temp\2553\G2MCoreInstExtractor.exe'.
+2015-04-17 14:40:13,Warning,##Host_Name##,Category: 2,SONAR,[SONAR heuristic Submission] Submitting file to Symantec failed.  File : 'c:\vlad\software\drivers\[guru3d]-dduv14300]\ddu v14.3.0.0.exe'.
+2015-04-17 14:39:50,Error,##Host_Name##,Category: 0,Smc,Failed to contact server for more than 10 times.
+2015-04-08 19:48:32,Error,##Host_Name##,Category: 0,Smc,Failed to contact server for more than 10 times.
+2015-04-16 12:30:09,Error,##Host_Name##,Category: 0,SYLINK,Failed to contact server for more than 10 times.
+2015-04-17 14:53:30,Error,##Host_Name##,Category: 0,Smc,Failed to contact server for more than 10 times.
+2015-04-17 14:53:36,Warning,##Host_Name##,Category: 2,LiveUpdate Manager,A LiveUpdate session encountered errors.  1 update(s) were available. 0 update(s) installed successfully. 1 update(s) failed to install.
+2015-04-17 14:53:36,Error,##Host_Name##,Category: 2,LiveUpdate Manager,An update for Intrusion Prevention Signatures from LiveUpdate failed to install. Error: Postsession callback failed (208)
+2015-04-16 10:22:32,Error,##Host_Name##,Category: 0,SYLINK,Failed to contact server for more than 10 times.
+2015-04-15 08:25:26,Error,##Host_Name##,Category: 0,SYLINK,Failed to contact server for more than 10 times.
+2015-04-08 19:11:18,Warning,##Host_Name##,Category: 2,REP,[Client authentication token request] Submitting information to Symantec failed.
+2015-04-15 17:45:15,Warning,##Host_Name##,Category: 2,REP,[Client authentication token request] Submitting information to Symantec failed.
+2015-04-17 14:59:29,Warning,##Host_Name##,Category: 2,Symantec AntiVirus,[Antivirus advanced heuristic detection submission] Submitting file to Symantec failed.  File : 'C:\users\##User##\AppData\Local\Temp\2553\G2MCoreInstExtractor.exe'.
+2015-04-17 14:58:31,Warning,##Host_Name##,Category: 2,Symantec AntiVirus,[Antivirus advanced heuristic detection submission] Submitting file to Symantec failed.  File : 'C:\users\##User##\AppData\Local\Temp\2492\G2MCoreInstExtractor.exe'.
+2015-04-17 14:42:23,Error,##Host_Name##,Category: 0,Smc,The Symantec Endpoint Protection is unable to download the newest policy from the Symantec Endpoint Protection Manager.
+2015-04-17 15:32:33,Warning,##Host_Name##,Category: 2,SONAR,[SONAR heuristic Submission] Submitting file to Symantec failed.  File : 'c:\windows\installer\msi978.tmp'.
+2015-04-17 15:32:33,Warning,##Host_Name##,Category: 2,SONAR,[SONAR heuristic Submission] Submitting file to Symantec failed.  File : 'c:\windows\installer\msie0f.tmp'.
+2015-04-16 17:49:21,Error,##Host_Name##,Category: 0,Smc,Failed to contact server for more than 10 times.

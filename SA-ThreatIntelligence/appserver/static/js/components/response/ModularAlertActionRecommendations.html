@@ -1,0 +1,13 @@
+<!--
+This is used to add the duallistbox to display recommended modalert actions widget in Notable modular action.
+The select control is converted to a duallistbox.
+-->
+<div class="control-group shared-controls-controlgroup" id="recommended-actions-block">
+    <label class="control-label">Recommended Actions</label>
+    <select id="modalert_action_recommendations" multiple>
+        <% responses.map(function(response) { %>
+            <option value="<%- response.name %>"><%- response.label %></option>
+        <% }); %>
+    </select>
+    <span class="help-block">Identifying Recommended Adaptive Responses will highlight those actions for the analyst when looking at the list of response actions available, making it easier to find them among the longer list of available actions.</span>
+</div>

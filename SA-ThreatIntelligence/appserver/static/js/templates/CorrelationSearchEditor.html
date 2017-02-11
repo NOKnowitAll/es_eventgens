@@ -1,0 +1,172 @@
+<div id="problemModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="problemModal" aria-hidden="true">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+        <h3>Correlation Search Invalid</h3>
+    </div>
+    <div class="modal-body">
+        <div class="message-icon">
+            <i class="icon-warning-sign icon-large"></i>
+        </div>
+        <div>The correlation search is invalid, please correct the issues and press save again</div>
+    </div>
+    <div class="modal-footer">
+        <div class="pull-left" style="margin-top: 6px;">
+            <a target="_blank" href="http://docs.splunk.com/Documentation/ES/latest/Install/ConfigureCorrelationSearches">Correlation search help</a>
+        </div>
+        <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+    </div>
+</div>
+
+<% if( list_link !== null && list_link_title !== null) { %>
+<a href="<%- list_link %>"><i class="icon-chevron-left icon-no-underline"></i><span><%- list_link_title %></span></a>
+<% } %>
+
+<div id="success_message" class="hide alert alert-info">
+  <i class="icon-alert"></i>The changes were successfully saved
+</div>
+
+<div id="failure_message" class="hide alert alert-error">
+  <i class="icon-alert"></i><span id="error_text">Changes could not be saved</span>
+</div>
+
+<% if (!can_edit) { %>
+<div class="alert alert-warning">
+    <i class="icon-alert"></i>You do not have permission to edit correlation searches
+</div>
+<% } %>
+
+<div id="guided-mode-dialog-placeholder"></div>
+
+<h1>Correlation Search</h1>
+<form class="form-horizontal">
+    
+    <div class="control-group" id="search-name-control-group">
+        <label class="control-label">Search Name<span class="requiredAsterisk">*</span></label>
+    
+        <div class="controls">
+        <input class="input-xlarge" type="text" name="name" value="<%- name %>">
+        <span class="hide help-inline"></span>
+        </div>
+    </div>
+    
+    <div class="control-group" id="namespace-control-group">
+        <label class="control-label">Application Context</label>
+        
+        <div class="controls">
+        <select class="input-xlarge" name="namespace">
+        <% for (var i = 0; i < namespaces.length; i++) { %>
+           <option value="<%- namespaces[i].name %>"
+           <% if( namespaces[i].name == namespace ) { %>selected<% } %>
+           <% if( !is_new) { %>disabled="true"<% } %>
+            ><%- namespaces[i].content.label %></option>
+           <% } %>
+        </select>
+        
+        <% if(!is_new) { %>
+        <input type="hidden" name="namespace" value="<%- namespace %>">
+        <% } %>
+        <span class="hide help-inline"></span>
+        </div>
+    </div>
+    
+    <div class="control-group" id="description-control-group">
+        <label class="control-label">Description</label>
+        <div class="controls">
+          <input class="input-xlarge" <% if (!can_edit) { %>disabled<% } %> type="text" name="description" value="<%- description %>">
+          <span class="hide help-inline"></span>
+          <span class="help-block">Describes what kind of issues this search is intended to detect.</span>
+        </div>
+    </div>
+    
+    <div class="control-group" id="search-control-group">
+        <label class="control-label">Search<span class="requiredAsterisk">*</span></label>
+        <div class="controls">
+          <textarea class="input-xlarge" <% if (!can_edit) { %>disabled<% } %> rows="5" cols="50" name="search"><%- search %></textarea>
+          <span class="hide help-inline"></span>
+           <% if (can_edit) { %>
+          <a id="show-guided-search-editor" href="#">Edit search in guided mode</a>
+          <a id="change-to-manual-mode" class="hide" href="#">Edit search manually</a>
+          <% } %>
+        </div>
+    </div>
+    
+    <h2>Time Range</h2>
+    
+    <div class="control-group" id="start-time-control-group">
+        <label class="control-label">Start time</label>
+        <div class="controls">
+          <input class="input-medium" <% if (!can_edit) { %>disabled<% } %> type="text" name="start_time" value="<%- start_time %>">
+          <span class="hide help-inline"></span>
+        </div>
+    </div>
+    
+    <div class="control-group" id="end-time-control-group">
+        <label class="control-label">End time</label>
+        <div class="controls">
+          <input class="input-medium" <% if (!can_edit) { %>disabled<% } %> type="text" name="end_time" value="<%- end_time %>">
+          <span class="hide help-inline"></span>
+        </div>
+    </div>
+    
+    <div id="cron-schedule-control-group" class="control-group">
+        <label class="control-label">Cron Schedule<span class="requiredAsterisk">*</span></label>
+        <div class="controls">
+            <input class="input-xlarge" <% if (!can_edit) { %>disabled<% } %> type="text" name="cron_schedule" value="<%- cron_schedule %>">
+            <span class="hide help-inline"></span>
+            <span class="help-block">Enter a cron-style schedule. 
+<br />For example '*/5 * * * *' (every 5 minutes) or '0 21 * * *' (every day at 9 PM).
+<br />Real-time searches use a default schedule of '*/5 * * * *'.</span>
+        </div>
+    </div>
+
+    <div id="realtime_schedule-control-group" class="control-group">
+        <label class="control-label">Scheduling</label>
+        <div class="controls">
+                <select class="input" name="realtime_schedule_isenabled"  <% if (!can_edit) { %>disabled<% } %> >
+                     <option value="1" <% if (realtime_schedule_isenabled) { %>selected<% }%>>Real-time Schedule</option>
+                     <option value="0" <% if (!realtime_schedule_isenabled) { %>selected<% }%>>Continuous Schedule</option>
+                </select>
+                <span class="hide help-inline"></span>
+                <span class="help-block">Controls the way the scheduler computes the next execution time of a
+  scheduled search.<br />
+  This controls the realtime_schedule setting. <a class="external" target="_blank" href="http://docs.splunk.com/Documentation/Splunk/latest/Admin/Savedsearchesconf">Learn more</a></span>
+            </div>
+    </div>
+
+    
+    
+    <h2>Throttling</h2>
+    
+    <div id="duration-control-group" class="control-group">
+        <label class="control-label">Window duration</label>
+        <div class="controls">
+            <input class="input-xlarge" <% if (!can_edit) { %>disabled<% } %> type="text" name="duration" value="<% if (duration != "") { %><%- semanticallyCorrectDuration(duration) %><% } %>">
+            <span class="hide help-inline"></span>
+            <span class="help-block">Indicates how many seconds to ignore other events that match (i.e. have the same field values.)</span>
+        </div>
+    </div>
+    
+    <div id="group-by-control-group" class="control-group">
+        <label class="control-label">Fields to group by</label>
+        <div class="controls">
+            <input placeholder="Type a field and press enter" class="input-medium" <% if (!can_edit) { %>disabled<% } %> type="text" name="group_by"    >
+            <span class="hide help-inline"></span>
+            <span class="help-block">Indicates what fields to consider when determining if another event matches this one.</span>
+        </div>
+    </div>
+
+    <h2>Adaptive Response Actions</h2>
+    
+    <div id="actions-control-group" class="control-group">
+        <label class="control-label"></label>
+        <div class="controls">
+        </div>
+    </div>
+    
+    <div class="actions">
+        <% if( list_link !== null ) { %>
+        <a href="#" id="cancel" class="btn label_from_data pull-left" style="display: inline;">Cancel</a>
+        <% } %>
+        <a href="#" id="save" class="btn btn-primary pull-right <% if (!can_edit) { %>disabled<% } %>" style="display: inline;">Save</a>
+    </div>
+</form>

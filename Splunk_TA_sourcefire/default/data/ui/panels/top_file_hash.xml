@@ -1,0 +1,13 @@
+<panel>
+  <title>Cisco Sourcefire - Top File Hash</title>
+  <table>
+    <search>
+      <query>sourcetype=cisco:sourcefire file_hash=* | top file_hash</query>
+      <earliest>-7d</earliest>
+    </search>
+    <option name="wrap">true</option>
+    <option name="rowNumbers">false</option>
+    <option name="dataOverlayMode">none</option>
+    <option name="drilldown">row</option>
+  </table>
+</panel>

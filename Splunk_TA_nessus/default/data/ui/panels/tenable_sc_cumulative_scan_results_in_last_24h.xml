@@ -1,0 +1,10 @@
+<panel>
+    <title>Tenable Security Center - Cumulative Scan Results in Last 24H</title>
+    <table>
+        <search>
+        <query>sourcetype="tenable:sc:vuln" | join max=0 [search sourcetype="tenable:sc:vuln" | dedup scan_result_info.id | sort -_time | dedup scan_result_info.name | table scan_result_info.id, scan_result_info.name] | search pluginID=* |rename scan_result_info.id AS ScanID |rename pluginID AS PluginID ,pluginName AS PluginName, family.name AS Family, severity AS Severity, ip AS IP, dnsName AS DNS, macAddress AS MACAddress, repository.name AS Repository |table PluginID, PluginName, Family, Severity, IP, DNS, MACAddress, Repository, ScanID</query>
+        <earliest>-1d</earliest>
+        <latest>now</latest>
+        </search>
+    </table>
+</panel>

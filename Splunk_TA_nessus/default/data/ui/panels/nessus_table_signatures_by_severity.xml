@@ -1,0 +1,16 @@
+<panel>
+  <title>Nessus Table - Signatures by Severity</title>
+  <table>
+    <search>
+      <query>(sourcetype="nessus" OR sourcetype="nessus:scan") | stats values(signature) as signature by severity | eval severity_level = case(severity=="critical",4,severity=="high",3,severity=="medium",2,severity=="low",1, severity=="informational",0) | sort  -severity_level | fields severity signature</query>
+      <earliest>-7d@d</earliest>
+      <latest>now</latest>
+    </search>
+      <drilldown>     
+        <!-- update drilldown if the click occurs in multivalued field (add that field to search constraint) -->
+        <link field="signature">
+          /app/search/search?q=sourcetype%3Dnessus%20signature="$click.value2$"%20starttimeu=$earliest$%20endtimeu=$latest$
+        </link>   
+      </drilldown>     
+  </table>
+</panel>

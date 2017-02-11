@@ -1,0 +1,53 @@
+<form script="ssl_activity.js">
+  <label>SSL Activity</label>
+  <fieldset autoRun="true" submitButton="true">
+    <input type="time">
+      <default>Last 24 hours</default>
+    </input>
+  </fieldset>
+  <row>
+    <panel>
+      <html id="element1"><div class="key-indicators" data-group-name="net_ssl_activity"/>
+	</html>
+    </panel>
+  </row>
+  <row>
+    <panel>
+      <chart>
+        <title>SSL Activity By Common Name</title>
+        <searchString>| tstats `summariesonly` count from datamodel=Certificates.All_Certificates where nodename=All_Certificates.SSL by All_Certificates.SSL.ssl_subject_common_name | `drop_dm_object_name(All_Certificates)` | `drop_dm_object_name(SSL)` </searchString>
+        <option name="charting.chart">pie</option>
+        <drilldown>
+          <link>ssl_search?form.cn_form=$click.value$&amp;earliest=$earliest$&amp;latest=$latest$</link>
+        </drilldown>
+      </chart>
+    </panel>
+    <panel>
+      <chart>
+        <title>SSL Cloud Sessions</title>
+        
+        <searchString>| tstats `summariesonly` count from datamodel=Certificates.All_Certificates where nodename=All_Certificates.SSL `cloud_domain_search("All_Certificates.SSL.ssl_subject_common_name")` by All_Certificates.SSL.ssl_subject_common_name,All_Certificates.src | `drop_dm_object_name(All_Certificates)` | `drop_dm_object_name(SSL)` | chart first(count) as count over src by ssl_subject_common_name | addtotals fieldname=total | sort 10 - total | fields - total</searchString>
+        
+        <option name="charting.chart">bar</option>
+        <option name="charting.chart.stackMode">stacked</option>
+        
+        <drilldown>
+          <link>ssl_search?form.src=$click.value$&amp;form.cn_form=$click.name2$&amp;earliest=$earliest$&amp;latest=$latest$</link>
+        </drilldown>
+      </chart>
+    </panel>
+  </row>
+  <row>
+    <panel>
+      <table id="recent_ssl_sessions_table">
+        <title>Recent SSL Sessions</title>
+        <searchString>| datamodel Certificates SSL search | head 50 | `drop_dm_object_name(All_Certificates)` | `drop_dm_object_name(SSL)` | eval ssl_expires_in=ssl_end_time-_time | eval ssl_end_time=strftime(ssl_end_time,"%b %d %H:%M:%S %Y %Z").case(ssl_end_time&lt;_time, " (expired)", ssl_expires_in&lt;(86400*30), " (expires soon)",1=1,"") | `uitime(ssl_start_time)` | table src, dest, ssl_subject_common_name, ssl_subject_email, ssl_issuer_common_name, ssl_issuer_organization, ssl_start_time, ssl_end_time, ssl_validity_window, ssl_is_valid</searchString>
+        <option name="count">15</option>
+        <option name="drilldown">row</option>
+        <drilldown>
+          <link>ssl_search?form.src=$row.src$&amp;form.dest=$row.dest$&amp;form.cn_form=$row.ssl_issuer_common_name$&amp;earliest=$earliest$&amp;latest=$latest$</link>
+        </drilldown>
+      </table>
+    </panel>
+  </row>
+</form>

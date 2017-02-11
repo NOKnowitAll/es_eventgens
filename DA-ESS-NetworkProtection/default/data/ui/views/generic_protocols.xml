@@ -1,0 +1,83 @@
+<form stylesheet="generic_protocols.css" script="generic_protocols.js">
+    <label>Protocol Center</label>
+    <description/>
+    
+    <fieldset autoRun="true" submitButton="true">
+        <label>Time range</label>
+        <input type="time">
+            <default>Last 24 hours</default>
+        </input>
+    </fieldset>
+    
+    <row>
+        <html id="element1">
+            <div class="key-indicators" data-group-name="net_unique_sources"></div>
+        </html>
+    </row>
+    
+    <row>
+        <chart>
+            <title>Connections By Protocol</title>
+            <searchString>| tstats `summariesonly` count from datamodel=Network_Traffic.All_Traffic where `cim_filter_unknown_values(All_Traffic.app)` by all_traffic.app</searchString>
+            <option name="charting.chart">pie</option>
+	      
+	        <drilldown>
+		        <link>search?q=| tstats `summariesonly` count from datamodel=Network_Traffic.All_Traffic where All_Traffic.app="$click.value$" by All_Traffic.src&amp;earliest=$earliest$&amp;latest=$latest$&amp;auto_pause=$auto_pause$</link>
+	        </drilldown>
+        </chart>
+
+        <chart>
+            <title>Usage By Protocol</title>
+            <searchString>| tstats `summariesonly` sum(All_Traffic.bytes) from datamodel=Network_Traffic.All_Traffic where `cim_filter_unknown_values(All_Traffic.app)` All_Traffic.bytes&gt;0 by all_traffic.app</searchString>
+            <option name="charting.chart">pie</option>
+	    
+	        <drilldown>
+		        <link>search?q=| tstats `summariesonly` sum(All_Traffic.bytes) as bytes from datamodel=Network_Traffic.All_Traffic where All_Traffic.app="$click.value$" by All_Traffic.src&amp;earliest=$earliest$&amp;latest=$latest$&amp;auto_pause=$auto_pause$</link>
+	        </drilldown>
+        </chart>
+      
+        <chart>
+            <title>Top Connection Sources</title>
+            <searchString>| tstats `summariesonly` count from datamodel=Network_Traffic.All_Traffic by All_Traffic.src | `drop_dm_object_name("All_Traffic")` | sort 10 -count</searchString>
+            <option name="charting.chart">bar</option>
+            <option name="charting.legend.placement">none</option>
+        
+            <drilldown>
+        	    <link>traffic_search?form.src_form=$click.value$&amp;earliest=$earliest$&amp;latest=$latest$</link>
+            </drilldown>
+        </chart>
+    </row>
+    
+    <row>
+        <panel id="panel1">
+            <title>Usage For Well Known Ports</title>
+            <input type="dropdown" token="transport_form">
+                <label>Transport Protocol</label>
+                <choice value="*">All</choice>
+                <populatingSearch fieldForValue="transport" fieldForLabel="transport">| `cim_transport_protocols`</populatingSearch>
+	            <default>*</default>
+            </input>
+            
+            <table>
+                <searchTemplate>| tstats `summariesonly` sum(All_Traffic.bytes) as bytes from datamodel=Network_Traffic.All_Traffic where All_Traffic.dest_port&lt;1024 All_Traffic.bytes&gt;0 $transport$ by _time,All_Traffic.dest_port | `drop_dm_object_name("All_Traffic")` | stats sparkline(sum(bytes)) as sparkline,sum(bytes) as bytes by dest_port | sort - bytes</searchTemplate>
+                <option name="count">10</option>
+                
+                <drilldown>
+        	        <link>traffic_search?form.dest_port=$click.value$&amp;form.transport=$transport_form$&amp;earliest=$earliest$&amp;latest=$latest$</link>
+                </drilldown>
+            </table>
+        </panel>
+    
+        <panel>
+            <table>
+                <title>Long Lived Connections</title>
+                <searchString>| tstats `summariesonly` values(All_Traffic.src) as src,values(All_Traffic.src_port) as src_port  from datamodel=Network_Traffic.All_Traffic where All_Traffic.duration>300000000 by All_Traffic.dest,All_Traffic.dest_port,All_Traffic.transport,All_Traffic.duration | `drop_dm_object_name("All_Traffic")` | sort - duration</searchString>
+                <option name="count">10</option>
+                <drilldown>
+        	        <link>traffic_search?form.dest_form=$row.dest$&amp;form.dest_port=$row.dest_port$&amp;form.transport=$row.transport$&amp;earliest=$earliest$&amp;latest=$latest$</link>
+                </drilldown>
+            </table>
+        </panel>
+    </row>
+
+</form>

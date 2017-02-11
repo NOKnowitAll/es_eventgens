@@ -1,0 +1,22 @@
+<a href="ess_configuration">
+  <i class="icon-chevron-left icon-no-underline" aria-hidden="true"></i>
+  <%- _("Back to ES Configuration").t() %>
+</a>
+<div id="suppression_table">
+  <%- _("Fetching suppressions...").t() %>
+</div>
+<div class="modal hide fade" id="supp_list_error_modal">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <h3><%- _("Error").t() %></h3>
+  </div>
+  <div class="modal-body">
+    <div class="message-icon">
+      <i class="icon-warning-sign icon-large"></i>
+    </div>
+    <div id="supp_list_error_message"></div>
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true"><%- _("Close").t() %></button>
+  </div>
+</div>

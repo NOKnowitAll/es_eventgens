@@ -1,0 +1,58 @@
+span.requiredAsterisk {
+    color: #AF4444;
+    margin-left: 2px;
+}
+
+#logReviewPopupControls > a{
+    font-size:12px;
+}
+
+#logReviewPopupControls{
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 8px;
+}
+
+#logReviewPopupProblemModal .message-icon{
+    float: left;
+    margin-right: 10px;
+    font-size: 15px;
+}
+
+/*
+ * This makes the inputs align correctly when used with left-side labels.
+ */
+#log_review_owners_input > .splunk-choice-input, #log_review_urgencies_input  > .splunk-choice-input, #log_review_statuses_input > .splunk-choice-input{
+    margin-left: 0px;
+}
+
+/*
+ * For some reason, we are getting some clipping at the right side of the dropdown inputs. The following fixes it.
+ */
+#log_review_urgencies_input .select2-choice, #log_review_owners_input .select2-choice, #log_review_statuses_input .select2-choice{
+    overflow: visible;
+}
+
+/*
+ * Investigation Popup Style
+ */
+.investigation_container {
+    text-align: center;
+}
+
+.investigation_container > div {
+    display: inline-block;
+}
+
+#new_investigation {
+	float: left;
+	padding-top: 5px;
+}
+
+#investigationPopupModal {
+    width: 550px !important;
+}
+
+#investigationPopupModal .select2-container {
+    width: 300px !important;
+}

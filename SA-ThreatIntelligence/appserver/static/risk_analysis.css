@@ -1,0 +1,9 @@
+#adhocdialog, #create-adhoc-risk {
+    float: right;
+}
+
+/* Begin styling for the togglers */
+#risk_object_holder {
+    width: 280px;
+    display: inline-block;
+}

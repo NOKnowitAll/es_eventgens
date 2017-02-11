@@ -1,0 +1,10 @@
+<panel>
+  <title>Websense CG - Top 10 Event Categories in Last 24H</title>
+  <table>
+	<search>
+	  <query>eventtype=websense_cg_web  earliest=-24h  | top limit=10 showperc=false category |rename category as Category, count as Count</query>
+	  <earliest></earliest>
+	  <latest></latest>
+	</search>
+  </table>
+</panel>

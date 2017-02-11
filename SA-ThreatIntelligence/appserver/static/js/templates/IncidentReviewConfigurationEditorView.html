@@ -1,0 +1,40 @@
+<div id="attr-editor" class="modal hide fade">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
+    <% if (isEdit) { %>
+    <h3>Edit Attribute</h3>
+    <% } else {%>
+    <h3>Create Attribute</h3>
+    <% } %>    
+  </div>
+  <div class="modal-body">
+    <div class="alert hide" style="background-color: #faeae6; border-color: #d85d3c; color: #d85d3c;" id="warning_message"></div>
+  
+    <form class="editor-form-horizontal">
+      <div class="control-group">
+        <label class="control-label" for="label">Label</label>
+        <div class="controls">
+          <input type="text" id="input-label" name="validate-label" placeholder="<%-label%>" value="<%-label%>"></input>
+        </div>
+      </div>
+      
+      <div class="control-group">
+        <label class="control-label" for="field">Field</label>
+        <div class="controls">
+          <input type="text" id="input-field" name="validate-field" placeholder="<%-field%>"  value="<%-field%>"></input>
+        </div>
+      </div>
+      
+      <div id="progress-bar" style="display:none;">
+        <div class="progress progress-striped active">
+            <div class="bar" style="width: 100%;"></div>
+        </div>
+      </div>
+      <input type="hidden" id="input-key" value="<%-key%>"/>
+    </form>  
+  </div>
+  <div class="modal-footer">
+    <a href="#" data-dismiss="modal" class="btn pull-left">Cancel</a>
+    <a href="#" id="save-changes" class="btn btn-primary">Done</a>
+  </div>
+</div>

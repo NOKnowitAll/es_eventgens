@@ -1,0 +1,10 @@
+20100309104822.000000
+Caption=Device File System
+Description=Saves installation files used for updates and repairs and is required for the downloading of Setup updates and Watson error reports.
+Name=OSEASV
+PathName=C:\WINDOWS\system32\oseasv.exe
+StartMode=Auto
+StartName=LocalSystem
+State=Running
+Status=OK
+wmi_type=Service

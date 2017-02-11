@@ -1,0 +1,20 @@
+<panel>
+  <title>Cisco Sourcefire - Severity by Src IP</title>
+  <map>
+    <search>
+      <query>(sourcetype=snort OR sourcetype=cisco:sourcefire OR sourcetype=eStreamer) src_ip=* | iplocation src_ip | geostats count by severity</query>
+      <earliest>-7d</earliest>
+      <latest>now</latest>
+    </search>
+    <option name="mapping.data.maxClusters">100</option>
+    <option name="mapping.drilldown">all</option>
+    <option name="mapping.map.center">(0,0)</option>
+    <option name="mapping.map.zoom">2</option>
+    <option name="mapping.markerLayer.markerMaxSize">50</option>
+    <option name="mapping.markerLayer.markerMinSize">10</option>
+    <option name="mapping.markerLayer.markerOpacity">0.8</option>
+    <option name="mapping.tileLayer.maxZoom">7</option>
+    <option name="mapping.tileLayer.minZoom">0</option>
+    <option name="drilldown">all</option>
+  </map>
+</panel>

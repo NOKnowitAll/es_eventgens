@@ -1,0 +1,7 @@
+#Software: SGOS 5.3.3.8
+#Version: 1.0
+#Start-Date: 2009-09-08 02:01:05
+#Date: 2009-09-02 00:53:51
+#Fields: date time c-ip sc-bytes time-taken s-action sc-status rs-status rs-bytes cs-bytes cs-auth-type cs-username sc-filter-result cs-method cs-host cs-version sr-bytes cs-uri cs(Referer) rs(Content-Type) cs(User-Agent) cs(Cookie)
+#Remark: 0108113002 "il06-ig12" "129.188.33.26" "http_log"
+2009-09-08 01:06:59 @@ip 39961 186 TCP_NC_MISS 200 200 39894 219 - - OBSERVED POST @@domain HTTP/1.0 225 http://208.49.52.149/idle/mkwmYD8QmB8+WhnR/13406 - application/x-fcs "Shockwave Flash" -

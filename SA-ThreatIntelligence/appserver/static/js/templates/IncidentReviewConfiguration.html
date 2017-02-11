@@ -1,0 +1,46 @@
+<form class="form-horizontal" id="ircform">
+
+  <h2>Notable Events</h2>
+  <div class="control-group">
+    <label for="allow_urgency_override" class="control-label">Allow Overriding of Urgency</label>
+    <div class="controls checkboxWidget widget">
+      <input id="allow_urgency_override" type="checkbox"
+      class="input-xlarge checkbox proxiable change_allow_urgency_override" name="allow_urgency_override" <% if (insufficient_permissions) { %>disabled="disabled"<% } %>>
+      <span class="help-block">Allows analysts to override and replace the calculated urgency of a notable</span>
+      <div class="widgeterror"></div>
+    </div>
+  </div>
+
+  <h2>Comments</h2>
+  <div class="control-group">
+    <label for="is_required" class="control-label">Required</label>
+    <div class="controls checkboxWidget widget">
+      <input id="is_required" type="checkbox"
+      class="input-xlarge checkbox proxiable change_is_required" name="is_required" <% if (insufficient_permissions) { %>disabled="disabled"<% } %>>
+      <span class="help-block">Required: An analyst must provide a comment when editing a notable event.</span>
+      <div class="widgeterror"></div>
+    </div>
+    <label for="minimum_length" class="control-label">Minimum Length</label>
+    <div class="controls">
+      <input id="minimum_length" type="text"
+      class="input-xlarge requiredAsterisk validate[required,custom[integer],min[0]] change_minimum_length" name="minimum_length" required <% if (insufficient_permissions) { %>disabled="disabled"<% } %>>
+      <span class="help-block">Minimum length of a comment if required.</span>
+      <div class="widgeterror"></div>
+    </div>
+  </div>
+
+  <h2>Incident Review - Table Attributes</h2>
+  <div id="table_table_div">
+  </div>
+
+  <h2>Incident Review - Event Attributes</h2>
+  <div id="event_table_div">
+  </div>
+
+  <div id="attr_modal"></div>
+  <div id="dialog_modal"></div>
+  <div class="actions">
+    <button type="button" id="btn-cancel" class="btn btn-secondary pull-left" accesskey="c"><span>Cancel</span></button>
+    <button type="button" id="btn-save" class="btn btn-primary pull-right" accesskey="s"><span>Save</span></button>
+  </div>
+</form>

@@ -1,0 +1,6 @@
+name,class,version,read,write,center,count,domainMin,domainMax,numConcepts,size,type,notes,format,uom,search,width,alfacut,concept,shape,points
+email_volume_1h_noncorp,"",1427914848,*,*,0.0000,1,0.0000,230.0000,5,0.0000,domain,"none",v4,"email_volume_bytes","",0.0000,0.1000,minimal,curvedecrease,0.0000|28.7500|57.5000
+email_volume_1h_noncorp,"",1427914848,*,*,0.0000,1,0.0000,230.0000,5,0.0000,domain,"none",v4,"email_volume_bytes","",0.0000,0.1000,low,pi,0.0000|28.7500|57.5000|86.2500|115.0000
+email_volume_1h_noncorp,"",1427914848,*,*,0.0000,1,0.0000,230.0000,5,0.0000,domain,"none",v4,"email_volume_bytes","",0.0000,0.1000,medium,pi,57.5000|86.2500|115.0000|143.7500|172.5000
+email_volume_1h_noncorp,"",1427914848,*,*,0.0000,1,0.0000,230.0000,5,0.0000,domain,"none",v4,"email_volume_bytes","",0.0000,0.1000,high,pi,115.0000|143.7500|172.5000|201.2500|230.0000
+email_volume_1h_noncorp,"",1427914848,*,*,0.0000,1,0.0000,230.0000,5,0.0000,domain,"none",v4,"email_volume_bytes","",0.0000,0.1000,extreme,curveincrease,172.5000|201.2500|230.0000

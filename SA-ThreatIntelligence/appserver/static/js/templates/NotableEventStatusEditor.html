@@ -1,0 +1,223 @@
+<%
+var TRANSITION_ENABLED = "transition_enabled",
+  TRANSITION_DISABLED = "transition_disabled",
+  TRANSITION_IMPORTED = "transition_imported";
+
+function get_role_status(transitions, status, role) {
+  if (!_.isObject(transitions))
+    return TRANSITION_DISABLED;
+
+  // Find the appropriate transition if found
+  var t = transitions[status];
+  if (_.has(t.roles, role))
+    return TRANSITION_ENABLED;
+  else if (_.has(t.imported_roles, role))
+    return TRANSITION_IMPORTED;
+  else
+    return TRANSITION_DISABLED;
+  
+  return TRANSITION_DISABLED;
+}
+
+function create_transition_str(from, to, role) {
+  return "transition_from_" + from + "_to_" + to + "_for_role_" + role;
+}
+
+function output_if_true(input, expr) {
+  if (expr === true) print(input);
+}
+
+var insufficient_permissions = params.insufficient_permissions,
+  app = params.app,
+  notable_statuses = params.notable_statuses,
+  roles = params.roles,
+  transition_map = params.transition_map,
+  capabilities = params.capabilities,
+  notable_status = params.notable_status;
+
+var htmlInputDisabled = (notable_status.name === '0') ? true : false;
+
+%>
+
+<a href="ess_notable_status_list"><i class="icon-chevron-left
+    icon-no-underline" aria-hidden="true"></i><span>Back to Notable Event Statuses</span></a> 
+
+<% if (insufficient_permissions !== true) { %>
+<form autocomplete="off" enctype="multipart/form-data"
+  class="form-horizontal" id="eaiform">
+
+  <div id="editerror" class="alert alert-error" style="display:none">
+    <i class="icon-alert" aria-hidden="true"></i>
+    <p></p>
+  </div>
+
+  <% if (notable_status !== undefined && notable_status.name !== undefined &&
+  notable_status.name.length > 0 && notable_status.name !== 'NA') { %>
+  <input type="hidden" value="<%- notable_status.name %>" name="id" />
+  <% } %>
+  <h1>Notable Event Status</h1>
+
+      <!-- Label -->
+      <div class="control-group" id="label">
+        <label class="control-label">Label<span class="requiredAsterisk" aria-hidden="true">*</span></label>
+        <div class="controls">
+          <div class="widgeterror"></div>
+          <input aria-required="true" type="text" <% output_if_true('disabled', htmlInputDisabled); %>
+          value="<%- notable_status.label %>" id="form_label" name="label"
+          class="input-xlarge validate[required,custom[validStanza]]" />
+          <% if (htmlInputDisabled) { %>
+          <input type="hidden" value="<%- notable_status.label %>" name="label" />
+          <% } %>
+        </div>
+      </div>
+
+      <!-- Description -->
+      <div class="control-group" id="label">
+        <label class="control-label">Description</label>
+        <div class="controls">
+          <div class="widgeterror"></div>
+          <textarea name="description"
+            <% output_if_true('disabled', htmlInputDisabled); %>
+            class="input-xlarge" rows="5" cols="45"><%- notable_status.description %></textarea>
+        </div>
+      </div>
+
+      <!-- Default status -->
+      <div class="checkboxWidget control-group" id="item-is_default">
+        <label for="checkbox-is_default" class="control-label">Default status</label>
+        <div class="controls">
+          <div class="widgeterror"></div>
+          <input <% output_if_true('disabled', htmlInputDisabled); %> type="checkbox" value="1"
+          id="checkbox-is_default" name="is_default" class="checkbox proxiable"
+          <% output_if_true('checked', notable_status.default); %> />
+        </div>
+      </div>
+
+      <!-- End status -->
+      <% var nodisplay = 'style="display:none"'; %>
+      <div <% output_if_true(nodisplay, notable_status.default); %>
+        class="checkboxWidget control-group" id="item-is_end">
+        <label for="checkbox-is_end" class="control-label">End status</label>
+        <div class="controls">
+          <div class="widgeterror"></div>
+          <input <% output_if_true('disabled', htmlInputDisabled); %> type="checkbox" value="1"
+          id="checkbox-is_end" name="end" class="checkbox proxiable"
+          <% output_if_true('checked', notable_status.end); %> />
+        </div>
+      </div>
+      <div <% output_if_true(nodisplay, !notable_status.default); %>
+        class="checkboxWidget control-group" id="item-is_end_placeholder">
+        <label for="checkbox-is_end_placeholder" class="control-label">End status</label>
+        <div class="controls">
+          <input disabled type="checkbox" value="0" id="checkbox-is_end_placeholder" name="is_end" class="checkbox proxiable" />
+		      <span class="inline-help-block">default statuses cannot be an end status</span>
+        </div>
+      </div>
+
+      <!-- Enabled/disabled status -->
+      <div <% output_if_true(nodisplay, notable_status.default); %>
+        class="checkboxWidget control-group" id="item-is_enabled">
+        <label for="checkbox-is_enabled" class="control-label">Enabled</label>
+        <div class="controls">
+          <div class="widgeterror"></div>
+          <input <% output_if_true('disabled', htmlInputDisabled); %> type="checkbox" value="1"
+          id="checkbox-is_enabled" name="enabled" class="checkbox proxiable"
+          <% output_if_true('checked', !notable_status.disabled); %> />
+        </div>
+      </div>
+      <div <% output_if_true(nodisplay, !notable_status.default); %>
+        class="checkboxWidget control-group" id="item-is_enabled_placeholder">
+        <label for="checkbox-is_enabled_placeholder" class="control-label">Enabled</label>
+        <div class="controls">
+          <input disabled type="checkbox" value="1"
+          id="checkbox-is_enabled_placeholder" name="is_enabled_placeholder"
+          class="checkbox proxiable" checked />
+		      <span class="inline-help-block">default statuses must be enabled</span>
+        </div>
+      </div>
+
+      <!-- Transitions table -->
+
+      <h2>Status Transitions</h2>
+      Select the user roles that can transition to this status. If you do not select any roles, the status will not be available on Incident Review.
+      See how to <a href="http://docs.splunk.com/Documentation/ES/latest/User/NotableEvents#Add_a_new_status" target="_blank">add a notable event status.</a>
+      
+      <div class="control-group">
+        <div class="control-label" style="font-weight: bold">To Status</div>
+        <div class="controls">
+          <div class="input-xlarge control-label"
+            style="text-align: center; font-weight: bold">Authorization</div>
+        </div>
+      </div>
+
+      <% _.each(notable_statuses, function(status) {
+      if (!status.disabled && status.name !== notable_status.name && status.name !== '0') { %>
+
+      <div class="control-group">
+        <div class="control-label"><%- status.label %></div>
+        <div class="controls">
+          <select name="transitions_new" style="width: 100%"
+            class="transitions_select input-xlarge"
+            id="combobox_status_<%- status.name %>" multiple="true">
+            <%_.each(roles, function(role) {
+              var name = role.name,
+                role_status = get_role_status(
+                transition_map, status.name, name),
+                trans_str = create_transition_str(
+                notable_status.name, status.name, name);
+
+              if (role_status === TRANSITION_IMPORTED) {
+                trans_str = "imported_" + trans_str;
+                role_name = name + " (inherited)";
+              } else {
+                role_name = name;
+              } %>
+
+            <option class="status_<%- status.name %>" value="<%- trans_str %>"
+            <% if (role_status === TRANSITION_ENABLED) { %>
+              selected="true"
+            <% } else if (role_status === TRANSITION_IMPORTED) { %>
+              selected="true" disabled
+            <% } %>
+            ><%- role_name %></option>
+            <% }) %>
+          </select>
+          <div class="apply_all">
+            <a id="status_<%- status.name %>_select" href="#">Select All</a> | <a id="status_<%- status.name %>_unselect" href="#">Unselect All</a>
+          </div>
+        </div>
+      </div>
+      <% } %>
+      <% }); %>
+      <div class="control-group">
+        Transitions that are imported from an inherited role can be removed by disabling the transition for the role that is being inherited.
+        <!-- Per SOLNESS-1314 conditionally rendering the following statement based on 'edit_roles' capability -->
+        <% if ('edit_roles' in capabilities) {
+        var url = Splunk.util.make_url('manager', app, auth_roles_link); %>
+        Alternatively, you can <a target="_blank" href="<%- url %>">edit the role in the Splunk manager</a> and remove the inherited role.
+        <% } %>
+      </div>
+    </div>
+  </div>
+
+  <div class="jmFormActions">
+    <button type="button" id="cancel_button" class="btn label_from_data
+      pull-left"><span>Cancel</span></button>
+    <button class="btn btn-primary pull-right " id="save_button" 
+      <% output_if_true('disabled', htmlInputDisabled) %>><span>Save</span></button>
+  </div>
+</form>
+<% } else {
+var iconurl = Splunk.util.make_url(
+  'static','img','skins','default','managerIcons','icon_access.png'); %>
+<div class="adminContent">
+  <div class="adminIndex" id="es_no_permissions">
+    <div class="adminGroup">
+      <div class="adminListItem">
+        <a class="adminListIcon" style="background: url(<%- iconurl %>) no-repeat 0px 0;"></a>
+        <dd>You do not have the necessary capabilities required to edit Notable Event Statuses.  Please contact your Splunk administrator.</dd>
+      </div>
+    </div>
+  </div>
+</div>
+<% } %>

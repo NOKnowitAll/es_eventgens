@@ -1,0 +1,10 @@
+[app/install/install_source_checksum]
+version = 6.5.2
+modtime = 1486665204.610793000
+
+[]
+access = read : [ * ], write : [ admin ]
+export = system
+version = 6.5.2
+modtime = 1486665275.361115000
+import = DA-ESS-EndpointProtection, DA-ESS-IdentityManagement, DA-ESS-NetworkProtection, DA-ESS-ThreatIntelligence, SA-AccessProtection, SA-AuditAndDataProtection, SA-EndpointProtection, SA-IdentityManagement, SA-NetworkProtection, SA-ThreatIntelligence, SA-Utils, SplunkEnterpriseSecuritySuite, Splunk_DA-ESS_PCICompliance, Splunk_SA_CIM, Splunk_SA_ExtremeSearch, Splunk_TA_bluecoat-proxysg, Splunk_TA_bro, Splunk_TA_flowfix, Splunk_TA_juniper, Splunk_TA_mcafee, Splunk_TA_nessus, Splunk_TA_nix, Splunk_TA_oracle, Splunk_TA_ossec, Splunk_TA_rsa-securid, Splunk_TA_sophos, Splunk_TA_sourcefire, Splunk_TA_symantec-ep, Splunk_TA_ueba, Splunk_TA_websense-cg, Splunk_TA_windows, TA-airdefense, TA-alcatel, TA-cef, TA-fortinet, TA-ftp, TA-nmap, TA-tippingpoint, TA-trendmicro, appsbrowser, search

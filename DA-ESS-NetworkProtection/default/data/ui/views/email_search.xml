@@ -1,0 +1,69 @@
+<form script="email_search.js">
+    <label>Email Search</label>
+    
+    <fieldset autoRun="false" submitButton="true">
+        <input type="dropdown" token="protocol">
+            <label>Email Protocol</label>
+            <choice value="">All</choice>
+            <populatingSearch fieldForValue="protocol" fieldForLabel="protocol">| `cim_email_protocols`</populatingSearch>
+            <default/>
+            <prefix>All_Email.protocol="</prefix>
+            <suffix>"</suffix>
+        </input>
+        <input type="text" token="src">
+            <label>Source</label>
+            <prefix>All_Email.src="</prefix>
+            <suffix>"</suffix>
+            <default/>
+        </input>
+        <input type="text" token="sender">
+            <label>Sender</label>
+            <prefix>All_Email.src_user="</prefix>
+            <suffix>"</suffix>
+            <default/>
+        </input>
+        <input type="text" token="dest">
+            <label>Destination</label>
+            <prefix>All_Email.dest="</prefix>
+            <suffix>"</suffix>
+            <default/>
+        </input>
+        <input type="text" token="recipient">
+            <label>Recipient</label>
+            <prefix>All_Email.recipient="</prefix>
+            <suffix>"</suffix>
+            <default/>
+        </input>
+        <input type="time">
+            <default>Last 60 minutes</default>
+        </input>
+    </fieldset>
+    
+    <row>
+        <table id="table1">
+            <title> </title>
+        
+            <searchTemplate> | tstats `summariesonly` max(_time) as _time, values(All_Email.protocol) as protocol, values(All_Email.recipient) as recipient, count from datamodel=Email.All_Email where * $sender$ $recipient$ $src$ $dest$ $protocol$ by All_Email.src,All_Email.src_user,All_Email.dest |  `drop_dm_object_name("All_Email")` | sort - count | fields _time, protocol, src, src_user, dest, recipient, count</searchTemplate>
+            
+            <option name="count">5</option>
+            
+            <drilldown>
+                <link>search?q=| `datamodel("Email", "All_Email")` | search All_Email.src="$row.src$" All_Email.src_user="$row.src_user$" All_Email.dest="$row.dest$" | `drop_dm_object_name("All_Email")`&amp;earliest=$earliest$&amp;latest=$latest$&amp;auto_pause=$auto_pause$</link>
+            </drilldown>
+        </table>
+      </row>
+      
+    <row>
+        <event id="event1">
+            <title> </title>
+        
+            <searchTemplate>| datamodel Email All_Email search | search $sender$ $recipient$ $src$ $dest$ $protocol$ | `drop_dm_object_name("All_Email")` | head 100</searchTemplate>
+            
+            <option name="count">5</option>
+            <option name="rowNumbers">false</option>
+            <option name="type">list</option>
+            <option name="list.wrap">true</option>
+            <fields>["protocol","src","src_user","subject","dest","recipient"]</fields>
+        </event>
+    </row>
+</form>

@@ -1,0 +1,9 @@
+
+[Threat - Send2UBA Example - Rule]
+alert.suppress       = 0
+action.send2uba      = 1
+cron_schedule        = */5 * * * *
+disabled             = False
+dispatch.latest_time = +0s
+enableSched          = True
+search               = | makeresults | eval risk_score=37 | eval src="1.2.3.4"

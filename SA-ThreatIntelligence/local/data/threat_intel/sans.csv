@@ -1,0 +1,49 @@
+#      
+#   DShield.org Recommended Block List 
+#    (c) 2017 DShield.org
+#   some rights reserved. Details http://creativecommons.org/licenses/by-nc-sa/2.5/
+#   use on your own risk. No warranties implied.
+#   primary URL: http://feeds.dshield.org/block.txt
+#     PGP Sign.: http://feeds.dshield.org/block.txt.asc
+#
+#   comments: info@dshield.org
+#    updated: Thu Feb  9 17:45:22 2017 UTC
+#   
+#    This list summarizes the top 20 attacking class C (/24) subnets
+#   over the last three days. The number of 'attacks' indicates the 
+#   number of targets reporting scans from this subnet.
+#
+#
+#    Columns (tab delimited):
+#
+#    (1) start of netblock  
+#    (2) end of netblock
+#    (3) subnet (/24 for class C)
+#    (4) number of targets scanned
+#    (5) name of Network 
+#    (6) Country
+#    (7) contact email address
+#
+#    If a range is assigned to multiple users, the first one is listed. 
+#     
+Start	End	Netmask	Attacks	Name	Country	email
+193.201.224.0	193.201.224.255	24	34224	OPATELECOM ,	UA	telecom@marcoceriello.com
+218.87.109.0	218.87.109.255	24	15060	CHINANET-BACKBONE No.31,Jin-rong Street,	CN	anti-spam@ns.chinanet.cn.net
+116.31.116.0	116.31.116.255	24	4494	CHINANET-BACKBONE No.31,Jin-rong Street,	CN	anti-spam@ns.chinanet.cn.net
+58.218.199.0	58.218.199.255	24	4472	CHINANET-BACKBONE No.31,Jin-rong Street,	CN	anti-spam@ns.chinanet.cn.net
+81.171.24.0	81.171.24.255	24	4326	LEASEWEB-NL Netherlands,	NL	abuse@nl.leaseweb.com
+139.162.88.0	139.162.88.255	24	4277	LINODE-AP Linode, LLC,	US	tasaro@linode.com
+104.156.240.0	104.156.240.255	24	3168	AS-CHOOPA - Choopa, LLC,	US	abuse@choopa.com
+185.128.43.0	185.128.43.255	24	2650	ASRACKEND ,	CH	abuse@rackend.net
+185.35.62.0	185.35.62.255	24	2367	KS-ASN1 This ASN is used for Internet security research. Internet-scale port scanning activities are launched from it. Don_t hesitate to contact portscan@nagra.com would you have any question.,	CH	abuse@nagra.com
+209.126.111.0	209.126.111.255	24	2215	SERVER4YOU - server4you Inc.,	US	abuse@server4you.com
+91.197.232.0	91.197.232.255	24	1931	PLANET-TELECOM-AS ,	RU	noc@planet-telecom.eu
+155.94.65.0	155.94.65.255	24	1868	NODESDIRECT - Nodes Direct,	US	abuse@nodesdirect.com
+192.99.39.0	192.99.39.255	24	1567	OVH ,	FR	abuse@ovh.net
+71.6.146.0	71.6.146.255	24	1498	CARINET - CariNet, Inc.,	US	complaints@cari.net
+221.194.44.0	221.194.44.255	24	1465	CHINA169-BACKBONE CNCGROUP China169 Backbone,	CN	zhouxm@chinaunicom.cn
+202.57.162.0	202.57.162.255	24	1456	ISSP-AS-AP Internet Solution & Service Provider Co., Ltd.,	TH	abuse@isp-thailand.com
+91.223.133.0	91.223.133.255	24	1431	NO_N	ZZ	no email on file
+74.82.47.0	74.82.47.255	24	1416	HURRICANE - Hurricane Electric, Inc.,	US	abuse@he.net
+196.52.43.0	196.52.43.255	24	1356	LEASEWEB-NL Netherlands,	NL	abuse@nl.leaseweb.com
+94.102.49.0	94.102.49.255	24	1246	QUASINETWORKS ,	NL	abuse@quasinetworks.com

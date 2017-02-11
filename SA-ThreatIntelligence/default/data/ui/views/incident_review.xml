@@ -1,0 +1,46 @@
+<dashboard script="incident_review_page.js" hideEdit="true" isDashboard="false">
+	<label>Incident Review</label>
+    <row>
+        <html>
+            <div class="fieldset">
+                <div class="filter-group-col">
+                    <div class="filter-col-1">
+                        <div class="input input-dropdown" id="button-group">
+                        </div>
+                    </div>
+                    <div class="filter-col-2">
+                        <div class="input input-dropdown" id="status_filter">
+                            <label>_</label>
+                        </div>
+                        <div class="input input-dropdown" id="owner_filter"></div>
+                        <div class="input input-dropdown" id="domain_filter"></div>
+                        <div class="input input-dropdown" id="tags_filter"></div>
+                    </div>
+                    <div class="filter-col-3">
+                        <div class="input input-text" id="rule_filter"></div>
+                        <div class="input input-text" id="srch_filter"></div>
+                        <div class="input input-time" id="time_filter"></div>
+                        <div class="input">
+                            <div id="ir_submit_btn"></div>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="timeline-group-col">
+                    <div class="custom-col" id="search_controls_div">
+                    </div>
+                    <div class="custom-col" id="timeline_div">
+                    </div>
+                </div>
+            </div>
+
+            <div id="ir_events_viewer">
+                <div>
+                    <div id="iv-event-viewer-layout">
+                      <div id="event-viewer-body"></div>
+                  </div>
+                </div>
+            </div>
+        </html>
+    </row>
+</dashboard>

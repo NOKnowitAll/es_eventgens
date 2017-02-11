@@ -1,0 +1,119 @@
+<form>
+	<label>Incident Review Audit</label>
+	
+	<searchTemplate>| `es_notable_events` | stats sum(count) as count by status,urgency,owner | `get_reviewstatuses`</searchTemplate>
+	
+	<row>
+		<chart id="element1">
+			<title>Review Activity By Reviewer</title>
+			
+			<searchName>Incident Review - Activity By Reviewer Over Time</searchName>
+			
+			<option name="charting.axisTitleX.text">time</option>
+			<option name="charting.axisTitleY.text">count</option>
+			<option name="charting.chart">column</option>
+			<option name="charting.chart.stackMode">stacked</option>
+			<option name="charting.drilldown">all</option>
+		</chart>
+		
+		<table id="element3">
+			<title>Top Reviewers</title>
+			
+			<searchName>Incident Review - Top Reviewers</searchName>
+			
+			<option name="wrap">true</option>
+			<option name="displayRowNumbers">false</option>
+			<option name="dataOverlayMode">none</option>
+			<option name="drilldown">row</option>
+			
+			<drilldown>
+				<link>search?q=| `incident_review` | search reviewer_realname="$row.reviewer_realname$"</link>
+			</drilldown>
+		</table>
+	</row>
+	
+	<row>
+		<chart id="element2">
+			<title>Notable Events By Status - Last 48 Hours</title>
+			
+			<searchPostProcess>chart sum(count) as count over status_label by urgency | rename status_label as status | `sort_chart`</searchPostProcess>
+			
+            <option name="charting.axisLabelsX.integerUnits">true</option>
+            <option name="charting.axisTitleX.text">status</option>
+            <option name="charting.axisTitleY.text">count</option>
+            <option name="charting.chart">bar</option>
+            <option name="charting.chart.stackMode">stacked</option>
+            <option name="charting.fieldColors">{"critical": 0xD25B3B, "high": 0xFF8800, "medium": 0xF0BE1B, "low": 0x98BF3B, "informational": 0x5378AD, "unknown": 0x999999}</option>
+			
+			<drilldown>
+				<link>incident_review?form.srch=status_label%3D"$click.value$"&amp;form.selected_urgency=$click.name2$&amp;earliest=-48h@h&amp;latest=now</link>
+			</drilldown>
+		</chart>
+		
+		<chart id="element5">
+			<title>Notable Events By Owner - Last 48 Hours</title>
+			
+            <searchPostProcess>chart sum(count) as count over owner by urgency | `sort_chart`</searchPostProcess>
+            
+            <option name="charting.axisLabelsX.integerUnits">true</option>
+            <option name="charting.axisTitleX.text">owner</option>
+            <option name="charting.axisTitleY.text">count</option>
+            <option name="charting.chart">bar</option>
+            <option name="charting.chart.stackMode">stacked</option>
+            <option name="charting.fieldColors">{"critical": 0xD25B3B, "high": 0xFF8800, "medium": 0xF0BE1B, "low": 0x98BF3B, "informational": 0x5378AD, "unknown": 0x999999}</option>
+
+            <drilldown>
+                <link>incident_review?form.owner_form=$click.value$&amp;form.selected_urgency=$click.name2$&amp;earliest=-48h@h&amp;latest=now</link>
+            </drilldown>
+		</chart>
+	</row>
+	
+	<row>
+	    <table id="element6">
+			<title>Mean Time To Triage - Last 14 days</title>
+			
+			<searchName>Incident Review - Mean Time To Triage</searchName>
+			
+			<option name="wrap">true</option>
+			<option name="displayRowNumbers">false</option>
+			<option name="dataOverlayMode">none</option>
+			<option name="drilldown">row</option>
+			
+			<drilldown>
+				<link>incident_review?form.rule_name=$row.rule_name$&amp;earliest=-14d@d&amp;latest=now</link>
+			</drilldown>
+		</table>
+		
+		<table id="element7">
+			<title>Mean Time To Closure - Last 60 days</title>
+			
+			<searchName>Incident Review - Mean Time To Closure</searchName>
+			
+			<option name="wrap">true</option>
+			<option name="displayRowNumbers">false</option>
+			<option name="dataOverlayMode">none</option>
+			<option name="drilldown">row</option>
+			
+			<drilldown>
+				<link>incident_review?form.rule_name=$row.rule_name$&amp;form.srch=status_label%3D"Closed"&amp;earliest=-60d@d&amp;latest=now</link>
+			</drilldown>
+		</table>
+	</row>
+	
+	<row>
+		<table id="element4">
+			<title>Recent Review Activity</title>
+			
+			<searchName>Incident Review - Recent Review Activity</searchName>
+			
+			<option name="wrap">true</option>
+			<option name="displayRowNumbers">false</option>
+			<option name="dataOverlayMode">none</option>
+			<option name="drilldown">row</option>
+			
+            <drilldown>
+              	<link>search?q=| `incident_review` | search rule_id="$row.rule_id$"</link>
+			</drilldown>
+		</table>
+	</row>
+</form>

@@ -1,0 +1,1 @@
+"use strict";define(["backbone","sa-threatintelligence/js/components/incident_review/eventsviewer/IRSelectedRowModel"],function(a,b){return a.Collection.extend({initialize:function(b,c){a.Collection.prototype.initialize.apply(this,arguments)},model:b})});

@@ -1,0 +1,26 @@
+
+## Threat Activity
+[Threat - File Hash - Threat Gen]
+action.email.sendresults             = 0
+alert.digest_mode                    = 1
+alert.suppress                       = 1
+alert.suppress.fields                = file_hash,threat_collection_key
+alert.suppress.period                = 86300
+action.threat_activity               = 1
+action.threat_activity._threat_match = file_hash
+alert.track                          = false
+cron_schedule                        = */30 * * * *
+disabled                             = False
+dispatch.earliest_time               = -24h
+dispatch.latest_time                 = +0s
+enableSched                          = True
+is_visible                           = false
+search                               = | `tstats` values(sourcetype) from datamodel=Change_Analysis.All_Changes by All_Changes.Endpoint_Changes.Filesystem_Changes.file_hash | `tstats` append=true values(sourcetype) from datamodel=Email.All_Email by All_Email.file_hash | `tstats` append=true values(sourcetype) from datamodel=Malware.Malware_Attacks by Malware_Attacks.file_hash | `tstats` append=true values(sourcetype) from datamodel=Updates.Updates by Updates.file_hash | rename All_Changes.Endpoint_Changes.Filesystem_Changes.* as *,All_Email.* as *,Malware_Attacks.* as *,Updates.* as * | stats values(sourcetype) as orig_sourcetypes by file_hash | lookup threatintel_by_file_hash file_hash OUTPUT | search threat_collection_key=* | `zipexpand_threat_matches` | `makesv(orig_sourcetypes)`
+
+## Threat Outputlookup
+[Threat - Threat Intelligence By File Hash - Lookup Gen]
+action.threat_outputlookup             = 1
+action.threat_outputlookup.collections = certificate_intel,email_intel,file_intel,service_intel
+enableSched                            = 0
+is_visible                             = false
+search                                 = | `certificate_intel` | `email_intel` | `file_intel` | `service_intel` | `mvappend_field(file_hash,service_file_hash)` | `mvappend_field(file_hash,service_dll_file_hash)` | search file_hash=* | mvexpand file_hash | rename _key as threat_collection_key | table file_hash,threat_collection,threat_collection_key,threat_key | outputlookup threatintel_by_file_hash

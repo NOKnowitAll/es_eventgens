@@ -1,0 +1,1 @@
+{"timestamp":"2014-10-15T07:01:06.356386Z","src_ip":"1.2.3.4","dest_ip":"4.5.6.7","src_port":34685,"dest_port":53,"src_mac":"00:50:56:92:3D:AE","dest_mac":"00:1B:17:00:01:30","bytes_in":47,"bytes_out":0,"bytes":47,"time_taken":0,"transport":"udp","message_type":"QUERY","query":"function.symanteconline.net","query_type":"Host address","transaction_id":53867}

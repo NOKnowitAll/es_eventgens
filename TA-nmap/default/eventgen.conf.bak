@@ -1,0 +1,18 @@
+
+[sample.nmap]
+breaker = ^Interesting ports on
+interval = 600
+count = 10
+outputMode = modinput
+
+source = sample.nmap
+sourcetype = nmap
+
+[sample.version6.nmap]
+breaker = ^Nmap scan report
+interval = 600
+count = 1
+outputMode = modinput
+
+source = sample.version6.nmap
+sourcetype = nmap

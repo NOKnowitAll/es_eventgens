@@ -1,0 +1,140 @@
+
+[processthreat.wmi]
+breaker = ^\d{14}\.\d{6}
+interval = 300
+count = 0
+earliest = -5m
+latest = now
+outputMode = modinput
+
+source = WMI:LocalProcesses
+sourcetype = WMI:LocalProcesses
+
+## replace timestamp 20100616185831.000000
+token.0.token = ^(\d{14})\.\d{6}
+token.0.replacementType = timestamp
+token.0.replacement = %Y%m%d%H%M%S
+
+[servicethreat.wmi]
+breaker = ^\d{14}\.\d{6}
+interval = 300
+count = 0
+earliest = -5m
+latest = now
+outputMode = modinput
+
+source = WMI:Service
+sourcetype = WMI:Service
+
+## replace timestamp 20100616185831.000000
+token.0.token = ^(\d{14})\.\d{6}
+token.0.replacementType = timestamp
+token.0.replacement = %Y%m%d%H%M%S
+
+[threat.bluecoat]
+interval = 3600
+count = 0
+earliest = -10m
+latest = now
+outputMode = modinput
+
+source = threat.bluecoat
+sourcetype = bluecoat:proxysg:access:file
+
+token.0.token = ^\d{4}-\d{2}-\d{2}\s+\d{2}:\d{2}:\d{2}
+token.0.replacementType = timestamp
+token.0.replacement = %Y-%m-%d %H:%M:%S
+
+[threat.fs_notification]
+interval = 10
+earliest = -10m
+latest = now
+outputMode = modinput
+
+source = threat.fs_notification
+sourcetype = fs_notification
+
+## Replace timestamp Mon Jun 14 09:26:19 2010
+token.0.token = \w{3}\s+\w{3}\s+\d{2}\s+\d{2}:\d{2}:\d{2}\s+\d{4}
+token.0.replacementType = timestamp
+token.0.replacement = %a %b %d %H:%M:%S %Y
+
+[threat.sample.stream_dns]
+breaker = ^\d{14}\.\d{6}
+interval = 300
+count = 0
+earliest = -5m
+latest = now
+outputMode = modinput
+
+source = stream:sample
+sourcetype = stream:dns
+
+## replace timestamp 03/11/10 01:12:01 PM
+token.0.token = \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d*Z
+token.0.replacementType = timestamp
+token.0.replacement = %Y-%m-%dT%H:%M:%S%4Z
+
+[threat.sample.stream_ssl]
+breaker = ^\d{14}\.\d{6}
+interval = 300
+count = 0
+earliest = -5m
+latest = now
+outputMode = modinput
+
+source = stream:sample
+sourcetype = stream:tcp
+
+## replace timestamp 03/11/10 01:12:01 PM
+token.0.token = \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d*Z
+token.0.replacementType = timestamp
+token.0.replacement = %Y-%m-%dT%H:%M:%S%4Z
+
+[threat.sample.stream_smtp]
+breaker = ^\d{14}\.\d{6}
+interval = 300
+count = 0
+earliest = -5m
+latest = now
+outputMode = modinput
+
+source = stream:sample
+sourcetype = stream:smtp
+
+## replace timestamp 03/11/10 01:12:01 PM
+token.0.token = \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d*Z
+token.0.replacementType = timestamp
+token.0.replacement = %Y-%m-%dT%H:%M:%S%4Z
+
+[threat2.sample.stream_smtp]
+breaker = ^\d{14}\.\d{6}
+interval = 300
+count = 0
+earliest = -5m
+latest = now
+outputMode = modinput
+
+source = stream:sample
+sourcetype = stream:smtp
+
+## replace timestamp 03/11/10 01:12:01 PM
+token.0.token = \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d*Z
+token.0.replacementType = timestamp
+token.0.replacement = %Y-%m-%dT%H:%M:%S%4Z
+
+[threat.winregistry]
+breaker = ^\d{2}\/\d{2}\/\d{2,4}\s+\d{2}:\d{2}:\d{2}\.\d+
+interval = 300
+count = 0
+earliest = -5m
+latest = now
+outputMode = modinput
+
+source = threat.winregistry
+sourcetype = WinRegistry
+
+## replace timestamp 09/09/2010 23:36:32.0128
+token.0.token = ^(\d{2}\/\d{2}\/\d{2,4}\s+\d{2}:\d{2}:\d{2})\.\d+
+token.0.replacementType = timestamp
+token.0.replacement = %m/%d/%Y %H:%M:%S

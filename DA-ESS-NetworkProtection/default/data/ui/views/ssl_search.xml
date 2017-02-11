@@ -1,0 +1,64 @@
+<form script="ssl_search.js">
+    <label>SSL Search</label>
+    
+    <fieldset autoRun="false" submitButton="true">
+	    <input type="text" token="src">
+	        <label>Source</label>
+	        <prefix>All_Certificates.src="</prefix>
+	        <suffix>"</suffix>
+	        <default/>
+	    </input>
+	    <input type="text" token="dest">
+	        <label>Destination</label>
+	        <prefix>All_Certificates.dest="</prefix>
+	        <suffix>"</suffix>
+	        <default/>
+	    </input>
+	    <input type="text" token="cn_form">
+	        <label>Subject/Issuer Common Name</label>
+	        <default/>
+	    </input>
+	    <input type="text" token="ssl_serial">
+	        <label>Certificate Serial Number</label>
+	        <prefix>All_Certificates.SSL.ssl_serial="</prefix>
+	        <suffix>"</suffix>
+	        <default/>
+	    </input>
+	    <input type="text" token="ssl_hash">
+	        <label>Certificate Hash</label>
+	        <prefix>All_Certificates.SSL.ssl_hash="</prefix>
+	        <suffix>"</suffix>
+	        <default/>
+	    </input>
+	    <input type="time">
+	        <default>Last 60 minutes</default>
+	    </input>
+    </fieldset>
+    
+    <row>
+        <table id="table1">
+            <title> </title>
+
+            <searchTemplate>| tstats `summariesonly` max(_time) as _time,values(All_Certificates.SSL.ssl_subject_common_name) as ssl_subject_common_name,values(All_Certificates.SSL.ssl_issuer_common_name) as ssl_issuer_common_name,values(All_Certificates.SSL.ssl_hash) as ssl_hash,count from datamodel=Certificates.All_Certificates where nodename=All_Certificates.SSL $src$ $dest$ $cn$ $ssl_serial$ $ssl_hash$ by All_Certificates.src,All_Certificates.dest,All_Certificates.SSL.ssl_serial | `drop_dm_object_name(All_Certificates)` | `drop_dm_object_name(SSL)` | sort - count | fields  _time, src, dest, ssl_subject_common_name, ssl_issuer_common_name, ssl_serial, ssl_hash, count</searchTemplate>
+            
+            <option name="count">5</option>
+            
+            <drilldown>
+                <link>search?q=| `datamodel("Certificates", "SSL")` | search All_Certificates.src="$row.src$" All_Certificates.dest="$row.dest$" All_Certificates.SSL.ssl_serial="$row.ssl_serial$" | `drop_dm_object_name("All_Certificates")` | `drop_dm_object_name("SSL")`&amp;earliest=$earliest$&amp;latest=$latest$&amp;auto_pause=$auto_pause$</link>
+            </drilldown>
+        </table>
+    </row>
+    <row>
+        <event id="event1">
+            <title> </title>
+        
+            <searchTemplate>| `datamodel("Certificates", "SSL")` | search $src$ $dest$ $cn$ $ssl_serial$ $ssl_hash$ | `drop_dm_object_name("All_Certificates")` | `drop_dm_object_name("SSL")` | head 100</searchTemplate>
+            
+            <option name="count">5</option>
+            <option name="rowNumbers">false</option>
+            <option name="type">list</option>
+            <option name="list.wrap">true</option>
+            <fields>["src", "dest", "ssl_session_id",  "ssl_subject_common_name",  "ssl_issuer_common_name", "ssl_serial", "ssl_hash"]</fields>
+        </event>
+    </row>
+</form>

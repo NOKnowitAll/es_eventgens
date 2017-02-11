@@ -1,0 +1,44 @@
+{
+    "basic": {
+        "title": "Tenable",
+        "description": "Tenable",
+        "config_meta": {
+            "logging_setting": "global_settings > nessus_loglevel > loglevel",
+            "interval": "inputs > data"
+        },
+        "monitor_file": [
+            "tenable_sc_inputs.conf",
+            "tenable_sc_servers.conf",
+            "nessus.conf"
+        ]
+    },
+    "config": {
+        "_product": "Splunk_TA_nessus",
+        "_rest_namespace": "ta_tenable",
+        "_rest_prefix": "",
+        "_protocol_version": "",
+        "_version": "1.0.0.0",
+        "global_settings": {
+            "endpoint": "ta_tenable_settings"
+        },
+        "servers": {
+            "endpoint": "ta_tenable_sc_servers"
+        },
+        "inputs": {
+            "endpoint": "ta_tenable_sc_inputs"
+        }
+    },
+    "division": {
+        "inputs": {
+            "data": {
+                "type": "multi",
+                "separator": ","
+            },
+            "server": {
+                "type": "multi",
+                "separator": ",",
+                "refer": "servers"
+            }
+        }
+    }
+}

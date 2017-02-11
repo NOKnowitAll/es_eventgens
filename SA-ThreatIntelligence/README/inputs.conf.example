@@ -1,0 +1,18 @@
+
+## TAXII feed example using AUTH_CERT_BASIC authentication
+#
+# Requires creation of an "auth" directory in the app, in which the certificate 
+# should be placed.
+[threatlist://my_taxii_feed]
+delim_regex = ,
+description = my_taxii_feed
+ignore_regex = (^#|^\s*$)
+interval = 60
+post_args = collection="admin.splunk" earliest="-1y" taxii_username="splunk" taxii_password="splunk" cert_file="splunk.crt" key_file="splunk.key"
+retries = 3
+retry_interval = 600
+skip_header_lines = 0
+timeout = 30
+type = taxii
+url = https://192.168.1.107/taxii-data
+weight = 1

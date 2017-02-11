@@ -1,0 +1,15 @@
+vendor_action,action,change_type
+accept,allowed,
+deny,blocked,
+success,success,
+failed,failure,
+negotiate_error,failure,
+esp_error,failure,
+dpd_failure,failure,
+modify,modified,
+edit,modified,
+changed,modified,
+edited,modified,
+shutdown,modified,restart
+reboot,modified,restart
+detected,detected,
